@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.8364e55c.css",
-    "main.js": "/static/js/main.6fd41940.js",
+    "main.js": "/static/js/main.2d383c15.js",
     "static/media/art1.png": "/static/media/art1.a20d1318e9176a482d54.png",
     "static/media/hero-dark.jpg": "/static/media/hero-dark.37f2556d620821979e99.jpg",
     "static/media/hero-light.jpg": "/static/media/hero-light.78b77836d8aee4d7d3cb.jpg",
@@ -15,10 +15,10 @@
     "static/media/GH.svg": "/static/media/GH.b9e9a9aa6f05e9dfe5dcb8991bda3e4d.svg",
     "index.html": "/index.html",
     "main.8364e55c.css.map": "/static/css/main.8364e55c.css.map",
-    "main.6fd41940.js.map": "/static/js/main.6fd41940.js.map"
+    "main.2d383c15.js.map": "/static/js/main.2d383c15.js.map"
   },
   "entrypoints": [
     "static/css/main.8364e55c.css",
-    "static/js/main.6fd41940.js"
+    "static/js/main.2d383c15.js"
   ]
 }
