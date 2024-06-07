@@ -1,6 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import Logo from "../images/logo.svg";
+
 // Data
-import { githubUsername, projectCardImages } from "../data";
+// import { githubUsername, projectCardImages } from "../data";
+
+const githubUsername = "drvictorvs";
+
+export const projectCardImages = [
+  {
+    name: "example-1",
+    image: Logo,
+  },
+];
 
 const initialState = {
   error: "",
@@ -8,7 +19,7 @@ const initialState = {
   data: [],
 };
 
-export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=100`;
+export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=10`;
 
 export const fetchGitHubReops = createAsyncThunk(
   "allProjects/fetchGitHubReops",

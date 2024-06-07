@@ -21,6 +21,9 @@ import Home from "./pages/Home";
 import AllProjects from "./pages/AllProjects";
 import NotFound from "./pages/NotFound";
 
+import LangEN from './translations/LangEN';
+import LangPT from './translations/LangPT';
+
 const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const themes = {
   light: {
@@ -36,7 +39,8 @@ const themes = {
 };
 
 export default function App() {
-  const { theme, setTheme } = useAppContext();
+  const { theme, setTheme, lang } = useAppContext();
+  const translations = lang === 'en' ? LangEN : LangPT;
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
@@ -82,7 +86,7 @@ export default function App() {
         <ThemeProvider theme={themes[theme]}>
           <ScrollToTop />
           <GlobalStyles />
-          <Element name={"Home"} id="home">
+          <Element name={translations.navmenu.Home} id="home">
             <NavBar />
           </Element>
           <Routes>

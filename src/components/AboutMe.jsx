@@ -2,8 +2,11 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { selectData } from "../pages/homeSlice";
 import { Element } from "react-scroll";
+import { useAppContext } from "../appContext"
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
 // Data
-import { moreInfo } from "../data";
+// import { moreInfo } from "../data";
 // Components
 import { Col, Container, Row } from "react-bootstrap";
 import { Title } from "./globalStyledComponents";
@@ -20,6 +23,11 @@ const StyledAboutMe = styled.section`
 
 export default function AboutMe() {
   const { avatar_url, bio } = useSelector(selectData);
+  const lang = useAppContext();
+  const strings = lang === "en" ? LangEN : LangPT;
+  
+  const moreInfo =
+    "Licensed neuropsychologist and a University of Brasilia alumnus. Doctorate and Master's degree were both sought under the guidance of Prof. Dr. Cristiane Faiad in the Psychological Assessment and Instrumentation concentration of the Post-Graduate Program of Social, Work and Organizational Psychology—also at the University of Brasília. Specialized in the use of programming resources in Education and Psychometrics (Statistical Modeling, Psychological and Educational Assessment). Experience in statistical analysis in biomedical sciences, neurosciences and psychology. Worked for two years in psychopharmacology labs, using either oral or intrahypocampal perfusion methodology. Currently working as a psychometrician at the National Institute of Study and Research in Education.";
 
   return (
     <Element name={"About"} id="about">
@@ -27,7 +35,7 @@ export default function AboutMe() {
         <Container>
           <Container className="d-flex">
             <Title>
-              <h2>About Me</h2>
+              <h2>${strings.aboutMe}</h2>
               <div className="underline"></div>
             </Title>
           </Container>

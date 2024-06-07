@@ -7,15 +7,21 @@ Variables
 ===============
 */
 :root {
-  --primary-light: #b0edfd;
-  /* Primary Color */
-  --primary: #61DBFB;
-  --primary-dark: #316e7e;
-  --border: 1px solid #61DBFB;
+  --primary-light: #FFBFAA;
+  --zeroary-light: #ffd9cc;
+  --secondary-light: #FF8F6A;
+  --primary: #ff5722;
+  --primary-dark: #ff5722;
+  --zeroary-dark: #ff764d;
+  --secondary-dark: #F03D00;
+  --border: 1px solid #ff5722;
   --transition: all 0.3s linear;
   --nav-height: 61px;
   --min-footer-height: 11vh;
   --card-height: 29rem;
+  --primary-font: "Oswald";
+  --secondary-font: "PT Sans";
+  --tertiary-font: "Manrope";
 }
 
 /*
@@ -60,7 +66,7 @@ a:hover {
 }
 
 .title {
-    font-family: "Permanent Marker";
+    font-family: var(--primary-font);
 }
 
 .card {

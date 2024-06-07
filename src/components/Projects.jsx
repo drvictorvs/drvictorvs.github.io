@@ -8,14 +8,22 @@ import {
 } from "../pages/allProjectsSlice";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
-// Data
-import { filteredProjects } from "../data";
-// Icons
+// Media
 import { Icon } from "@iconify/react";
+import Logo from "../images/logo.svg"
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Title, Loading } from "./globalStyledComponents";
 import StyledCard from "./StyledCard";
+
+const filteredProjects = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
+
+export const projectCardImages = [
+  {
+    name: "example-1",
+    image: Logo,
+  },
+];
 
 export default function Projects() {
   const [mainProjects, setMainProjects] = React.useState([]);

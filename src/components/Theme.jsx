@@ -6,13 +6,14 @@ import styled from "styled-components";
 import { Icon } from "@iconify/react";
 // Media
 import Logo from "../images/logo.svg";
-import { Light, Dark } from "../data";
+import LightBG from "../images/theme-light.jpg";
+import DarkBG from "../images/theme-dark.jpg";
 // Components
 import { Col, Container, Row } from "react-bootstrap";
 import { Spin } from "./globalStyledComponents";
 import SocialLinks from "./SocialLinks";
 
-const StyledHero = styled.header`
+const StyledTheme = styled.header`
   position: relative;
   display: grid;
   place-items: center;
@@ -53,18 +54,18 @@ const StyledHero = styled.header`
     height: 10rem;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .hero-img {
-      animation: ${Spin} infinite 20s linear;
-    }
-  }
+  // @media (prefers-reduced-motion: no-preference) {
+  //   .theme-img {
+  //     animation: ${Spin} infinite 20s linear;
+  //   }
+  // }
 
   @media screen and (min-width: 1180px) {
     &::before {
       background: ${({ theme }) =>
         theme.name === "light"
-          ? `url(${Light}) top center fixed no-repeat`
-          : `url(${Dark}) top center fixed no-repeat`};
+          ? `url(${LightBG}) top center fixed no-repeat`
+          : `url(${DarkBG}) top center fixed no-repeat`};
       background-size: 100vw auto;
     }
   }
@@ -73,18 +74,18 @@ const StyledHero = styled.header`
     &::before {
       background: ${({ theme }) =>
         theme.name === "light"
-          ? `url(${Light}) center center fixed no-repeat`
-          : `url(${Dark}) center center fixed no-repeat`};
+          ? `url(${LightBG}) center center fixed no-repeat`
+          : `url(${DarkBG}) center center fixed no-repeat`};
       background-size: cover;
     }
   }
 `;
 
-export default function Hero() {
+export default function Theme() {
   const { name } = useSelector(selectData);
 
   return (
-    <StyledHero>
+    <StyledTheme>
       <Container>
         <Row className="align-items-center text-center">
           <Col>
@@ -97,7 +98,7 @@ export default function Hero() {
             <img
               src={Logo}
               alt="React Logo"
-              className="w-75 mx-auto hero-img"
+              className="w-75 mx-auto theme-img"
             />
           </Col>
         </Row>
@@ -109,6 +110,6 @@ export default function Hero() {
           </Col>
         </Row>
       </Container>
-    </StyledHero>
+    </StyledTheme>
   );
 }

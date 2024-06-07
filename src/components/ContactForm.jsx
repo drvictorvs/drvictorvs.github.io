@@ -1,9 +1,11 @@
 import React from "react";
 import { useAppContext } from "../appContext";
 // Data
-import { formspreeUrl } from "../data";
+// import { formspreeUrl } from "../data";
 // Components
 import { Alert, Button, Form, Spinner } from "react-bootstrap";
+
+const formspreeUrl = "https://formspree.com.io/f/drvictorvs";
 
 export default function ContactForm() {
   const [isValidated, setIsValidated] = React.useState(false);

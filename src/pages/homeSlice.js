@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // Data
-import { githubUsername } from "../data";
+// import { githubUsername } from "../data";
+
+const githubUsername = "drvictorvs";
 
 const initialState = {
   isLoading: true,

@@ -6,6 +6,8 @@ import { Container } from "react-bootstrap";
 import { Title } from "./globalStyledComponents";
 import ContactForm from "./ContactForm";
 
+export const formspreeUrl = "https://formspree.io/f/drvictorvs";
+
 const StyledSection = styled.section`
   min-height: 89vh;
   padding-top: var(--nav-height);

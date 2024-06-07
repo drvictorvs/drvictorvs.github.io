@@ -10,20 +10,11 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 // import { FixedNavSpacer, ToggleSwitch } from "./globalStyledComponents";
 // Images
 import Logo from "../images/logo.svg";
+import { FlagUS, FlagBR } from "./Resources";
 
-const navLinks = {
-  routes: [
-    { id: "1R", name: "Home", route: "/" },
-    { id: "2R", name: "All Projects", route: "/All-Projects" },
-  ],
-  to: [
-    { id: "1T", name: "Home", to: "Home" },
-    { id: "2T", name: "About Me", to: "About" },
-    { id: "3T", name: "Skills", to: "Skills" },
-    { id: "4T", name: "Projects", to: "Projects" },
-    { id: "5T", name: "Contact", to: "Contact" },
-  ],
-};
+import LangEN from '../translations/LangEN';
+import LangPT from '../translations/LangPT';
+
 
 // Theme Toggle
 const StyledSwitch = styled.label`
@@ -72,7 +63,7 @@ function ThemeToggle() {
       />
       <div>
         {theme === "light" ? (
-          <Icon icon="game-icons:sunflower" />
+          <svg icon="game-icons:sunflower" />
         ) : (
           <Icon icon="game-icons:moon" />
         )}
@@ -81,9 +72,50 @@ function ThemeToggle() {
   );
 }
 
+function LangToggle() {
+  const { lang, toggleLang, closeExpanded } = useAppContext();
+
+  const msgStrings = lang === 'en' ? LangEN.messages : LangPT.messages;
+
+  return (
+    <StyledSwitch onClick={closeExpanded}>
+      <input
+        type="checkbox"
+        aria-label={`${msgStrings.langToggle} ${lang}.`}
+        onClick={toggleLang}
+      />
+      <div>
+        {lang === "en" ? (
+          <FlagUS />
+        ) : (
+          <FlagBR />
+        )}
+      </div>
+    </StyledSwitch>
+  );
+}
+
 export default function NavBar() {
-  const { theme, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
+  const { theme, lang, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
   const { pathname } = useLocation();
+
+  const navStrings = lang === 'en' ? LangEN.navmenu : LangPT.navmenu;
+
+  const navLinks = {
+    routes: [
+      { id: "1R", name: navStrings.home, route: "/" },
+      { id: "2R", name: navStrings.allProjects, route: "/All-Projects" },
+    ],
+    to: [
+      { id: "1T", name: navStrings.home, to: "Home" },
+      { id: "2T", name: navStrings.about, to: "About" },
+      { id: "3T", name: navStrings.skills, to: "Skills" },
+      { id: "4T", name: navStrings.projects, to: "Projects" },
+      { id: "4T", name: navStrings.publications, to: "Publications" },
+      { id: "4T", name: navStrings.research, to: "Research" },
+      { id: "5T", name: navStrings.contact, to: "Contact" },
+    ],
+};
 
   return (
     <>
@@ -100,7 +132,7 @@ export default function NavBar() {
         <Container>
           <Navbar.Brand>
             <img
-              alt="React Logo"
+              alt="Website Logo"
               src={Logo}
               width="35"
               height="35"
@@ -148,6 +180,7 @@ export default function NavBar() {
                   })}
             </Nav>
             <Nav>
+              <LangToggle />
               <ThemeToggle />
             </Nav>
           </Navbar.Collapse>

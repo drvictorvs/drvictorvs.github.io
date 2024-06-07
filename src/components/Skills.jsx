@@ -1,13 +1,72 @@
-import { useAppContext } from "../appContext";
 import { Element } from "react-scroll";
-// Data
-import { skillData, resume } from "../data";
+import { useAppContext } from "../appContext";
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap";
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
+import {
+  EmotionalIntellectualAssessment, IntellectualAssessment,
+  Neuropsychology,
+  Psychometrics, Psychopharmacology,
+  Python, R,
+  ResearchDesign, StatisticalModeling
+} from "./Resources";
 import { Title } from "./globalStyledComponents";
 
+const resume = null;
+
 export default function Skills() {
-  const { theme } = useAppContext();
+  const { theme, lang } = useAppContext();
+  const strings = lang === "en" ? LangEN.skills : LangPT.skills;
+
+  
+  const skillData = [
+  {
+    id: 1,
+    skill: <Neuropsychology />,
+    name: strings.neuropsychology,
+  },
+  {
+    id: 2,
+    skill: <Psychometrics />,
+    name: strings.psychometrics,
+  },
+  {
+    id: 3,
+    skill: <Psychopharmacology />,
+    name: strings.psychopharmacology,
+  },
+  {
+    id: 4,
+    skill: <IntellectualAssessment />,
+    name: strings.intellectualAssessment,
+  },
+  {
+    id: 5,
+    skill: <EmotionalIntellectualAssessment />,
+    name: strings.emotionalIntellectualAssessment,
+  },
+  {
+    id: 6,
+    skill: <ResearchDesign/>,
+    name: strings.researchDesign,
+  },
+  {
+    id: 7,
+    skill: <Python />,
+    name: strings.python,
+  },
+  {
+    id: 8,
+    skill: <StatisticalModeling />,
+    name: strings.statisticalModeling,
+  },
+  {
+    id: 9,
+    skill: <R />,
+    name: strings.langR,
+  },
+];
 
   return (
     <Element name={"Skills"} id="skills">
