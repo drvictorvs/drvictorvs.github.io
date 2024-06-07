@@ -1,11 +1,11 @@
 const LangEN = {
   navmenu: {
     'home': 'Home',
-    'allProjects': 'All Projects',
+    'allRepositories': 'All Projects',
     'about': 'About',
-    'projects': 'Projects',
+    'activity': 'Activity',
     'publications': 'Publications',
-    'research': 'Research',
+    'repositories': 'Repositories',
     'contactMe': 'Contact Me',
   },
   skills: {

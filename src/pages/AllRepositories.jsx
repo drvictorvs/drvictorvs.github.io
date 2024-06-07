@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectData as homeData } from "../pages/homeSlice";
-import { selectData, selectError, selectIsLoading } from "./allProjectsSlice";
+import { selectData as homeData } from "./homeSlice";
+import { selectData, selectError, selectIsLoading } from "./allRepositoriesSlice";
 import styled from "styled-components";
 // Icons
 import { Icon } from "@iconify/react";
@@ -40,7 +40,7 @@ const StyledSection = styled.section`
   }
 `;
 
-export default function AllProjects() {
+export default function AllRepositories() {
   const [searchInput, setSearchInput] = React.useState("");
   const [filteredResults, setFilteredResults] = React.useState([]);
   const [pageItems, setPageItems] = React.useState([]);

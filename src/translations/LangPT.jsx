@@ -1,11 +1,11 @@
 const LangPT = {
   navmenu: {
     'home': 'Início',
-    'allProjects': 'Todos os Projetos',
+    'allRepositories': 'Todos os Projetos',
     'about': 'Sobre',
-    'projects': 'Projetos',
+    'activity': 'Activity',
     'publications': 'Publicações',
-    'research': 'Pesquisa',
+    'repositories': 'Repositórios',
     'contactMe': 'Contato',
   },
   skills: {

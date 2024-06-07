@@ -5,7 +5,7 @@ import {
   selectData,
   selectError,
   selectIsLoading,
-} from "../pages/allProjectsSlice";
+} from "../pages/allRepositoriesSlice";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
 // Media
@@ -16,7 +16,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { Title, Loading } from "./globalStyledComponents";
 import RepositoryCard from "./RepositoryCard";
 
-const filteredProjects = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
+const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
 
 export const projectCardImages = [
   {
@@ -25,8 +25,8 @@ export const projectCardImages = [
   },
 ];
 
-export default function Projects() {
-  const [mainProjects, setMainProjects] = React.useState([]);
+export default function Repositories() {
+  const [mainRepositories, setMainRepositories] = React.useState([]);
   const { theme } = useAppContext();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -36,27 +36,27 @@ export default function Projects() {
     function () {
       const tempData = [];
       data.forEach((el, i) => (tempData[i] = Object.create(el)));
-      if (data.length !== 0 && filteredProjects.length !== 0) {
+      if (data.length !== 0 && filteredRepositories.length !== 0) {
         const tempArray = tempData.filter((obj) =>
-          filteredProjects.includes(obj.name)
+          filteredRepositories.includes(obj.name)
         );
         tempArray.length !== 0
-          ? setMainProjects([...tempArray])
-          : setMainProjects([...tempData.slice(0, 3)]);
+          ? setMainRepositories([...tempArray])
+          : setMainRepositories([...tempData.slice(0, 3)]);
       } else {
-        setMainProjects([...tempData.slice(0, 3)]);
+        setMainRepositories([...tempData.slice(0, 3)]);
       }
     },
     [data]
   );
 
   return (
-    <Element name={"Projects"} id="projects">
+    <Element name={"Repositories"} id="Repositories">
       <section className="section">
         <Container>
           <Container className="d-flex">
             <Title>
-              <h2>Projects</h2>
+              <h2>Repositories</h2>
               <div className="underline"></div>
             </Title>
           </Container>
@@ -68,13 +68,13 @@ export default function Projects() {
           {error && <h2 className="text-center">{error}</h2>}
           {!error && data.length === 0 && (
             <h2 className="text-center">
-              Oops, you do not have any GitHub projects yet...
+              Oops, you do not have any GitHub Repositories yet...
             </h2>
           )}
-          {mainProjects.length !== 0 && (
+          {mainRepositories.length !== 0 && (
             <>
               <Row xs={1} md={2} lg={3} className="g-4 justify-content-center">
-                {mainProjects.map(function ({
+                {mainRepositories.map(function ({
                   id,
                   image,
                   name,
@@ -97,14 +97,14 @@ export default function Projects() {
               </Row>
               {data.length > 3 && (
                 <Container className="text-center mt-5">
-                  <Link to="/All-Projects">
+                  <Link to="/All-Repositories">
                     <Button
                       size="lg"
                       variant={
                         theme === "light" ? "outline-dark" : "outline-light"
                       }
                     >
-                      All <Icon icon="icomoon-free:github" /> Projects
+                      All <Icon icon="icomoon-free:github" /> Repositories
                     </Button>
                   </Link>
                 </Container>

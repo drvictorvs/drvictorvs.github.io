@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+
 const GlobalStyles = createGlobalStyle`
 /*
 =============== 
@@ -32,6 +33,7 @@ Global Styles
 body {
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.color};
+  font-family: var(--tertiary.font)
 }
 
 a:hover {

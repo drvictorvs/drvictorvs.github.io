@@ -22,7 +22,7 @@ const initialState = {
 export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=10`;
 
 export const fetchGitHubReops = createAsyncThunk(
-  "allProjects/fetchGitHubReops",
+  "allRepositories/fetchGitHubReops",
   async (thunkApi, { rejectWithValue }) => {
     try {
       const response = await fetch(url).then(function (res) {
@@ -41,8 +41,8 @@ export const fetchGitHubReops = createAsyncThunk(
   }
 );
 
-export const allProjectsSlice = createSlice({
-  name: "allProjects",
+export const allRepositoriesSlice = createSlice({
+  name: "allRepositories",
   initialState,
   extraReducers: (builder) => {
     builder
@@ -69,8 +69,8 @@ export const allProjectsSlice = createSlice({
   },
 });
 
-export const selectIsLoading = (state) => state.allProjects.isLoading;
-export const selectError = (state) => state.allProjects.error;
-export const selectData = (state) => state.allProjects.data;
+export const selectIsLoading = (state) => state.allRepositories.isLoading;
+export const selectError = (state) => state.allRepositories.error;
+export const selectData = (state) => state.allRepositories.data;
 
-export default allProjectsSlice.reducer;
+export default allRepositoriesSlice.reducer;

@@ -15,7 +15,7 @@ const mainResearch = [{
   image: imgs['pbjs2015.png'],
   name: "Effects of Oral Vitamin C Supplementation on Anxiety in Students: A Double-Blind, Randomized, Placebo-Controlled Trial",
   authors: "Ivaldo Jesus Lima de Oliveira, Victor Vasconcelos de Souza, Vitor Motta and Sérgio Leme da-Silva",
-  publication: "",
+  publication: "Pakistan Journal of Biological Sciences",
   read_url: "https://www.researchgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
   main_url: "https://pubmed.ncbi.nlm.nih.gov/26353411/",
   website_name: "PubMed"
@@ -87,14 +87,16 @@ export default function Research() {
     </Title>
     </Container>
     <Row xs={1} md={2} lg={3} className="g-4 justify-content-center">
-    {mainResearch.map(function ({
+    {mainResearch.sort((a,b) => { return b.id - a.id }).map(function ({
       id,
       image,
       name,
       authors,
+      publication,
       read_url,
       main_url,
-      website_name
+      website_name,
+      website_icon
     }) {
       return (
         <Col key={id}>

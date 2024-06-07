@@ -6,7 +6,7 @@ import {
   selectError,
   selectIsLoading,
 } from "./pages/homeSlice";
-import { fetchGitHubReops } from "./pages/allProjectsSlice";
+import { fetchGitHubReops } from "./pages/allRepositoriesSlice";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Element } from "react-scroll";
 import { ThemeProvider } from "styled-components";
@@ -18,7 +18,7 @@ import GlobalStyles from "./components/GlobalStyles";
 import NavBar from "./components/NavBar";
 // Pages
 import Home from "./pages/Home";
-import AllProjects from "./pages/AllProjects";
+import AllRepositories from "./pages/AllRepositories";
 import NotFound from "./pages/NotFound";
 
 import LangEN from './translations/LangEN';
@@ -91,7 +91,7 @@ export default function App() {
           </Element>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/All-Projects" element={<AllProjects />} />
+            <Route path="/All-Projects" element={<AllRepositories />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </ThemeProvider>

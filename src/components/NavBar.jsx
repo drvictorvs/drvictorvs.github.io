@@ -9,8 +9,8 @@ import { Icon } from "@iconify/react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 // import { FixedNavSpacer, ToggleSwitch } from "./globalStyledComponents";
 // Images
-import Logo from "../images/logo.svg";
-import { FlagUS, FlagBR } from "./Resources";
+// import Logo from "../images/logo.svg";
+import { FlagUS, FlagBR, Logo } from "./Resources";
 
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
@@ -104,16 +104,15 @@ export default function NavBar() {
   const navLinks = {
     routes: [
       { id: "1R", name: navStrings.home, route: "/" },
-      { id: "2R", name: navStrings.allProjects, route: "/All-Projects" },
+      { id: "2R", name: navStrings.allRepositories, route: "/All-Projects" },
     ],
     to: [
       { id: "1T", name: navStrings.home, to: "Home" },
       { id: "2T", name: navStrings.about, to: "About" },
-      { id: "3T", name: navStrings.skills, to: "Skills" },
-      { id: "4T", name: navStrings.projects, to: "Projects" },
+      { id: "3T", name: navStrings.activity, to: "Activity" },
       { id: "4T", name: navStrings.publications, to: "Publications" },
-      { id: "4T", name: navStrings.research, to: "Research" },
-      { id: "5T", name: navStrings.contact, to: "Contact" },
+      { id: "5T", name: navStrings.repositories, to: "Repositories" },
+      { id: "6T", name: navStrings.contactMe, to: "Contact Me" },
     ],
 };
 
@@ -131,13 +130,7 @@ export default function NavBar() {
       >
         <Container>
           <Navbar.Brand>
-            <img
-              alt="Website Logo"
-              src={Logo}
-              width="35"
-              height="35"
-              className="rounded-circle"
-            />
+            <Logo />
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"

@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { useAppContext } from "../appContext";
 // Icons
 import { Icon } from "@iconify/react";
-// Media
-import GH from "../images/logo.svg";
 // Components
 import { Card } from "react-bootstrap";
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
+import { PDFFileIco } from './Resources'
 
 const PublicationCardComponent = styled.div`
   .card {
@@ -43,7 +42,7 @@ export default function PublicationCard({ image, name, authors, publication, rea
       <Card>
         <Card.Img
           variant="top"
-          src={image ? image : GH}
+          src={image}
           alt={name}
           className="mx-auto"
         />
@@ -55,13 +54,13 @@ export default function PublicationCard({ image, name, authors, publication, rea
         <Card.Footer className="text-center">
           <Card.Link href={read_url}>
             {"Read online"}
-            <Icon icon="i-bxs:file-pdf" />
+            <PDFFileIco />
           </Card.Link>
         </Card.Footer>
         <Card.Footer className="text-center">
           <Card.Link href={main_url}>
             {`${strings.viewon} ${website_name}  `}
-            <Icon icon={website_icon} />
+            <Icon icon={website_icon ? "i-fluent:share-20-filled" : website_icon} />
           </Card.Link>
         </Card.Footer>
       </Card>

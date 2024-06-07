@@ -36,7 +36,7 @@ export const Loading = styled.div`
 export const Title = styled.div`
   display: inline-block;
   margin: 0 auto;
-  font-family: "Permanent Marker";
+  font-family: var(--secondary-font);
   text-align: center;
 
   .underline {

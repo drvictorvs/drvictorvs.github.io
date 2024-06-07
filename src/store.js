@@ -2,11 +2,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 //Reducers
 import homeReducer from "./pages/homeSlice";
-import allProjectsReducer from "./pages/allProjectsSlice";
+import allRepositoriesReducer from "./pages/allRepositoriesSlice";
 
 export const store = configureStore({
   reducer: {
     home: homeReducer,
-    allProjects: allProjectsReducer,
+    allRepositories: allRepositoriesReducer,
   },
 });
