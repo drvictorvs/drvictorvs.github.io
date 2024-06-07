@@ -3,11 +3,11 @@ import styled from "styled-components";
 // Icons
 import { Icon } from "@iconify/react";
 // Media
-import GH from "../images/GH.svg";
+import GH from "../images/logo.svg";
 // Components
 import { Card } from "react-bootstrap";
 
-const StyledCardComponent = styled.div`
+const PublicationCardComponent = styled.div`
   .card {
     background: ${({ theme }) => (theme.name === "light" ? "" : "#797B7B")};
     box-shadow: ${({ theme }) =>
@@ -32,9 +32,9 @@ const StyledCardComponent = styled.div`
   }
 `;
 
-export default function StyledCard({ image, name, description, url, demo }) {
+export default function PublicationCard({ image, name, description, url, demo }) {
   return (
-    <StyledCardComponent>
+    <PublicationCardComponent>
       <Card>
         <Card.Img
           variant="top"
@@ -45,12 +45,6 @@ export default function StyledCard({ image, name, description, url, demo }) {
         <Card.Body className="overflow-auto text-center">
           <Card.Title>{name}</Card.Title>
           <Card.Text>{description}</Card.Text>
-          {demo !== "" ? (
-            <Card.Link href={demo}>
-              {"Live Demo "}
-              <Icon icon="icon-park-outline:code-computer" />
-            </Card.Link>
-          ) : null}
         </Card.Body>
         <Card.Footer className="text-center">
           <Card.Link href={url}>
@@ -59,6 +53,6 @@ export default function StyledCard({ image, name, description, url, demo }) {
           </Card.Link>
         </Card.Footer>
       </Card>
-    </StyledCardComponent>
+    </PublicationCardComponent>
   );
 }

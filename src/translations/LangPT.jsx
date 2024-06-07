@@ -20,7 +20,14 @@ const LangPT = {
     'langR': "R"
   },
   messages: {
-    'langToggle': "Alterar idioma. Atualmente,"
+    'langToggle': "Alterar idioma. Atualmente,",
+    'readonline': "Ler online",
+    'viewon': "Visualizar em"
+  },
+  misc: {
+    'aboutMe': "Sobre mim",
+    'portfolio': "Portfólio",
+    'webpage': "Dr. Victor's Webpage"
   }
 }
 

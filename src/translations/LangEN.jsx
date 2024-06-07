@@ -20,10 +20,15 @@ const LangEN = {
     'langR': "R"
   },
   messages: {
-    'langToggle': "Toggle language, currently"
+    'langToggle': "Toggle language, currently",
+    'readonline': "Read online",
+    'viewon': "View on"
   },
-  "aboutMe": "About Me",
-  "portfolio": "Portfolio",
+  misc: {
+    'aboutMe': "About Me",
+    'portfolio': "Portfolio",
+    'webpage': "Dr. Victor's Webpage"
+  }
 
 }
 

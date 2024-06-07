@@ -19,7 +19,7 @@ import {
   Title,
   Loading,
 } from "../components/globalStyledComponents";
-import StyledCard from "../components/StyledCard";
+import PublicationCard from "../components/PublicationCard";
 import Footer from "../components/Footer";
 
 const StyledSection = styled.section`
@@ -201,7 +201,7 @@ export default function AllProjects() {
                     }) {
                       return (
                         <Col key={id}>
-                          <StyledCard
+                          <PublicationCard
                             image={image}
                             name={name}
                             description={description}
@@ -221,7 +221,7 @@ export default function AllProjects() {
                     }) {
                       return (
                         <Col key={id}>
-                          <StyledCard
+                          <PublicationCard
                             image={image}
                             name={name}
                             description={description}

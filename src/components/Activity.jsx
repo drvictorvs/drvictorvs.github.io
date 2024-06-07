@@ -15,7 +15,7 @@ import { Title } from "./globalStyledComponents";
 
 const resume = null;
 
-export default function Skills() {
+export default function Activity() {
   const { theme, lang } = useAppContext();
   const strings = lang === "en" ? LangEN.skills : LangPT.skills;
 

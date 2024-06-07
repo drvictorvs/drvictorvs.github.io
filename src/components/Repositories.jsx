@@ -14,7 +14,7 @@ import Logo from "../images/logo.svg"
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Title, Loading } from "./globalStyledComponents";
-import StyledCard from "./StyledCard";
+import RepositoryCard from "./RepositoryCard";
 
 const filteredProjects = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
 
@@ -84,7 +84,7 @@ export default function Projects() {
                 }) {
                   return (
                     <Col key={id}>
-                      <StyledCard
+                      <RepositoryCard
                         image={image}
                         name={name}
                         description={description}

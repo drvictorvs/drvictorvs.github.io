@@ -1,30 +1,28 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectData } from "../pages/homeSlice";
-// Components
-import Theme from "../components/Theme";
+import { useAppContext } from "../appContext";
 import AboutMe from "../components/AboutMe";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
-import Contact from "../components/Contact";
-import { BackToTop } from "../components/globalStyledComponents";
+import Activity from "../components/Activity";
+import ContactMe from "../components/ContactMe";
 import Footer from "../components/Footer";
-
-import { useAppContext } from "./appContext";
-
-import LangEN from './translations/LangEN';
-import LangPT from './translations/LangPT';
+import Publications from "../components/Publications";
+import Repositories from "../components/Repositories";
+import Theme from "../components/Theme";
+import { BackToTop } from "../components/globalStyledComponents";
+import { selectData } from "../pages/homeSlice";
+import LangEN from '../translations/LangEN';
+import LangPT from '../translations/LangPT';
 
 export default function Home() {
   const { name } = useSelector(selectData);
   const lang = useAppContext();
-  const strings = lang === "en" ? LangEN : LangPT;
+  const strings = lang === "en" ? LangEN.misc : LangPT.misc;
 
   React.useEffect(
     function () {
-      document.title = `${name} | ${strings.portfolio}`;
+      document.title = `${strings.webpage}`;
     },
-    [name]
+    [name, strings.webpage]
   );
 
   return (
@@ -32,9 +30,10 @@ export default function Home() {
       <Theme />
       <main>
         <AboutMe />
-        <Skills />
-        <Projects />
-        <Contact />
+        <Activity />
+        <Publications />
+        <Repositories />
+        <ContactMe />
       </main>
       <BackToTop home={"Home"} />
       <Footer />
