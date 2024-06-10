@@ -1,4 +1,5 @@
 import React from "react";
+import { useAppContext } from "../appContext";
 import { useSelector } from "react-redux";
 import { selectData as homeData } from "./homeSlice";
 import { selectData, selectError, selectIsLoading } from "./allRepositoriesSlice";
@@ -21,6 +22,8 @@ import {
 } from "../components/globalStyledComponents";
 import PublicationCard from "../components/PublicationCard";
 import Footer from "../components/Footer";
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
 
 const StyledSection = styled.section`
   min-height: calc(100vh - var(--min-footer-height) - var(--nav-height));
@@ -49,6 +52,8 @@ export default function AllRepositories() {
   const error = useSelector(selectError);
   const data = useSelector(selectData);
   const { name } = useSelector(homeData);
+  const { lang } = useAppContext();
+  const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
 
   React.useEffect(
     function () {
@@ -128,9 +133,7 @@ export default function AllRepositories() {
           <StyledSection className="d-flex flex-column justify-content-center">
             <Container className="d-flex">
               <Title>
-                <h2>
-                  All <Icon icon="mdi:github" /> Projects
-                </h2>
+                <h2>{strings.allRepositories}</h2>
                 <div className="underline"></div>
               </Title>
             </Container>
@@ -147,9 +150,7 @@ export default function AllRepositories() {
           <StyledSection className="d-flex flex-column justify-content-center">
             <Container className="d-flex">
               <Title>
-                <h2>
-                  All <Icon icon="mdi:github" /> Projects
-                </h2>
+                <h2>{strings.allRepositories}</h2>
                 <div className="underline"></div>
               </Title>
             </Container>
@@ -166,9 +167,7 @@ export default function AllRepositories() {
           <StyledSection className="d-flex flex-column justify-content-center">
             <Container className="d-flex">
               <Title>
-                <h2>
-                  All <Icon icon="mdi:github" /> Projects
-                </h2>
+                <h2>{strings.allRepositories}</h2>
                 <div className="underline"></div>
               </Title>
             </Container>

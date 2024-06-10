@@ -16,23 +16,23 @@ const StyledSocialLinks = styled.div`
   }
 `;
 
+function StyledSocialLink(link, label, icon) {
+  return (<a
+    href={link}
+    aria-label={label}
+    className="link-icons"
+    >
+    <Icon icon={icon} />
+    </a>)
+  };
+
 export default function SocialLinks() {
   const { blog, html_url } = useSelector(selectData);
-
+  
   return (
     <StyledSocialLinks>
-      <a
-        href={html_url}
-        aria-label="Check out my GitHub profile."
-        className="link-icons"
-      >
-        <Icon icon="icomoon-free:github" />
-      </a>
-      {blog && (
-        <a href={blog} aria-label="External link" className="link-icons">
-          {Blog}
-        </a>
-      )}
+    <StyledSocialLink link={html_url} label="Check out my GitHub profile." icon="icomoon-free:github" />
+    <StyledSocialLink link={blog} label="Check out my GitHub profile." icon="ph:link-bold" />
     </StyledSocialLinks>
   );
 }

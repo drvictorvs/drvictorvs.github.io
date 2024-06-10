@@ -63,7 +63,7 @@ function ThemeToggle() {
       />
       <div>
         {theme === "light" ? (
-          <svg icon="game-icons:sunflower" />
+          <Icon icon="game-icons:sunflower" />
         ) : (
           <Icon icon="game-icons:moon" />
         )}
@@ -112,7 +112,7 @@ export default function NavBar() {
       { id: "3T", name: navStrings.activity, to: "Activity" },
       { id: "4T", name: navStrings.publications, to: "Publications" },
       { id: "5T", name: navStrings.repositories, to: "Repositories" },
-      { id: "6T", name: navStrings.contactMe, to: "Contact Me" },
+      { id: "6T", name: navStrings.contactMe, to: "ContactMe" },
     ],
 };
 

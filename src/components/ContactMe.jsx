@@ -5,6 +5,9 @@ import styled from "styled-components";
 import { Container } from "react-bootstrap";
 import { Title } from "./globalStyledComponents";
 import ContactForm from "./ContactForm";
+import { useAppContext } from "../appContext";
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
 
 export const formspreeUrl = "https://formspree.io/f/drvictorvs";
 
@@ -14,12 +17,15 @@ const StyledSection = styled.section`
 `;
 
 export default function Contact() {
+  const { lang } = useAppContext();
+  const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
+
   return (
-    <Element name={"Contact"} id="contact">
+    <Element name={"ContactMe"} id="contactMe">
       <StyledSection className="d-flex flex-column justify-content-center">
         <Container className="d-flex">
           <Title>
-            <h2>Contact Me</h2>
+            <h2>{strings.contactMe}</h2>
             <div className="underline"></div>
           </Title>
         </Container>

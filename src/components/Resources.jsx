@@ -21,6 +21,10 @@ export const Logo = () =>
   <img src={imgs['logo.svg']} className="primary-icon" style={{width: 35, height: 35,
       filter: GetPrimaryIconFilter(), background: "none"}} alt="English" />;
 
+export const BigLogo = () =>
+  <img src={imgs['logo.svg']} className="w-75 mx-auto theme-img" 
+style={{filter: GetPrimaryIconFilter(), background: "none"}} alt="English" />;
+
 // Flags
 export const FlagUS = () => 
 <img src={imgs['flag-us.svg']} style={{height:"1em", width:"1em", background:"none"}} alt="English" />;

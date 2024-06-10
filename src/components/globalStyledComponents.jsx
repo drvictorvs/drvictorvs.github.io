@@ -27,7 +27,7 @@ export const Loading = styled.div`
   height: 5rem;
   border: 5px solid;
   border-radius: 50%;
-  border-top-color: var(--primary);
+  border-top-color: ${({theme}) => theme.primary};
   margin: 1rem auto;
   animation: ${spinner} 0.6s linear infinite;
 `;
@@ -47,9 +47,7 @@ export const Title = styled.div`
     background: var(--clr-primary-5);
     margin: 0 auto 1.5rem auto;
     background: ${({ theme }) =>
-      theme.name === "light"
-        ? "linear-gradient(to left, var(--primary-light), var(--primary-dark))"
-        : "linear-gradient(to right, var(--primary-dark), var(--primary-light))"};
+      theme.gradient };
   }
 `;
 
@@ -61,7 +59,7 @@ const StyledDiv = styled.div`
   visibility: hidden;
 
   .link-icons {
-    color: ${({ theme }) => (theme.name === "light" ? "#45413C" : "#F5F2E8")};
+    color: ${({ theme }) => (theme.color)};
   }
 
   &.show-up {

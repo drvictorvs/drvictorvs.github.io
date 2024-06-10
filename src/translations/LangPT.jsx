@@ -26,6 +26,7 @@ const LangPT = {
   },
   misc: {
     'aboutMe': "Sobre mim",
+    'aboutMe2': "Neuropsicólogo e Psicometrista",
     'portfolio': "Portfólio",
     'webpage': "Dr. Victor's Webpage"
   }

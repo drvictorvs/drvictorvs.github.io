@@ -15,6 +15,8 @@ import Logo from "../images/logo.svg"
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Title, Loading } from "./globalStyledComponents";
 import RepositoryCard from "./RepositoryCard";
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
 
 const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
 
@@ -27,7 +29,8 @@ export const projectCardImages = [
 
 export default function Repositories() {
   const [mainRepositories, setMainRepositories] = React.useState([]);
-  const { theme } = useAppContext();
+  const { theme, lang } = useAppContext();
+  const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const data = useSelector(selectData);
@@ -56,7 +59,7 @@ export default function Repositories() {
         <Container>
           <Container className="d-flex">
             <Title>
-              <h2>Repositories</h2>
+              <h2>{strings.repositories}</h2>
               <div className="underline"></div>
             </Title>
           </Container>

@@ -12,6 +12,8 @@ import DarkBG from "../images/theme-dark.jpg";
 import { Col, Container, Row } from "react-bootstrap";
 import { Spin } from "./globalStyledComponents";
 import SocialLinks from "./SocialLinks";
+import { BigLogo } from "./Resources"
+
 
 const StyledTheme = styled.header`
   position: relative;
@@ -28,10 +30,7 @@ const StyledTheme = styled.header`
     left: 0;
     width: 100%;
     height: 100%;
-    background: ${({ theme }) =>
-      theme.name === "light"
-        ? "linear-gradient(135deg, var(--primary), var(--bs-light))"
-        : "linear-gradient(135deg, var(--primary), var(--bs-dark))"};
+    background: ${({ theme }) => theme.gradient };
     z-index: -2;
   }
 
@@ -43,10 +42,7 @@ const StyledTheme = styled.header`
     left: 0;
     width: 100%;
     height: 100%;
-    background: ${({ theme }) =>
-      theme.name === "light"
-        ? "rgba(255, 255, 255, 0.2)"
-        : "rgba(0, 0, 0, 0.2)"};
+    background: ${({ theme }) => theme.overlay };
     z-index: -1;
   }
 
@@ -54,18 +50,12 @@ const StyledTheme = styled.header`
     height: 10rem;
   }
 
-  // @media (prefers-reduced-motion: no-preference) {
-  //   .theme-img {
-  //     animation: ${Spin} infinite 20s linear;
-  //   }
-  // }
-
   @media screen and (min-width: 1180px) {
     &::before {
       background: ${({ theme }) =>
         theme.name === "light"
-          ? `url(${LightBG}) top center fixed no-repeat`
-          : `url(${DarkBG}) top center fixed no-repeat`};
+          ? `url(${LightBG}) center center fixed no-repeat`
+          : `url(${DarkBG}) center center fixed no-repeat`};
       background-size: 100vw auto;
     }
   }
@@ -95,11 +85,7 @@ export default function Theme() {
             </div>
           </Col>
           <Col className="d-none d-md-block">
-            <img
-              src={Logo}
-              alt="React Logo"
-              className="w-75 mx-auto theme-img"
-            />
+            <BigLogo />
           </Col>
         </Row>
         <Row className="align-items-end down-container">

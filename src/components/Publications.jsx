@@ -10,13 +10,13 @@ import LangPT from '../translations/LangPT';
 
 const imgs = importAll(require.context('../images/scientific', false, /\.png$/));
 
-const mainResearch = [{
+const mainPublications = [{
   id: 0,
   image: imgs['pbjs2015.png'],
   name: "Effects of Oral Vitamin C Supplementation on Anxiety in Students: A Double-Blind, Randomized, Placebo-Controlled Trial",
   authors: "Ivaldo Jesus Lima de Oliveira, Victor Vasconcelos de Souza, Vitor Motta and Sérgio Leme da-Silva",
   publication: "Pakistan Journal of Biological Sciences",
-  read_url: "https://www.researchgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
+  read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
   main_url: "https://pubmed.ncbi.nlm.nih.gov/26353411/",
   website_name: "PubMed"
 }, 
@@ -46,7 +46,7 @@ const mainResearch = [{
   name: "Effects of Ascorbic Acid Combined with Environmental Enrichment on Anxiety and Memory",
   authors: "Ivaldo Jesus Lima de Oliveira, Victor Vasconcelos de Souza, Ana Cláudia Pires Carvalho, Carlos Tomaz, Sérgio Leme Da-Silva",
   publication: "",
-  read_url: "https://www.researchgate.net/profile/Victor-Vasconcelos-7/publication/332366544_Effects_of_Ascorbic_Acid_Combined_to_Environmental_Enrichment_on_Anxiety_and_Memory/links/6479f6a2d702370600cc4f72/Effects-of-Ascorbic-Acid-Combined-to-Environmental-Enrichment-on-Anxiety-and-Memory.pdf",
+  read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/332366544_Effects_of_Ascorbic_Acid_Combined_to_Environmental_Enrichment_on_Anxiety_and_Memory/links/6479f6a2d702370600cc4f72/Effects-of-Ascorbic-Acid-Combined-to-Environmental-Enrichment-on-Anxiety-and-Memory.pdf",
   main_url: "https://psycnet.apa.org/record/2019-20026-001",
   website_name: "PsycNET"
 },
@@ -67,27 +67,27 @@ const mainResearch = [{
   authors: "Victor Vasconcelos de Souza, Cristiane Faiad",
   publication: "",
   read_url: "https://recital.almenara.ifnmg.edu.br/index.php/recital/article/view/478/185",
-  main_url: "https://www.researchgate.net/publication/378746761_OS_TESTES_SITUACIONAIS_DE_INTELIGENCIA_EMOCIONAL_COMO_UM_TESTE_ADAPTATIVO_COMPUTADORIZADO_The_Situational_Tests_of_Emotional_Intelligence_as_Computer-Adaptive_Tests",
-  website_name: "ResearchGate"
+  main_url: "https://www.publicationsgate.net/publication/378746761_OS_TESTES_SITUACIONAIS_DE_INTELIGENCIA_EMOCIONAL_COMO_UM_TESTE_ADAPTATIVO_COMPUTADORIZADO_The_Situational_Tests_of_Emotional_Intelligence_as_Computer-Adaptive_Tests",
+  website_name: "PublicationsGate"
 }
 ]
 
-export default function Research() {
+export default function Publications() {
   const { lang } = useAppContext();
   const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
   
   return (
-    <Element name={"Research"} id="research">
+    <Element name={"Publications"} id="publications">
     <section className="section">
     <Container>
     <Container className="d-flex">
     <Title>
-    <h2>{strings.research}</h2>
+    <h2>{strings.publications}</h2>
     <div className="underline"></div>
     </Title>
     </Container>
     <Row xs={1} md={2} lg={3} className="g-4 justify-content-center">
-    {mainResearch.sort((a,b) => { return b.id - a.id }).map(function ({
+    {mainPublications.sort((a,b) => { return b.id - a.id }).map(function ({
       id,
       image,
       name,

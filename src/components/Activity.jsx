@@ -69,11 +69,11 @@ export default function Activity() {
 ];
 
   return (
-    <Element name={"Skills"} id="skills">
+    <Element name={"Activity"} id="activity">
       <section className="section">
         <Container className="text-center">
           <Title>
-            <h2>Skills</h2>
+            <h2>{strings.activity}</h2>
             <div className="underline"></div>
           </Title>
           <Row className="mt-3 align-items-center">

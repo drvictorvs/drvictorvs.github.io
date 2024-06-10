@@ -8,14 +8,7 @@ Variables
 ===============
 */
 :root {
-  --primary-light: #FFBFAA;
-  --zeroary-light: #ffd9cc;
-  --secondary-light: #FF8F6A;
-  --primary: #ff5722;
-  --primary-dark: #ff5722;
-  --zeroary-dark: #ff764d;
-  --secondary-dark: #F03D00;
-  --border: 1px solid #ff5722;
+  --border: 1px solid ;
   --transition: all 0.3s linear;
   --nav-height: 61px;
   --min-footer-height: 11vh;
@@ -33,7 +26,7 @@ Global Styles
 body {
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.color};
-  font-family: var(--tertiary.font)
+  font-family: var(--tertiary-font);
 }
 
 a:hover {
@@ -45,7 +38,7 @@ a:hover {
 
   img {
     background: ${({ theme }) =>
-      theme.name === "light" ? "#45413C" : "#797B7B"};
+      theme.imgColors};
   }
 }
 
@@ -53,10 +46,10 @@ a:hover {
   line-height: 0;
   font-size: 2.25rem;
   transition: var(--transition);
-  color: ${({ theme }) => theme.color};
+  color: ${({ theme }) => theme.color };
 
   &:hover {
-        color: var(--primary);
+        color: ${({ theme }) => theme.primary };
       }
 }
 
@@ -86,8 +79,8 @@ a:hover {
 }
 
 .page-item.active .page-link {
-    background-color: var(--primary);
-    border-color: var(--primary);
+    background-color: ${({ theme }) => theme.primary };
+    border-color: ${({ theme }) => theme.primary };
 }
 
 @media screen and (min-width: 800px) {
@@ -101,7 +94,7 @@ a:hover {
 
  @media screen and (min-width: 1367px) {
   .link-icons:hover {
-    color: var(--primary);
+    color: ${({ theme }) => theme.primary };
   }
   }
 `;

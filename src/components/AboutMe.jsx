@@ -11,6 +11,11 @@ import LangPT from "../translations/LangPT";
 import { Col, Container, Row } from "react-bootstrap";
 import { Title } from "./globalStyledComponents";
 
+const Subtitle = styled.div`
+  font-size: 1.25rem;
+  font-family: var(--secondary-font);
+`;
+
 const StyledAboutMe = styled.section`
   p {
     font-size: 1.25rem;
@@ -30,19 +35,23 @@ export default function AboutMe() {
     "Licensed neuropsychologist and a University of Brasilia alumnus. Doctorate and Master's degree were both sought under the guidance of Prof. Dr. Cristiane Faiad in the Psychological Assessment and Instrumentation concentration of the Post-Graduate Program of Social, Work and Organizational Psychology—also at the University of Brasília. Specialized in the use of programming resources in Education and Psychometrics (Statistical Modeling, Psychological and Educational Assessment). Experience in statistical analysis in biomedical sciences, neurosciences and psychology. Worked for two years in psychopharmacology labs, using either oral or intrahypocampal perfusion methodology. Currently working as a psychometrician at the National Institute of Study and Research in Education.";
 
   return (
-    <Element name={"About"} id="about">
+    <Element name={"About Me"} id="aboutMe">
       <StyledAboutMe className="section">
         <Container>
           <Container className="d-flex">
             <Title>
-              <h2>{strings['aboutMe']}</h2>
+              <h2>{strings.aboutMe}</h2>
               <div className="underline"></div>
             </Title>
           </Container>
           <Row className="align-items-center mt-5">
             <Col className="d-flex flex-column text-center">
+            <Subtitle>
+              <h3>{strings['aboutMe2']}</h3>
+              <div className="underline"></div>
+            </Subtitle>
               <Container>
-                <p>{bio}</p>
+                {/* <p>{bio}</p> */}
                 {moreInfo && <p>{moreInfo}</p>}
               </Container>
             </Col>

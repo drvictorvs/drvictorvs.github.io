@@ -26,6 +26,7 @@ const LangEN = {
   },
   misc: {
     'aboutMe': "About Me",
+    'aboutMe2': "Neuropsychologist and Psychometrician",
     'portfolio': "Portfolio",
     'webpage': "Dr. Victor's Webpage"
   }
