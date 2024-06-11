@@ -1,121 +1,186 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Container } from "react-bootstrap";
+import { ScrollMenu } from 'react-horizontal-scrolling-menu';
+import 'react-horizontal-scrolling-menu/dist/styles.css';
 import { Element } from "react-scroll";
+import styled from 'styled-components';
 import { useAppContext } from "../appContext";
-import { importAll } from './Resources';
-import PublicationCard from "./PublicationCard";
-import { Title } from "./globalStyledComponents";
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
+import PublicationCard from "./PublicationCard";
+import { importAll } from './Resources';
+import { Title } from "./globalStyledComponents";
 
 const imgs = importAll(require.context('../images/scientific', false, /\.png$/));
 
-const mainPublications = [{
-  id: 0,
-  image: imgs['pbjs2015.png'],
-  name: "Effects of Oral Vitamin C Supplementation on Anxiety in Students: A Double-Blind, Randomized, Placebo-Controlled Trial",
-  authors: "Ivaldo Jesus Lima de Oliveira, Victor Vasconcelos de Souza, Vitor Motta and Sérgio Leme da-Silva",
-  publication: "Pakistan Journal of Biological Sciences",
-  read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
-  main_url: "https://pubmed.ncbi.nlm.nih.gov/26353411/",
-  website_name: "PubMed"
-}, 
-{
-  id: 1,
-  image: imgs['eip2018.png'],
-  name: "Psychometric Properties of the ISSL in the Context of Public Security",
-  authors: "Cristiane Faiad, Victor Souza, Lucas Heiki Matsunaga, Carlos Manoel Lopes Rodrigues, Helena Rinaldi Rosa",
-  publication: "",
-  read_url: "https://pepsic.bvsalud.org/pdf/eip/v9n3s1/a05.pdf",
-  main_url: "https://pepsic.bvsalud.org/scielo.php?pid=S2236-64072018000400005&script=sci_abstract&tlng=en",
-  website_name: "PePSIC"
-},
-{
-  id: 2,
-  image: imgs['eae2018.png'],
-  name: "Evidence of Content Validity in the ENADE Psychology Test",
-  authors: "Girlene Ribeiro Jesus, Renata Manuelly Lima Rêgo, Victor Vasconcelos de Souza",
-  publication: "",
-  read_url: "https://educa.fcc.org.br/pdf/eae/v29n72/1984-932X-eae-29-72-858.pdf",
-  main_url: "https://educa.fcc.org.br/scielo.php?pid=S0103-68312018000300858&script=sci_abstract&tlng=en",
-  website_name: "SciELO"
-},
-{
-  id: 3,
-  image: imgs['pn2019.png'],
-  name: "Effects of Ascorbic Acid Combined with Environmental Enrichment on Anxiety and Memory",
-  authors: "Ivaldo Jesus Lima de Oliveira, Victor Vasconcelos de Souza, Ana Cláudia Pires Carvalho, Carlos Tomaz, Sérgio Leme Da-Silva",
-  publication: "",
-  read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/332366544_Effects_of_Ascorbic_Acid_Combined_to_Environmental_Enrichment_on_Anxiety_and_Memory/links/6479f6a2d702370600cc4f72/Effects-of-Ascorbic-Acid-Combined-to-Environmental-Enrichment-on-Anxiety-and-Memory.pdf",
-  main_url: "https://psycnet.apa.org/record/2019-20026-001",
-  website_name: "PsycNET"
-},
-{
-  id: 4,
-  image: imgs['eappe2022.png'],
-  name: "The Question of Validity in Brazilian Educational Assessment",
-  authors: "Girlene Ribeiro de Jesus, Renata Manuelly de Lima Rêgo, Victor Vasconcelos de Souza",
-  publication: "",
-  read_url: "https://www.scielo.br/j/ensaio/a/zS4yq9yN5JzfFcdv47JGM4h/?format=pdf",
-  main_url: "https://www.scielo.br/j/ensaio/a/zS4yq9yN5JzfFcdv47JGM4h/?format=html",
-  website_name: "SciELO"
-},
-{
-  id: 5,
-  image: imgs['rr2024.png'],
-  name: "The Situational Tests of Emotional Intelligence as a Computer-Adaptive Test",
-  authors: "Victor Vasconcelos de Souza, Cristiane Faiad",
-  publication: "",
-  read_url: "https://recital.almenara.ifnmg.edu.br/index.php/recital/article/view/478/185",
-  main_url: "https://www.publicationsgate.net/publication/378746761_OS_TESTES_SITUACIONAIS_DE_INTELIGENCIA_EMOCIONAL_COMO_UM_TESTE_ADAPTATIVO_COMPUTADORIZADO_The_Situational_Tests_of_Emotional_Intelligence_as_Computer-Adaptive_Tests",
-  website_name: "PublicationsGate"
-}
-]
+
+const StyledScrollMenu = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  white-space: wrap;
+  height: max-content;
+  align-items: stretch;
+`
 
 export default function Publications() {
   const { lang } = useAppContext();
-  const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
+  const sciStrings = lang === "en" ? LangEN.scientific : LangPT.scientific;
   
-  return (
-    <Element name={"Publications"} id="publications">
-    <section className="section">
-    <Container>
-    <Container className="d-flex">
-    <Title>
-    <h2>{strings.publications}</h2>
-    <div className="underline"></div>
-    </Title>
-    </Container>
-    <Row xs={1} md={2} lg={3} className="g-4 justify-content-center">
-    {mainPublications.sort((a,b) => { return b.id - a.id }).map(function ({
-      id,
-      image,
-      name,
-      authors,
-      publication,
-      read_url,
-      main_url,
-      website_name,
-      website_icon
-    }) {
-      return (
-        <Col key={id}>
-        <PublicationCard
-        image={image}
-        name={name}
-        authors={authors}
-        publication={publication}
-        read_url={read_url}
-        main_url={main_url}
-        website_name={website_name}
-        website_icon={website_icon}
-        />
-        </Col>
-      );
-    })}
-    </Row>
-  </Container>
-  </section>
-  </Element>
-);
-}
+  console.log("sciStrings: " + sciStrings);
+
+  function getPublication({ id, authors, read_url, main_url, website_name }){
+    console.log("sciStrings[id]: " + sciStrings[id]);
+    console.log("id: " + id)
+    return {
+      id: id,
+      image: imgs[id + '.png'],
+      name: sciStrings[id].name,
+      authors: authors,
+      publication: sciStrings[id].publication,
+      read_url: read_url,
+      main_url: main_url,
+      website_name: website_name,
+    };
+  }
+  
+  
+  
+  const mainPublications = [
+    getPublication({
+      id: 'pbjs2015',
+      authors:  "Ivaldo Jesus Lima de Oliveira, \
+      Victor Vasconcelos de Souza, \
+      Vitor Motta and \
+      Sérgio Leme da-Silva",
+      read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
+      main_url: "https://pubmed.ncbi.nlm.nih.gov/26353411/",
+      website_name: "PubMed"})
+      ,
+      getPublication({
+        id: 'eip2018',
+        authors: "Cristiane Faiad, Victor Souza, Lucas Heiki Matsunaga, Carlos Manoel Lopes Rodrigues, Helena Rinaldi Rosa",
+        read_url: "https://pepsic.bvsalud.org/pdf/eip/v9n3s1/a05.pdf",
+        main_url: "https://pepsic.bvsalud.org/scielo.php?pid=S2236-64072018000400005&script=sci_abstract&tlng=en",
+        website_name: "PePSIC"
+      }),
+      getPublication({
+        id: 'eae2018',
+        authors: "Girlene Ribeiro Jesus, Renata Manuelly Lima Rêgo, Victor Vasconcelos de Souza",
+        read_url: "https://educa.fcc.org.br/pdf/eae/v29n72/1984-932X-eae-29-72-858.pdf",
+        main_url: "https://educa.fcc.org.br/scielo.php?pid=S0103-68312018000300858&script=sci_abstract&tlng=en",
+        website_name: "SciELO"
+      }),
+      getPublication({
+        id: 'pn2019',
+        authors: "Ivaldo Jesus Lima de Oliveira, Victor Vasconcelos de Souza, Ana Cláudia Pires Carvalho, Carlos Tomaz, Sérgio Leme Da-Silva",
+        read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/332366544_Effects_of_Ascorbic_Acid_Combined_to_Environmental_Enrichment_on_Anxiety_and_Memory/links/6479f6a2d702370600cc4f72/Effects-of-Ascorbic-Acid-Combined-to-Environmental-Enrichment-on-Anxiety-and-Memory.pdf",
+        main_url: "https://psycnet.apa.org/record/2019-20026-001",
+        website_name: "PsycNET"
+      }),
+      getPublication({
+        id: 'eappe2022',
+        authors: "Girlene Ribeiro de Jesus, Renata Manuelly de Lima Rêgo, Victor Vasconcelos de Souza",
+        read_url: "https://www.scielo.br/j/ensaio/a/zS4yq9yN5JzfFcdv47JGM4h/?format=pdf",
+        main_url: "https://www.scielo.br/j/ensaio/a/zS4yq9yN5JzfFcdv47JGM4h/?format=html",
+        website_name: "SciELO"
+      }),
+      getPublication({
+        id: 'rr2024',
+        authors: "Victor Vasconcelos de Souza, Cristiane Faiad",
+        read_url: "https://recital.almenara.ifnmg.edu.br/index.php/recital/article/view/478/185",
+        main_url: "https://www.publicationsgate.net/publication/378746761_OS_TESTES_SITUACIONAIS_DE_INTELIGENCIA_EMOCIONAL_COMO_UM_TESTE_ADAPTATIVO_COMPUTADORIZADO_The_Situational_Tests_of_Emotional_Intelligence_as_Computer-Adaptive_Tests",
+        website_name: "ResearchGate"
+      })
+    ]
+    
+    
+    const navStrings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
+    
+    return (
+      <Element name={"Publications"} id="publications">
+        <section className="section">
+          <Container>
+            <Container className="d-flex">
+              <Title>
+                <h2>{navStrings.publications}</h2>
+                <div className="underline"></div>
+              </Title>
+            </Container>
+          <HorizontalScroller>
+            {mainPublications.sort((a,b) => { return b.id - a.id }).map(function ({
+              id,
+              image,
+              name,
+              authors,
+              publication,
+              abstract,
+              read_url,
+              main_url,
+              website_name,
+              website_icon
+            }) {
+              return (
+                <PublicationCard
+                key={id}
+                image={image}
+                name={name}
+                authors={authors}
+                publication={publication}
+                abstract={abstract}
+                read_url={read_url}
+                main_url={main_url}
+                website_name={website_name}
+                website_icon={website_icon}
+                />
+              );
+            })}
+          </HorizontalScroller>
+          </Container>
+        </section>
+      </Element>
+    );
+  }
+  
+  const HorizontalScroller = ({ children }) => {
+    const scrollContainer = useRef(null);
+    
+    const scroll = (scrollOffset) => {
+      scrollContainer.current.scrollLeft += scrollOffset;
+    };
+
+    const StyledDiv = styled.div`
+    position: relative;
+      .scroll-button {
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        background: transparent;
+        border: none;
+        color: white;
+        text-shadow: 1px 1px black;
+        }
+
+      .scroll-button.left {
+        top: 50%;
+        left: 0%;
+        }
+
+      .scroll-button.right {
+        top: 50%;
+        right: 0%;
+        }
+        `
+
+    return (
+      <StyledDiv>
+        <button className="scroll-button right" onClick={() => scroll(200)}><Icon icon="fluent:arrow-circle-right-48-filled" height="64px" width="64px"/></button>
+          <StyledScrollMenu ref={scrollContainer}>
+            {children}
+          </StyledScrollMenu>
+        <button className="scroll-button left" onClick={() => scroll(-200)}><Icon icon="fluent:arrow-circle-left-48-filled" height="64px" width="64px"/></button>
+      </StyledDiv>
+    );
+  };

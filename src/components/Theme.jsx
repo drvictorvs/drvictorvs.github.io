@@ -1,16 +1,16 @@
 import { useSelector } from "react-redux";
+import { useAppContext, useTheme } from "../appContext";
+import { ThemeContext } from "styled-components";
 import { selectData } from "../pages/homeSlice";
 import { Link } from "react-scroll";
 import styled from "styled-components";
 // Icons
 import { Icon } from "@iconify/react";
 // Media
-import Logo from "../images/logo.svg";
 import LightBG from "../images/theme-light.jpg";
 import DarkBG from "../images/theme-dark.jpg";
 // Components
 import { Col, Container, Row } from "react-bootstrap";
-import { Spin } from "./globalStyledComponents";
 import SocialLinks from "./SocialLinks";
 import { BigLogo } from "./Resources"
 
@@ -52,8 +52,7 @@ const StyledTheme = styled.header`
 
   @media screen and (min-width: 1180px) {
     &::before {
-      background: ${({ theme }) =>
-        theme.name === "light"
+      background: ${({ theme }) => theme.name === "light"
           ? `url(${LightBG}) center center fixed no-repeat`
           : `url(${DarkBG}) center center fixed no-repeat`};
       background-size: 100vw auto;
@@ -62,8 +61,7 @@ const StyledTheme = styled.header`
 
   @media screen and (min-width: 1367px) {
     &::before {
-      background: ${({ theme }) =>
-        theme.name === "light"
+      background: ${({ theme }) => theme.name === "light"
           ? `url(${LightBG}) center center fixed no-repeat`
           : `url(${DarkBG}) center center fixed no-repeat`};
       background-size: cover;
@@ -73,6 +71,7 @@ const StyledTheme = styled.header`
 
 export default function Theme() {
   const { name } = useSelector(selectData);
+  const { theme } = useTheme();
 
   return (
     <StyledTheme>
@@ -90,7 +89,7 @@ export default function Theme() {
         </Row>
         <Row className="align-items-end down-container">
           <Col className="m-4 text-center">
-            <Link to={"About"} className="link-icons">
+            <Link to={"AboutMe"} className="link-icons">
               <Icon icon="fa6-solid:circle-chevron-down" />
             </Link>
           </Col>

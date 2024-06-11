@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useAppContext } from "../appContext";
 import AboutMe from "../components/AboutMe";
-import Activity from "../components/Activity";
+import Activities from "../components/Activities";
 import ContactMe from "../components/ContactMe";
 import Footer from "../components/Footer";
 import Publications from "../components/Publications";
@@ -30,7 +30,7 @@ export default function Home() {
       <Theme />
       <main>
         <AboutMe />
-        <Activity />
+        <Activities />
         <Publications />
         <Repositories />
         <ContactMe />

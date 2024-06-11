@@ -1,13 +1,14 @@
 import React from "react";
+import { ThemeContext } from "styled-components";
 
 const AppContext = React.createContext();
 
 const AppProvider = function ({ children }) {
-  const [theme, setTheme] = React.useState("light");
+  const [themeName, setTheme] = React.useState("light");
   const [lang, setLang] = React.useState("en");
   const [isExpanded, setExpanded] = React.useState(false);
 
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const toggleTheme = () => setTheme(themeName === "light" ? "dark" : "light");
   const toggleLang = () => setLang(lang === "en" ? "pt" : "en");
 
   const toggleExpanded = () => setExpanded((prevState) => !prevState);
@@ -21,7 +22,7 @@ const AppProvider = function ({ children }) {
   return (
     <AppContext.Provider
       value={{
-        theme,
+        themeName,
         setTheme,
         toggleTheme,
         lang,
@@ -38,5 +39,7 @@ const AppProvider = function ({ children }) {
 };
 
 export const useAppContext = () => React.useContext(AppContext);
+
+export const useTheme = () => React.useContext(ThemeContext);
 
 export { AppContext, AppProvider };

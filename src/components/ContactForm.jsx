@@ -13,7 +13,7 @@ export default function ContactForm() {
   const [success, setSuccess] = React.useState(false);
   const [danger, setDanger] = React.useState(false);
   const [dangerMessage, setDangerMessage] = React.useState(null);
-  const { theme } = useAppContext();
+  const { themeName } = useAppContext();
 
   async function postData(data) {
     const response = await fetch(formspreeUrl, {
@@ -100,7 +100,7 @@ export default function ContactForm() {
           {formspreeUrl && (
             <Button
               size="lg"
-              variant={theme === "light" ? "outline-dark" : "outline-light"}
+              variant={themeName === "light" ? "outline-dark" : "outline-light"}
               type="submit"
               disabled={isProcessing}
               className="my-4"

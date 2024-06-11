@@ -27,15 +27,12 @@ const StyledAboutMe = styled.section`
 `;
 
 export default function AboutMe() {
-  const { avatar_url, bio } = useSelector(selectData);
+  const { avatar_url } = useSelector(selectData);
   const { lang } = useAppContext();
   const strings = lang === "en" ? LangEN.misc : LangPT.misc;
-  
-  const moreInfo =
-    "Licensed neuropsychologist and a University of Brasilia alumnus. Doctorate and Master's degree were both sought under the guidance of Prof. Dr. Cristiane Faiad in the Psychological Assessment and Instrumentation concentration of the Post-Graduate Program of Social, Work and Organizational Psychology—also at the University of Brasília. Specialized in the use of programming resources in Education and Psychometrics (Statistical Modeling, Psychological and Educational Assessment). Experience in statistical analysis in biomedical sciences, neurosciences and psychology. Worked for two years in psychopharmacology labs, using either oral or intrahypocampal perfusion methodology. Currently working as a psychometrician at the National Institute of Study and Research in Education.";
 
   return (
-    <Element name={"About Me"} id="aboutMe">
+    <Element name={"AboutMe"} id="aboutMe">
       <StyledAboutMe className="section">
         <Container>
           <Container className="d-flex">
@@ -47,12 +44,11 @@ export default function AboutMe() {
           <Row className="align-items-center mt-5">
             <Col className="d-flex flex-column text-center">
             <Subtitle>
-              <h3>{strings['aboutMe2']}</h3>
+              <h3>{strings.desc}</h3>
               <div className="underline"></div>
             </Subtitle>
               <Container>
-                {/* <p>{bio}</p> */}
-                {moreInfo && <p>{moreInfo}</p>}
+                {strings.moreInfo && <p>{strings.moreInfo}</p>}
               </Container>
             </Col>
             <Col className="d-none d-md-block text-center">

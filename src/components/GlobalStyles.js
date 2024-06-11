@@ -8,7 +8,7 @@ Variables
 ===============
 */
 :root {
-  --border: 1px solid ;
+  --border: 1px solid;
   --transition: all 0.3s linear;
   --nav-height: 61px;
   --min-footer-height: 11vh;
@@ -24,8 +24,8 @@ Global Styles
 ===============
 */
 body {
-  background: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background };
+  color: ${({ theme }) => theme.color };
   font-family: var(--tertiary-font);
 }
 
@@ -34,11 +34,16 @@ a:hover {
 }
 
 .navbar {
-  border-bottom: var(--border);
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: ${({ theme }) => theme.gradient };
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
 
   img {
-    background: ${({ theme }) =>
-      theme.imgColors};
+    background: ${({ theme }) => theme.imgColors };
   }
 }
 
@@ -92,7 +97,7 @@ a:hover {
     }
 }
 
- @media screen and (min-width: 1367px) {
+@media screen and (min-width: 1367px) {
   .link-icons:hover {
     color: ${({ theme }) => theme.primary };
   }

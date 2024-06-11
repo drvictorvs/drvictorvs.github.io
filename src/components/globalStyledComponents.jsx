@@ -46,8 +46,7 @@ export const Title = styled.div`
     border-radius: 0.25rem;
     background: var(--clr-primary-5);
     margin: 0 auto 1.5rem auto;
-    background: ${({ theme }) =>
-      theme.gradient };
+    background: ${({ theme }) => theme.gradient };
   }
 `;
 

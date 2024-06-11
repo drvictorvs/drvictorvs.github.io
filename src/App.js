@@ -47,6 +47,7 @@ const themes = {
       linkHover: "#FFD9CC"
     },
     bgImg: LightBG,
+    filter: "invert(53%) sepia(85%) saturate(3345%) hue-rotate(341deg) brightness(96%) contrast(113%)"
   },
   dark: {
     name: "dark",
@@ -66,11 +67,12 @@ const themes = {
       linkHover: "#FF5722"
     },
     bgImg: DarkBG,
+    filter: "invert(89%) sepia(88%) saturate(4248%) hue-rotate(293deg) brightness(98%) contrast(135%)"
   },
 };
 
 export default function App() {
-  const { theme, setTheme, lang } = useAppContext();
+  const { themeName, setTheme, lang } = useAppContext();
   const translations = lang === 'en' ? LangEN : LangPT;
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -95,7 +97,7 @@ export default function App() {
 
 if (isLoading) {
   return (
-    <ThemeProvider theme={themes[theme]}>
+    <ThemeProvider theme={themes[themeName]}>
     <GlobalStyles />
     <Container className="d-flex vh-100 align-items-center">
     <Loading />
@@ -104,7 +106,7 @@ if (isLoading) {
   );
 } else if (error) {
   return (
-    <ThemeProvider theme={themes[theme]}>
+    <ThemeProvider theme={themes[themeName]}>
     <GlobalStyles />
     <Container className="d-flex vh-100 align-items-center justify-content-center">
     <h2>{error}</h2>
@@ -114,7 +116,7 @@ if (isLoading) {
 } else {
   return (
     <HashRouter>
-    <ThemeProvider theme={themes[theme]}>
+    <ThemeProvider theme={themes[themeName]}>
     <ScrollToTop />
     <GlobalStyles />
     <Element name={"Home"} id="home">
@@ -122,7 +124,7 @@ if (isLoading) {
     </Element>
     <Routes>
     <Route exact path="/" element={<Home />} />
-    <Route path="/All-Projects" element={<AllRepositories />} />
+    <Route path="/AllRepositories" element={<AllRepositories />} />
     <Route path="*" element={<NotFound />} />
     </Routes>
     </ThemeProvider>

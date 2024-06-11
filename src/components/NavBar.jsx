@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppContext } from "../appContext";
+import { useAppContext, useTheme } from "../appContext";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
@@ -52,17 +52,17 @@ const FixedNavSpacer = styled.div`
 `;
 
 function ThemeToggle() {
-  const { theme, toggleTheme, closeExpanded } = useAppContext();
+  const { themeName, toggleTheme, closeExpanded } = useAppContext();
 
   return (
     <StyledSwitch onClick={closeExpanded}>
       <input
         type="checkbox"
-        aria-label={`Toggle theme, currently ${theme}.`}
+        aria-label={`Toggle theme, currently ${themeName}.`}
         onClick={toggleTheme}
       />
       <div>
-        {theme === "light" ? (
+        {themeName === "light" ? (
           <Icon icon="game-icons:sunflower" />
         ) : (
           <Icon icon="game-icons:moon" />
@@ -96,20 +96,21 @@ function LangToggle() {
 }
 
 export default function NavBar() {
-  const { theme, lang, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
+  const { themeName, lang, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
   const { pathname } = useLocation();
+  const theme = useTheme();
 
   const navStrings = lang === 'en' ? LangEN.navmenu : LangPT.navmenu;
 
   const navLinks = {
     routes: [
       { id: "1R", name: navStrings.home, route: "/" },
-      { id: "2R", name: navStrings.allRepositories, route: "/All-Projects" },
+      { id: "2R", name: navStrings.allRepositories, route: "/AllRepositories" },
     ],
     to: [
       { id: "1T", name: navStrings.home, to: "Home" },
-      { id: "2T", name: navStrings.about, to: "About" },
-      { id: "3T", name: navStrings.activity, to: "Activity" },
+      { id: "2T", name: navStrings.about, to: "AboutMe" },
+      { id: "3T", name: navStrings.activities, to: "Activities" },
       { id: "4T", name: navStrings.publications, to: "Publications" },
       { id: "5T", name: navStrings.repositories, to: "Repositories" },
       { id: "6T", name: navStrings.contactMe, to: "ContactMe" },
@@ -124,13 +125,13 @@ export default function NavBar() {
         collapseOnSelect={true}
         expand="lg"
         expanded={isExpanded}
-        bg={theme === "light" ? "light" : "dark"}
-        variant={theme === "light" ? "light" : "dark"}
+        bg={themeName === "light" ? "light" : "dark"}
+        variant={themeName === "light" ? "light" : "dark"}
         fixed="top"
       >
         <Container>
           <Navbar.Brand>
-            <Logo />
+            <Logo theme={theme} />
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"

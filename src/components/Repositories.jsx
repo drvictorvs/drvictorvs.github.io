@@ -29,7 +29,7 @@ export const projectCardImages = [
 
 export default function Repositories() {
   const [mainRepositories, setMainRepositories] = React.useState([]);
-  const { theme, lang } = useAppContext();
+  const { themeName, lang } = useAppContext();
   const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -104,7 +104,7 @@ export default function Repositories() {
                     <Button
                       size="lg"
                       variant={
-                        theme === "light" ? "outline-dark" : "outline-light"
+                        themeName === "light" ? "outline-dark" : "outline-light"
                       }
                     >
                       All <Icon icon="icomoon-free:github" /> Repositories

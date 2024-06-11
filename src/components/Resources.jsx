@@ -1,76 +1,65 @@
 import React from 'react';
-import { useAppContext } from "../appContext";
+import { useTheme } from "../appContext";
+import { ReactComponent as LogoSVG } from "../images/logo.svg";
 
-import PDFFileIcon from '../images/pdf-file.svg';
+// #region: Operational
+export function importAll(r) {
+  let SVGs = {};
+  r.keys().forEach((item, index) => {
+    SVGs[item.replace('./', '')] = r(item);
+  });
+  return SVGs;
+}
 
-// TODO make this a lot less bad
-function GetPrimaryIconFilter(){
-  const { theme } = useAppContext(); 
-  return (theme === "dark"
-  ? "invert(89%) sepia(88%) saturate(4248%) hue-rotate(293deg) brightness(98%) contrast(135%)"
-  : "invert(53%) sepia(85%) saturate(3345%) hue-rotate(341deg) brightness(96%) contrast(113%)"
-);
-};
+const SVGs = importAll(require.context('../images', true, /\.svg$/));
 
-const imgs = importAll(require.context('../images', false, /\.svg$/));
+// #region: Logo
+export const Logo = ({ theme }) => 
+<img src={SVGs['logo.svg']} style={{height:"35px", width:"35px", filter: theme.filter, background:"none"}} alt="" />;
+
+export const BigLogo = () => {
+  const theme = useTheme();
+  return (
+<img src={SVGs['logo.svg']} style={{height:"75%", width:"75%", filter: theme.filter, background:"none"}} alt="" />);
+}
 
 
-// Logo
-
-export const Logo = () =>
-  <img src={imgs['logo.svg']} className="primary-icon" style={{width: 35, height: 35,
-      filter: GetPrimaryIconFilter(), background: "none"}} alt="English" />;
-
-export const BigLogo = () =>
-  <img src={imgs['logo.svg']} className="w-75 mx-auto theme-img" 
-style={{filter: GetPrimaryIconFilter(), background: "none"}} alt="English" />;
-
-// Flags
+// #region: Flags
 export const FlagUS = () => 
-<img src={imgs['flag-us.svg']} style={{height:"1em", width:"1em", background:"none"}} alt="English" />;
+<img src={SVGs['flag-us.svg']} style={{height:"1em", width:"1em", background:"none"}} alt="" />;
 
 export const FlagBR = () => 
-<img src={imgs['flag-br.svg']} style={{height:"1em", width:"1em", background:"none"}} alt="English" />;
+<img src={SVGs['flag-br.svg']} style={{height:"1em", width:"1em", background:"none"}} alt="" />;
 
-// Skills
 
-const skillImgs = importAll(require.context('../images/skills', false, /\.svg$/));
-export const Neuropsychology = () => 
-<img src={skillImgs['neuropsychology.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+// #region: Skills
 
-export const Psychometrics = () => 
-<img src={skillImgs['psychometrics.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const Neuropsychology = ({ theme }) => 
+<img src={SVGs['skills/neuropsychology.svg']} style={{filter: theme?.filter}} alt="" />
+export const Psychometrics = ({ theme }) => 
+<img src={SVGs['skills/psychometrics.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const Psychopharmacology = () => 
-<img src={skillImgs['psychopharmacology.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const Psychopharmacology = ({ theme }) => 
+<img src={SVGs['skills/psychopharmacology.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const IntellectualAssessment = () => 
-<img src={skillImgs['intellectual-assessment.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const IntellectualAssessment = ({ theme }) => 
+<img src={SVGs['skills/intellectual-assessment.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const EmotionalIntellectualAssessment = () => 
-<img src={skillImgs['emotional-intellectual-assessment.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const EmotionalIntellectualAssessment = ({ theme }) => 
+<img src={SVGs['skills/emotional-intellectual-assessment.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const ResearchDesign = () => 
-<img src={skillImgs['research-design.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const ResearchDesign = ({ theme }) => 
+<img src={SVGs['skills/research-design.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const StatisticalModeling = () => 
-<img src={skillImgs['statistical-modeling.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const StatisticalModeling = ({ theme }) => 
+<img src={SVGs['skills/statistical-modeling.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const Python = () => 
-<img src={skillImgs['lang-python.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const Python = ({ theme }) => 
+<img src={SVGs['skills/lang-python.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const R = () => 
-<img src={skillImgs['lang-r.svg']} className="primary-icon" style={{filter: GetPrimaryIconFilter()}} alt="English" />;
+export const R = ({ theme }) => 
+<img src={SVGs['skills/lang-r.svg']} style={{filter: theme?.filter}} alt="" />;
 
 export const PDFFileIco = () =>
-  <img src={PDFFileIcon} alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",
-    padding: "0px 0px 4px 3px", filter: "invert(1)"}} />;
+<img src={SVGs['pdf-file.svg']} alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", filter: "invert(1)"}} />;
 
-// Opertational
-export function importAll(r) {
-  let svgs = {};
-  r.keys().forEach((item, index) => {
-    svgs[item.replace('./', '')] = r(item);
-  });
-  return svgs;
-}
