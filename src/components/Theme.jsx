@@ -1,18 +1,17 @@
 import { useSelector } from "react-redux";
-import { useAppContext, useTheme } from "../appContext";
-import { ThemeContext } from "styled-components";
-import { selectData } from "../pages/homeSlice";
 import { Link } from "react-scroll";
 import styled from "styled-components";
+import { useTheme } from "../appContext";
+import { selectData } from "../pages/homeSlice";
 // Icons
 import { Icon } from "@iconify/react";
 // Media
-import LightBG from "../images/theme-light.jpg";
 import DarkBG from "../images/theme-dark.jpg";
+import LightBG from "../images/theme-light.jpg";
 // Components
 import { Col, Container, Row } from "react-bootstrap";
+import { BigLogo } from "./Resources";
 import SocialLinks from "./SocialLinks";
-import { BigLogo } from "./Resources"
 
 
 const StyledTheme = styled.header`

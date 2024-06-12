@@ -1,8 +1,8 @@
-import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { selectData } from "../pages/homeSlice";
 import { Element } from "react-scroll";
-import { useAppContext } from "../appContext"
+import styled from "styled-components";
+import { useAppContext } from "../appContext";
+import { selectData } from "../pages/homeSlice";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
 // Data
@@ -17,6 +17,7 @@ const Subtitle = styled.div`
 `;
 
 const StyledAboutMe = styled.section`
+
   p {
     font-size: 1.25rem;
   }
@@ -24,6 +25,17 @@ const StyledAboutMe = styled.section`
     width: 18rem;
     height: 18rem;
   }
+
+  @media screen and (max-width: 700px) {
+    p {
+      font-size: 1rem;
+    }
+
+    .mt-5 {
+      margin-top: 1vh !important;
+    }
+  }
+
 `;
 
 export default function AboutMe() {

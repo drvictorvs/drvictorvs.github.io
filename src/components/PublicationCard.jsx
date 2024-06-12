@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { useAppContext } from "../appContext";
+import { useAppContext, useTheme } from "../appContext";
 // Icons
 import { Icon } from "@iconify/react";
 // Components
 import { Card } from "react-bootstrap";
-import LangEN from '../translations/LangEN';
-import LangPT from '../translations/LangPT';
-import { PDFFileIco } from './Resources';
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
+import { FlagBR, FlagUS, PDFFileIco } from "./Resources";
+
 
 const PublicationCardComponent = styled.div`
   display: flex;
@@ -15,79 +16,168 @@ const PublicationCardComponent = styled.div`
   align-items: stretch;
   align-content: stretch;
   justify-content: space-between;
+  padding: 0 0 5px 5px;
+
   .card {
-    background: ${({ theme }) => theme.card.bg };
-    // box-shadow: ${({ theme }) => theme.card.shadow };
-    display: inline-block;
+    background: ${({ theme }) => theme.card.bg};
+    color: ${({ theme }) => theme.card.fg};
+    box-shadow: ${({ theme }) => theme.card.shadow};
+    border: none;
+    display: flex;
     margin-right: 10px;
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
     flex: 1;
+    min-width: 400px;
     width: 20vw;
-    height: max-content;
-    transition: none;
-    cursor:default;
+    height: inherit;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
     align-content: stretch;
     justify-content: space-between;
 
     &:hover {
-      transform: none;
+      transform: scale(1.03);
     }
 
-    .card-text, .card-title {
-      flex: 1;
+    .card-title {
+    font-size: max(1.1em,1vh);
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
     }
 
     .card-link {
       text-decoration: none;
-      font-size: 1.5rem;
-      color: ${({ theme }) => theme.color };
+      font-size: 1rem;
+      color: ${({ theme }) => theme.color};
 
       &:hover {
-        color: ${({ theme }) => theme.primary };
+        color: ${({ theme }) => theme.primary};
       }
     }
+
+    .card-tooltip {
+
+      &::after {
+        cursor: help;
+        text-decoration: underline;
+        text-decoration-line: underline;
+        text-decoration-style: dotted;
+        text-decoration-color: currentcolor;
+        content: " ℹ";
+        vertical-align: super;
+        font-size: 0.7rem;
+      }
+    }
+
+    
 
     .card-footer {
       position: relative;
       margin-top: 0;
-      // border-top: var(--border);
-      background: ${({ theme }) => theme.card.footer };
+      background: ${({ theme }) => theme.card.footer};
     }
+
+    .card-img-top {
+      height: 35vh;
+      object-fit: cover;
+    }
+
+    
   }
 `;
 
-export default function PublicationCard({ image, name, authors, publication, abstract, read_url, main_url, website_name, website_icon }) {
-  const { lang } = useAppContext();
-  const strings = lang === "en" ? LangEN.messages : LangPT.messages;
+export default function PublicationCard({
+  id,
+  image,
+  name,
+  authors,
+  publication,
+  artLang,
+  abstract,
+  read_url,
+  main_url,
+  website_name,
+  website_icon,
+}) {
+  const { lang, themeName } = useAppContext();
+  const theme = useTheme();
+  const strings = lang === "en" ? LangEN : LangPT;
+
+  const flagStyle = {
+    position: "absolute",
+    width: 64,
+    height: 64,
+    bottom: 0,
+    right: 0,
+    zIndex: 99,
+    filter: theme.filterShadow
+  };
+
+  const starStyle = {
+    position: "absolute",
+    width: 64,
+    height: 64,
+    top: 0,
+    right: 0,
+    zIndex: 99,
+    color: "#f8c100",
+    filter: theme.filterShadow
+  };
 
   return (
-      <PublicationCardComponent>
-        <Card>
+    <PublicationCardComponent>
+      <Card>
+        <div style={{ position: "relative" }}>
+          {artLang === "en" ? (
+            <FlagUS style={flagStyle} />
+          ) : (
+            <FlagBR style={flagStyle} />
+          )}
+          {(strings.scientific[id].star === true) && <Icon icon="fluent:star-12-filled" style={starStyle} />}
           <Card.Img
+            style={{ position: "relative" }}
             variant="top"
             src={image}
             alt={name}
             className="mx-auto"
           />
-          <Card.Body className="text-center">
-            <Card.Title>{name}</Card.Title>
-            <Card.Text>{authors}</Card.Text>
-            <Card.Text>{publication}</Card.Text>
-            <Card.Text>{abstract}</Card.Text>
-          </Card.Body>
-          <Card.Footer className="text-center">
-            <Card.Link href={read_url}>
-              {"Read online"}
-              <PDFFileIco />
-            </Card.Link>
-          </Card.Footer>
-          <Card.Footer className="text-center">
-            <Card.Link href={main_url}>
-              {`${strings.viewon} ${website_name}  `}
-              <Icon icon={website_icon ? "i-fluent:share-20-filled" : website_icon} />
-            </Card.Link>
-          </Card.Footer>
-        </Card>
-      </PublicationCardComponent>
+        </div>
+        <Card.Body className="text-center">
+          <Card.Title>{name}</Card.Title>
+          <Card.Text>{authors}</Card.Text>
+          {
+            publication.includes(" [") ? (
+              <Card.Text 
+                className="card-tooltip" 
+                title={publication.split(" [")[1].slice(0, -1)}>
+                {publication.split(" [")[0]}
+              </Card.Text>
+            ) : (
+              <Card.Text>{publication}</Card.Text>
+            )
+          }
+          <Card.Text>{abstract}</Card.Text>
+        </Card.Body>
+        <Card.Footer className="text-center">
+          <Card.Link href={read_url} target="_blank" rel="noopener">
+            {"Read online"}
+            <PDFFileIco themeName={themeName} />
+          </Card.Link>
+        </Card.Footer>
+        <Card.Footer className="text-center">
+          <Card.Link href={main_url} target="_blank" rel="noopener">
+            {`${strings.messages.viewon} ${website_name}  `}
+            <Icon
+              icon={website_icon ? "i-fluent:share-20-filled" : website_icon}
+            />
+          </Card.Link>
+        </Card.Footer>
+      </Card>
+    </PublicationCardComponent>
   );
 }

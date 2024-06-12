@@ -1,31 +1,31 @@
 import React from "react";
-import { useAppContext } from "./appContext";
 import { useDispatch, useSelector } from "react-redux";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import { Element } from "react-scroll";
+import { ThemeProvider } from "styled-components";
+import { useAppContext } from "./appContext";
+import { fetchGitHubReops } from "./pages/allRepositoriesSlice";
 import {
   fetchGitHubInfo,
   selectError,
   selectIsLoading,
 } from "./pages/homeSlice";
-import { fetchGitHubReops } from "./pages/allRepositoriesSlice";
-import { HashRouter, Routes, Route } from "react-router-dom";
-import { Element } from "react-scroll";
-import { ThemeProvider } from "styled-components";
 // Components
 import { Container } from "react-bootstrap";
-import { Loading } from "./components/globalStyledComponents";
-import ScrollToTop from "./components/ScrollToTop";
 import GlobalStyles from "./components/GlobalStyles";
 import NavBar from "./components/NavBar";
+import ScrollToTop from "./components/ScrollToTop";
+import { Loading } from "./components/globalStyledComponents";
 // Pages
-import Home from "./pages/Home";
 import AllRepositories from "./pages/AllRepositories";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 import LangEN from './translations/LangEN';
 import LangPT from './translations/LangPT';
 
-import LightBG from "./images/theme-light.jpg";
 import DarkBG from "./images/theme-dark.jpg";
+import LightBG from "./images/theme-light.jpg";
 
 const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const themes = {
@@ -41,13 +41,16 @@ const themes = {
     gradient: "linear-gradient(to left, #FFBFAA, #FF5722)",
     card: {
       bg: "transparent",
+      fg: "#404040",
       shadow: "0 3px 10px rgb(0 0 0 / 0.2)",
       footer: "transparent",
       link: "#45413C",
       linkHover: "#FFD9CC"
     },
     bgImg: LightBG,
-    filter: "invert(53%) sepia(85%) saturate(3345%) hue-rotate(341deg) brightness(96%) contrast(113%)"
+    filter: "invert(53%) sepia(85%) saturate(3345%) hue-rotate(341deg) brightness(96%) contrast(113%)",
+    filterShadow: "drop-shadow(1px 1px 0px #45413C)",
+    filterShadowHover: "drop-shadow(1px 1px 0px #FF5722)"
   },
   dark: {
     name: "dark",
@@ -60,14 +63,17 @@ const themes = {
     overlay: "rgba(0, 0, 0, 0.6)",
     gradient: "linear-gradient(to right, #FF5722, #FFBFAA)",
     card: {
-      bg: "#797B7B",
+      bg: "#404040",
+      fg: "#FBFDFF",
       shadow: "0 3px 10px rgb(255 255 255 / 0.2)",
-      footer: "#404040",
+      footer: "#303030",
       link: "#FBFDFF",
       linkHover: "#FF5722"
     },
     bgImg: DarkBG,
-    filter: "invert(89%) sepia(88%) saturate(4248%) hue-rotate(293deg) brightness(98%) contrast(135%)"
+    filter: "invert(89%) sepia(88%) saturate(4248%) hue-rotate(293deg) brightness(98%) contrast(135%)",
+    filterShadow: "drop-shadow(1px 1px 0px #45413C)",
+    filterShadowHover: "drop-shadow(1px 1px 0px #FF5722)"
   },
 };
 

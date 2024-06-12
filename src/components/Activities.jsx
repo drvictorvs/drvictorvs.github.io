@@ -1,24 +1,22 @@
 import { Element } from "react-scroll";
+import styled from "styled-components";
 import { useAppContext, useTheme } from "../appContext";
-import { ThemeContext } from "styled-components";
 // Components
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
 import {
-  EmotionalIntellectualAssessment as EIAssessment, 
+  EmotionalIntellectualAssessment as EIAssessment,
   IntellectualAssessment,
   Neuropsychology,
-  Psychometrics, 
+  Psychometrics,
   Psychopharmacology,
-  Python, 
+  Python,
   R,
-  ResearchDesign, 
+  ResearchDesign,
   StatisticalModeling
 } from "./Resources";
 import { Title } from "./globalStyledComponents";
-
-const resume = null;
 
 export default function Activities() {
   const { themeName, lang } = useAppContext();
@@ -75,8 +73,19 @@ export default function Activities() {
   },
 ];
 
+const Activities = styled(Element)`
+@media screen and (max-width: 600px) {
+  figure {
+  }
+  figcaption {
+    font-size: max(0.8em,0.8vw);
+  }
+}
+  figcaption 
+`
+
   return (
-    <Element name={"Activities"} id="activities">
+    <Activities name={"Activities"} id="activities">
       <section className="section">
         <Container className="text-center">
           <Title>
@@ -95,19 +104,8 @@ export default function Activities() {
               );
             })}
           </Row>
-          {resume && (
-            <a href={resume}>
-              <Button
-                size="lg"
-                variant={theme === "light" ? "outline-dark" : "outline-light"}
-                className="mt-5"
-              >
-                R&eacute;sum&eacute;
-              </Button>
-            </a>
-          )}
         </Container>
       </section>
-    </Element>
+    </Activities>
   );
 }

@@ -1,22 +1,22 @@
 import React from "react";
-import { useAppContext } from "../appContext";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Element } from "react-scroll";
+import { useAppContext } from "../appContext";
 import {
   selectData,
   selectError,
   selectIsLoading,
 } from "../pages/allRepositoriesSlice";
-import { Link } from "react-router-dom";
-import { Element } from "react-scroll";
 // Media
 import { Icon } from "@iconify/react";
-import Logo from "../images/logo.svg"
+import Logo from "../images/logo.svg";
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Title, Loading } from "./globalStyledComponents";
-import RepositoryCard from "./RepositoryCard";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
+import RepositoryCard from "./RepositoryCard";
+import { Loading, Title } from "./globalStyledComponents";
 
 const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
 

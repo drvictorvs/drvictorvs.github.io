@@ -25,11 +25,11 @@ export const BigLogo = () => {
 
 
 // #region: Flags
-export const FlagUS = () => 
-<img src={SVGs['flag-us.svg']} style={{height:"1em", width:"1em", background:"none"}} alt="" />;
+export const FlagUS = ({style = {height:"1em", width:"1em", background:"none"}}) => 
+<img src={SVGs['flag-us.svg']} style={style} alt="" />;
 
-export const FlagBR = () => 
-<img src={SVGs['flag-br.svg']} style={{height:"1em", width:"1em", background:"none"}} alt="" />;
+export const FlagBR = ({style = {height:"1em", width:"1em", background:"none"}}) => 
+<img src={SVGs['flag-br.svg']} style={style} alt="" />;
 
 
 // #region: Skills
@@ -60,6 +60,6 @@ export const Python = ({ theme }) =>
 export const R = ({ theme }) => 
 <img src={SVGs['skills/lang-r.svg']} style={{filter: theme?.filter}} alt="" />;
 
-export const PDFFileIco = () =>
-<img src={SVGs['pdf-file.svg']} alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", filter: "invert(1)"}} />;
+export const PDFFileIco = ({ themeName }) =>
+<img src={SVGs['pdf-file.svg']} alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", filter: themeName === "light" ? "invert(0)": "invert(1)"}} />;
 

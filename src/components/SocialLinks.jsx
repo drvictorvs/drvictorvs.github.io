@@ -1,11 +1,8 @@
+import { Icon } from '@iconify/react';
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectData } from "../pages/homeSlice";
 import styled from "styled-components";
-// Data
-// import { Blog } from "../data";
-// Icons
-import { Icon } from '@iconify/react';
+import { selectData } from "../pages/homeSlice";
 
 
 export const Blog = <Icon icon="ph:link-bold" />;
