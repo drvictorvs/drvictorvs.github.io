@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useTheme } from "../appContext";
-import { ReactComponent as LogoSVG } from "../images/logo.svg";
 
 // #region: Operational
 export function importAll(r) {
@@ -23,14 +23,48 @@ export const BigLogo = () => {
 <img src={SVGs['logo.svg']} style={{height:"75%", width:"75%", filter: theme.filter, background:"none"}} alt="" />);
 }
 
+const FlagContainer = styled.div`
+
+.flag-top {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  transition: transform var(--transition);
+  position: absolute;
+}
+
+.flag-bottom {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  transition: transform var(--transition);
+  position: relative;
+  }
+  
+  /* Move span when checked */
+  input[type="checkbox"]:checked + div + #flagContainer .flag-top {
+    transform: translateX(100%);
+  }
+
+  input[type="checkbox"]:checked + div + #flagContainer .flag-bottom {
+    transform: translateX(-100%);
+  }
+
+`
 
 // #region: Flags
-export const FlagUS = ({style = {height:"1em", width:"1em", background:"none"}}) => 
-<img src={SVGs['flag-us.svg']} style={style} alt="" />;
+export const FlagENG = ({style = {height:"1em", width:"1em", background:"none", position:"absolute"}}) => {
+return (
+  <FlagContainer className="flagContainer">
+    <img src={SVGs['flag-us.svg']} className="flag-top" style={style} alt="" />
+    <img src={SVGs['flag-uk.svg']} className="flag-bottom" style={style} alt="" />
+  </FlagContainer>
+);
+}
 
-export const FlagBR = ({style = {height:"1em", width:"1em", background:"none"}}) => 
-<img src={SVGs['flag-br.svg']} style={style} alt="" />;
-
+export const FlagPTB = ({style = {height:"1em", width:"1em", background:"none", position:"absolute"}}) => {
+  return (
+  <FlagContainer className="flagContainer">
+    <img src={SVGs['flag-pt.svg']} className="flag-top" style={style} alt="" />
+    <img src={SVGs['flag-br.svg']} className="flag-bottom" style={style} alt="" />
+  </FlagContainer>);
+}
 
 // #region: Skills
 

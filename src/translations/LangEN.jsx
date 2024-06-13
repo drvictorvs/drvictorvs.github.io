@@ -1,4 +1,5 @@
 const LangEN = {
+  id: "en",
   navmenu: {
     home: "Home",
     allRepositories: "All Projects",

@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import { Card } from "react-bootstrap";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
-import { FlagBR, FlagUS, PDFFileIco } from "./Resources";
+import { FlagENG, FlagPTB, PDFFileIco } from "./Resources";
 
 
 const PublicationCardComponent = styled.div`
@@ -134,9 +134,9 @@ export default function PublicationCard({
       <Card>
         <div style={{ position: "relative" }}>
           {artLang === "en" ? (
-            <FlagUS style={flagStyle} />
+            <FlagENG style={flagStyle} />
           ) : (
-            <FlagBR style={flagStyle} />
+            <FlagPTB style={flagStyle} />
           )}
           {(strings.scientific[id].star === true) && <Icon icon="fluent:star-12-filled" style={starStyle} />}
           <Card.Img

@@ -1,8 +1,8 @@
 import React from "react";
-import { useAppContext, useTheme } from "../appContext";
-import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import styled from "styled-components";
+import { useAppContext, useTheme } from "../appContext";
 // Icons
 import { Icon } from "@iconify/react";
 // Components
@@ -10,7 +10,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 // import { FixedNavSpacer, ToggleSwitch } from "./globalStyledComponents";
 // Images
 // import Logo from "../images/logo.svg";
-import { FlagUS, FlagBR, Logo } from "./Resources";
+import { FlagENG, FlagPTB, Logo } from "./Resources";
 
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
@@ -25,8 +25,9 @@ const StyledSwitch = styled.label`
   border-radius: 30px;
   transition: var(--transition);
   border: 2px solid;
+  cursor: pointer;
 
-  /* Hide defualt checkbox */
+  /* Hide default checkbox */
   input[type="checkbox"] {
     height: 0;
     width: 0;
@@ -46,6 +47,40 @@ const StyledSwitch = styled.label`
   }
 `;
 
+const StyledPick = styled.label`
+  display: flex;
+  font-size: 1rem;
+  border: 0px;
+  margin-right: 2vw;
+  cursor: pointer;
+
+  /* Hide default checkbox */
+  input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+
+  #langSwitcher {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: var(--transition);
+    width:5vw;
+    height: max-content;
+    flex-grow: 1;
+    gap: 0.5rem;
+
+    .flagContainer {
+    }
+
+    .langText {
+    margin-left: 0.5vw;
+    border-bottom: 1pt dotted;
+    }
+  }
+`;
+
 // Spacer for fixed Navigation bar
 const FixedNavSpacer = styled.div`
   height: var(--nav-height);
@@ -61,7 +96,7 @@ function ThemeToggle() {
         aria-label={`Toggle theme, currently ${themeName}.`}
         onClick={toggleTheme}
       />
-      <div>
+      <div id="themeSwitcher">
         {themeName === "light" ? (
           <Icon icon="game-icons:sunflower" />
         ) : (
@@ -78,20 +113,23 @@ function LangToggle() {
   const msgStrings = lang === 'en' ? LangEN.messages : LangPT.messages;
 
   return (
-    <StyledSwitch onClick={closeExpanded}>
+    <StyledPick onClick={closeExpanded}>
       <input
+        id="lang"
         type="checkbox"
         aria-label={`${msgStrings.langToggle} ${lang}.`}
         onClick={toggleLang}
       />
-      <div>
+      <div id="langSwitcher">
         {lang === "en" ? (
-          <FlagUS />
+          <><FlagPTB style={{height:"2rem", width:"2rem", background:"none"}} />
+          <div className="langText">{LangPT.id.toUpperCase()}</div></>
         ) : (
-          <FlagBR />
+          <><FlagENG style={{height:"2rem", width:"2rem", background:"none"}} /><div className="langText">{LangEN.id.toUpperCase()}</div></>
         )}
+        
       </div>
-    </StyledSwitch>
+    </StyledPick>
   );
 }
 

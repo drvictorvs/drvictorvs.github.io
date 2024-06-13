@@ -1,4 +1,5 @@
 const LangPT = {
+  id: "pt",
   navmenu: {
     'home': 'Início',
     'allRepositories': 'Todos os Projetos',
@@ -29,7 +30,7 @@ const LangPT = {
     'desc': "Neuropsicólogo e Psicometrista",
     'portfolio': "Portfólio",
     'webpage': "Dr. Victor Vasconcelos | Página",
-    moreInfo: "Neuropsicólogo (CRP 01/20123) formado na Universidade de Brasília. Doutorado e mestrado realizados sob a orientação da Profª. Drª. Cristiane Faiad na concentração de Avaliação e Instrumentação Psicológica do Programa de Pós-Graduação de Psicologia Social, Trabalho e Organizacional—também na Universidade de Brasília. Especializado no uso de recursos de programação em educação e psicometria (modelagem estatística, avaliação psicológica e educacional). Experiência em análise estatística em ciências biomédicas, neurociências e psicologia. Trabalhou por dois anos em laboratórios de psicofarmacologia, usando metodologia de perfusão oral ou intra -hipopocampal. Atualmente trabalhando como psicométrico no Instituto Nacional de Estudo e Pesquisa em Educação Anísio Teixeira.",
+    moreInfo: "Neuropsicólogo (CRP 01/20123) formado na Universidade de Brasília. Doutorado e mestrado realizados sob a orientação da Profª. Drª. Cristiane Faiad na concentração de Avaliação e Instrumentação Psicológica do Programa de Pós-Graduação de Psicologia Social, Trabalho e Organizacional—também na Universidade de Brasília. Especializado no uso de recursos de programação em educação e psicometria (modelagem estatística, avaliação psicológica e educacional). Experiência em análise estatística em ciências biomédicas, neurociências e psicologia. Trabalhou por dois anos em laboratórios de psicofarmacologia, usando metodologia de perfusão oral ou intra-hipocampal. Atualmente trabalhando como psicométrico no Instituto Nacional de Estudo e Pesquisa em Educação Anísio Teixeira.",
   },
   scientific: {
     'pbjs2015': {

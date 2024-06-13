@@ -6,6 +6,8 @@
     "antfu.iconify",
     "zacklittke-smith.reactcssautocomplete",
     "ecmel.vscode-html-css",
-    "iceworks-team.iceworks-style-helper"
+    "iceworks-team.iceworks-style-helper",
+    "jock.svg",
+    "michijs.vscode-svg"
   ]
 }

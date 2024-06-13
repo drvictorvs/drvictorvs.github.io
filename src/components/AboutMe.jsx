@@ -55,10 +55,6 @@ export default function AboutMe() {
           </Container>
           <Row className="align-items-center mt-5">
             <Col className="d-flex flex-column text-center">
-            <Subtitle>
-              <h3>{strings.desc}</h3>
-              <div className="underline"></div>
-            </Subtitle>
               <Container>
                 {strings.moreInfo && <p>{strings.moreInfo}</p>}
               </Container>
@@ -66,11 +62,15 @@ export default function AboutMe() {
             <Col className="d-none d-md-block text-center">
               <img
                 src={avatar_url}
-                alt="GitHub Avatar"
+                alt="Profile Picture"
                 loading="lazy"
                 className="mx-auto rounded-circle"
-                style={{ width: "15rem", height: "15rem" }}
+                style={{ width: "15rem", height: "15rem", marginBottom: "3vh" }}
               />
+              
+            <Subtitle>
+              <h3>{strings.desc}</h3>
+            </Subtitle>
             </Col>
           </Row>
         </Container>

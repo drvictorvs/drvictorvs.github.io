@@ -98,7 +98,7 @@ const Activities = styled(Element)`
                 <Col xs={4} key={skills.id} className="my-md-5">
                   <figure>
                     {skills.skill}
-                    <figcaption>{skills.name}</figcaption>
+                    <figcaption style={{ marginTop: "2vh"}}>{skills.name}</figcaption>
                   </figure>
                 </Col>
               );
