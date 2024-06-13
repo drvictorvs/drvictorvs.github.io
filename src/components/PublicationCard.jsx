@@ -93,6 +93,7 @@ const PublicationCardComponent = styled.div`
 
 export default function PublicationCard({
   id,
+  short_name,
   image,
   name,
   authors,
@@ -130,7 +131,7 @@ export default function PublicationCard({
   };
 
   return (
-    <PublicationCardComponent>
+    <PublicationCardComponent key={id}>
       <Card>
         <div style={{ position: "relative" }}>
           {artLang === "en" ? (
@@ -138,7 +139,7 @@ export default function PublicationCard({
           ) : (
             <FlagPTB style={flagStyle} />
           )}
-          {(strings.scientific[id].star === true) && <Icon icon="fluent:star-12-filled" style={starStyle} />}
+          {(strings.scientific[short_name].star === true) && <Icon icon="fluent:star-12-filled" style={starStyle} />}
           <Card.Img
             style={{ position: "relative" }}
             variant="top"

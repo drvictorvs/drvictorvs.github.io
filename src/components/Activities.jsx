@@ -18,6 +18,17 @@ import {
 } from "./Resources";
 import { Title } from "./globalStyledComponents";
 
+const ActivitiesStyle = styled(Element)`
+@media screen and (max-width: 600px) {
+  figure {
+  }
+  figcaption {
+    font-size: max(0.8em,0.8vw);
+  }
+}
+  figcaption 
+`;
+
 export default function Activities() {
   const { themeName, lang } = useAppContext();
   const theme = useTheme();
@@ -73,19 +84,10 @@ export default function Activities() {
   },
 ];
 
-const Activities = styled(Element)`
-@media screen and (max-width: 600px) {
-  figure {
-  }
-  figcaption {
-    font-size: max(0.8em,0.8vw);
-  }
-}
-  figcaption 
-`
+
 
   return (
-    <Activities name={"Activities"} id="activities">
+    <ActivitiesStyle name={"Activities"} id="activities">
       <section className="section">
         <Container className="text-center">
           <Title>
@@ -106,6 +108,6 @@ const Activities = styled(Element)`
           </Row>
         </Container>
       </section>
-    </Activities>
+    </ActivitiesStyle>
   );
 }

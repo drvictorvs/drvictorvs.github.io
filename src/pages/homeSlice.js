@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// Data
-// import { githubUsername } from "../data";
+import headers from '../GITTOKEN';
 
 const githubUsername = "drvictorvs";
 
@@ -16,7 +15,7 @@ export const fetchGitHubInfo = createAsyncThunk(
   "home/fetchGitHubInfo",
   async (thunkApi, { rejectWithValue }) => {
     try {
-      const response = await fetch(url).then(function (res) {
+      const response = await fetch(url, { headers }).then(function (res) {
         if (!res.ok) {
           throw new Error(res.status);
         }
@@ -26,7 +25,7 @@ export const fetchGitHubInfo = createAsyncThunk(
       return data;
     } catch (err) {
       return rejectWithValue(
-        `Error: ${err.message}, check username in data.js (currently ${githubUsername})`
+        `Error: ${err.message}`
       );
     }
   }

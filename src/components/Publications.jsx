@@ -30,13 +30,14 @@ export default function Publications() {
   const sciStrings = lang === "en" ? LangEN.scientific : LangPT.scientific;
   const theme = useTheme();
   
-  function getPublication({ id, authors, artLang, read_url, main_url, website_name }){
+  function getPublication({ id, short_name, authors, artLang, read_url, main_url, website_name }){
     return {
       id: id,
-      image: imgs[id + '.png'],
-      name: sciStrings[id].name,
+      short_name: short_name,
+      image: imgs[short_name + '.png'],
+      name: sciStrings[short_name].name,
       authors: authors,
-      publication: sciStrings[id].publication,
+      publication: sciStrings[short_name].publication,
       artLang: artLang,
       read_url: read_url,
       main_url: main_url,
@@ -46,19 +47,22 @@ export default function Publications() {
   
   
   const publicationData = [
-    getPublication({
-      id: 'pbjs2015',
-      authors:  "Ivaldo Jesus Lima de Oliveira, \
-      Victor Vasconcelos de Souza, \
-      Vitor Motta and \
-      Sérgio Leme da-Silva",
-      artLang: "en",
-      read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
-      main_url: "https://pubmed.ncbi.nlm.nih.gov/26353411/",
-      website_name: "PubMed"})
+      getPublication({
+          id: 0,
+          short_name: 'pbjs2015',
+          authors:  "Ivaldo Jesus Lima de Oliveira, \
+          Victor Vasconcelos de Souza, \
+          Vitor Motta and \
+          Sérgio Leme da-Silva",
+          artLang: "en",
+          read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
+          main_url: "https://pubmed.ncbi.nlm.nih.gov/26353411/",
+          website_name: "PubMed"
+      })
       ,
       getPublication({
-        id: 'eip2018',
+        id: 1,
+        short_name: 'eip2018',
         authors: "Cristiane Faiad, Victor Souza, Lucas Heiki Matsunaga, Carlos Manoel Lopes Rodrigues, Helena Rinaldi Rosa",
         artLang: "pt",
         read_url: "https://pepsic.bvsalud.org/pdf/eip/v9n3s1/a05.pdf",
@@ -66,7 +70,8 @@ export default function Publications() {
         website_name: "PePSIC"
       }),
       getPublication({
-        id: 'eae2018',
+        id: 2,
+        short_name: 'eae2018',
         authors: "Girlene Ribeiro Jesus, Renata Manuelly Lima Rêgo, Victor Vasconcelos de Souza",
         artLang: "pt",
         read_url: "https://educa.fcc.org.br/pdf/eae/v29n72/1984-932X-eae-29-72-858.pdf",
@@ -74,7 +79,8 @@ export default function Publications() {
         website_name: "SciELO"
       }),
       getPublication({
-        id: 'pn2019',
+        id: 3,
+        short_name: 'pn2019',
         authors: "Ivaldo Jesus Lima de Oliveira, Victor Vasconcelos de Souza, Ana Cláudia Pires Carvalho, Carlos Tomaz, Sérgio Leme Da-Silva",
         artLang: "en",
         read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/332366544_Effects_of_Ascorbic_Acid_Combined_to_Environmental_Enrichment_on_Anxiety_and_Memory/links/6479f6a2d702370600cc4f72/Effects-of-Ascorbic-Acid-Combined-to-Environmental-Enrichment-on-Anxiety-and-Memory.pdf",
@@ -82,7 +88,8 @@ export default function Publications() {
         website_name: "PsycNET"
       }),
       getPublication({
-        id: 'eappe2022',
+        id: 4,
+        short_name: 'eappe2022',
         authors: "Girlene Ribeiro de Jesus, Renata Manuelly de Lima Rêgo, Victor Vasconcelos de Souza",
         artLang: "pt",
         read_url: "https://www.scielo.br/j/ensaio/a/zS4yq9yN5JzfFcdv47JGM4h/?format=pdf",
@@ -90,7 +97,8 @@ export default function Publications() {
         website_name: "SciELO"
       }),
       getPublication({
-        id: 'rr2024',
+        id: 5,
+        short_name: 'rr2024',
         authors: "Victor Vasconcelos de Souza, Cristiane Faiad",
         artLang: "en",
         read_url: "https://recital.almenara.ifnmg.edu.br/index.php/recital/article/view/478/185",
@@ -115,6 +123,7 @@ export default function Publications() {
       <HorizontalScroller>
       {publicationData.sort((a,b) => { return b.id - a.id }).map(function ({
         id,
+        short_name,
         image,
         name,
         authors,
@@ -128,7 +137,8 @@ export default function Publications() {
       }) {
         return (
           <PublicationCard
-          id={id}
+          key={id}
+          short_name={short_name}
           image={image}
           name={name}
           authors={authors}
@@ -148,15 +158,8 @@ export default function Publications() {
       </Element>
     );
   }
-  
-  const HorizontalScroller = ({ children }) => {
-    const scrollContainer = useRef(null);
-    
-    const scroll = (scrollOffset) => {
-      scrollContainer.current.scrollLeft += scrollOffset;
-    };
-    
-    const StyledDiv = styled.div`
+
+  const StyledDiv = styled.div`
     position: relative;
       .scroll-button {
         position: absolute;
@@ -182,6 +185,13 @@ export default function Publications() {
         right: 0%;
         }
         `
+  
+  const HorizontalScroller = ({ children }) => {
+    const scrollContainer = useRef(null);
+    
+    const scroll = (scrollOffset) => {
+      scrollContainer.current.scrollLeft += scrollOffset;
+    };
     
     return (
       <StyledDiv>

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import headers from '../GITTOKEN.jsx';
 import Logo from "../images/logo.svg";
-
 // Data
 // import { githubUsername, projectCardImages } from "../data";
 
@@ -25,21 +25,29 @@ export const fetchGitHubReops = createAsyncThunk(
   "allRepositories/fetchGitHubReops",
   async (thunkApi, { rejectWithValue }) => {
     try {
-      const response = await fetch(url).then(function (res) {
-        if (!res.ok) {
-          throw new Error(res.status);
-        }
-        return res;
-      });
+      const response = await fetch(url, { headers });
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
       const data = await response.json();
-      return data;
+
+      // Add a new key 'lang' to each repository object in the data array
+      const dataWithLang = await Promise.all(data.map(async (repo) => {
+        const langResponse = await fetch(repo.languages_url, { headers });
+        if (!langResponse.ok) {
+          throw new Error(langResponse.status);
+        }
+        const langData = await langResponse.json();
+        return { ...repo, repo_lang: langData };
+      }));
+
+      return dataWithLang;
     } catch (err) {
-      return rejectWithValue(
-        `Error: ${err.message}, check username in data.js (currently ${githubUsername})`
-      );
+      return rejectWithValue(`Error: ${err.message}`);
     }
   }
 );
+
 
 export const allRepositoriesSlice = createSlice({
   name: "allRepositories",

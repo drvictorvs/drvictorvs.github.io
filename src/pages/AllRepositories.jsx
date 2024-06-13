@@ -1,9 +1,9 @@
 import React from "react";
-import { useAppContext } from "../appContext";
 import { useSelector } from "react-redux";
-import { selectData as homeData } from "./homeSlice";
-import { selectData, selectError, selectIsLoading } from "./allRepositoriesSlice";
 import styled from "styled-components";
+import { useAppContext } from "../appContext";
+import { selectData, selectError, selectIsLoading } from "./allRepositoriesSlice";
+import { selectData as homeData } from "./homeSlice";
 // Icons
 import { Icon } from "@iconify/react";
 // Components
@@ -15,13 +15,13 @@ import {
   Pagination,
   Row,
 } from "react-bootstrap";
+import Footer from "../components/Footer";
+import RepositoryCard from "../components/RepositoryCard";
 import {
   BackToTop,
-  Title,
   Loading,
+  Title,
 } from "../components/globalStyledComponents";
-import PublicationCard from "../components/PublicationCard";
-import Footer from "../components/Footer";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
 
@@ -195,15 +195,17 @@ export default function AllRepositories() {
                       image,
                       name,
                       description,
+                      lang,
                       html_url,
                       homepage,
                     }) {
                       return (
                         <Col key={id}>
-                          <PublicationCard
+                          <RepositoryCard
                             image={image}
                             name={name}
                             description={description}
+                            lang={lang}
                             url={html_url}
                             demo={homepage}
                           />
@@ -215,16 +217,19 @@ export default function AllRepositories() {
                       image,
                       name,
                       description,
+                      repo_lang,
                       html_url,
                       homepage,
                     }) {
                       return (
                         <Col key={id}>
-                          <PublicationCard
+                          <RepositoryCard
                             image={image}
                             name={name}
                             description={description}
+                            repo_lang={repo_lang}
                             url={html_url}
+                            lang={lang}
                             demo={homepage}
                           />
                         </Col>

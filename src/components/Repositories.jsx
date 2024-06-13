@@ -22,7 +22,15 @@ const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender",
 
 export const projectCardImages = [
   {
-    name: "example-1",
+    name: "phd",
+    image: Logo,
+  },
+  {
+    name: "Pokemon-Switch-V2-Model-Importer-Blender",
+    image: Logo,
+  },
+  {
+    name: "drvictorvs.github.io",
     image: Logo,
   },
 ];
@@ -71,7 +79,7 @@ export default function Repositories() {
           {error && <h2 className="text-center">{error}</h2>}
           {!error && data.length === 0 && (
             <h2 className="text-center">
-              Oops, you do not have any GitHub Repositories yet...
+              No GitHub repositories to display.
             </h2>
           )}
           {mainRepositories.length !== 0 && (
@@ -82,15 +90,18 @@ export default function Repositories() {
                   image,
                   name,
                   description,
+                  repo_lang,
                   html_url,
                   homepage,
                 }) {
                   return (
                     <Col key={id}>
-                      <RepositoryCard
+                      <RepositoryCard 
+                        key={id}
                         image={image}
                         name={name}
                         description={description}
+                        repo_lang={repo_lang}
                         url={html_url}
                         demo={homepage}
                       />
@@ -100,7 +111,7 @@ export default function Repositories() {
               </Row>
               {data.length > 3 && (
                 <Container className="text-center mt-5">
-                  <Link to="/All-Repositories">
+                  <Link to="/AllRepositories">
                     <Button
                       size="lg"
                       variant={
