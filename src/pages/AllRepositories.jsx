@@ -18,12 +18,13 @@ import {
 import Footer from "../components/Footer";
 import RepositoryCard from "../components/RepositoryCard";
 import {
-  BackToTop,
   Loading,
+  NavigationButtons,
   Title,
 } from "../components/globalStyledComponents";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
+
 
 const StyledSection = styled.section`
   min-height: calc(100vh - var(--min-footer-height) - var(--nav-height));
@@ -195,17 +196,18 @@ export default function AllRepositories() {
                       image,
                       name,
                       description,
-                      lang,
+                      repo_lang,
                       html_url,
                       homepage,
                     }) {
                       return (
                         <Col key={id}>
                           <RepositoryCard
+                            key={id}
                             image={image}
                             name={name}
                             description={description}
-                            lang={lang}
+                            repo_lang={repo_lang}
                             url={html_url}
                             demo={homepage}
                           />
@@ -224,12 +226,12 @@ export default function AllRepositories() {
                       return (
                         <Col key={id}>
                           <RepositoryCard
+                            key={id}
                             image={image}
                             name={name}
                             description={description}
                             repo_lang={repo_lang}
                             url={html_url}
-                            lang={lang}
                             demo={homepage}
                           />
                         </Col>
@@ -270,7 +272,7 @@ export default function AllRepositories() {
             </Container>
           </StyledSection>
         </main>
-        <BackToTop home={"Home"} />
+        <NavigationButtons home={"Home"} />
         <Footer />
       </>
     );

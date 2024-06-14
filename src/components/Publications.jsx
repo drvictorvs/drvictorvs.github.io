@@ -4,14 +4,14 @@ import { Container } from "react-bootstrap";
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import { Element } from "react-scroll";
 import styled from 'styled-components';
-import { useAppContext, useTheme } from "../appContext";
+import { useAppContext } from "../appContext";
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
 import PublicationCard from "./PublicationCard";
 import { importAll } from './Resources';
 import { Title } from "./globalStyledComponents";
 
-const imgs = importAll(require.context('../images/scientific', false, /\.png$/));
+const imgs = importAll(require.context('../images/scientific', false, /" +.png$/));
 
 
 const StyledScrollMenu = styled.div`
@@ -28,7 +28,6 @@ const StyledScrollMenu = styled.div`
 export default function Publications() {
   const { lang } = useAppContext();
   const sciStrings = lang === "en" ? LangEN.scientific : LangPT.scientific;
-  const theme = useTheme();
   
   function getPublication({ id, short_name, authors, artLang, read_url, main_url, website_name }){
     return {
@@ -50,10 +49,10 @@ export default function Publications() {
       getPublication({
           id: 0,
           short_name: 'pbjs2015',
-          authors:  "Ivaldo Jesus Lima de Oliveira, \
-          Victor Vasconcelos de Souza, \
-          Vitor Motta and \
-          Sérgio Leme da-Silva",
+          authors:  "Ivaldo Jesus Lima de Oliveira, " +
+          "Victor Vasconcelos de Souza, " +
+          "Vitor Motta and " +
+          "Sérgio Leme da-Silva",
           artLang: "en",
           read_url: "https://www.publicationsgate.net/profile/Victor-Vasconcelos-7/publication/276311783_Effects_of_Oral_Vitamin_C_Supplementation_on_Anxiety_in_Students_A_Double-Blind_Randomized_Placebo-Controlled_Trial/links/592daf46aca272fc55aed6a7/Effects-of-Oral-Vitamin-C-Supplementation-on-Anxiety-in-Students-A-Double-Blind-Randomized-Placebo-Controlled-Trial.pdf",
           main_url: "https://pubmed.ncbi.nlm.nih.gov/26353411/",
@@ -164,7 +163,7 @@ export default function Publications() {
       .scroll-button {
         position: absolute;
         top: 0;
-        z-index: 10;
+        z-index: 999;
         background: transparent;
         border: none;
         color: ${({theme}) => theme.color};
@@ -186,7 +185,7 @@ export default function Publications() {
         }
         `
   
-  const HorizontalScroller = ({ children }) => {
+  export const HorizontalScroller = ({ children }) => {
     const scrollContainer = useRef(null);
     
     const scroll = (scrollOffset) => {

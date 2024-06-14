@@ -11,11 +11,6 @@ import LangPT from "../translations/LangPT";
 import { Col, Container, Row } from "react-bootstrap";
 import { Title } from "./globalStyledComponents";
 
-const Subtitle = styled.div`
-  font-size: 1.25rem;
-  font-family: var(--secondary-font);
-`;
-
 const StyledAboutMe = styled.section`
 
   p {
@@ -53,8 +48,8 @@ export default function AboutMe() {
               <div className="underline"></div>
             </Title>
           </Container>
-          <Row className="align-items-center mt-5">
-            <Col className="d-flex flex-column text-center">
+          <Row className="">
+            <Col className="">
               <Container>
                 {strings.moreInfo && <p>{strings.moreInfo}</p>}
               </Container>
@@ -67,10 +62,6 @@ export default function AboutMe() {
                 className="mx-auto rounded-circle"
                 style={{ width: "15rem", height: "15rem", marginBottom: "3vh" }}
               />
-              
-            <Subtitle>
-              <h3>{strings.desc}</h3>
-            </Subtitle>
             </Col>
           </Row>
         </Container>

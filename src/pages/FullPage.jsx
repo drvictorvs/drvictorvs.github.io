@@ -5,15 +5,14 @@ import AboutMe from "../components/AboutMe";
 import Activities from "../components/Activities";
 import ContactMe from "../components/ContactMe";
 import Footer from "../components/Footer";
+import Home from "../components/Home";
 import Publications from "../components/Publications";
 import Repositories from "../components/Repositories";
-import Theme from "../components/Theme";
-import { BackToTop } from "../components/globalStyledComponents";
-import { selectData } from "../pages/homeSlice";
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
+import { selectData } from "./homeSlice";
 
-export default function Home() {
+export default function FullPage() {
   const { name } = useSelector(selectData);
   const lang = useAppContext();
   const strings = lang === "en" ? LangEN.misc : LangPT.misc;
@@ -27,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <Theme />
+      <Home />
       <main>
         <AboutMe />
         <Activities />
@@ -35,7 +34,7 @@ export default function Home() {
         <Repositories />
         <ContactMe />
       </main>
-      <BackToTop home={"Home"} />
+      {/* <NavigationButtons home={"Home"} /> */}
       <Footer />
     </>
   );

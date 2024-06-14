@@ -4,6 +4,8 @@ import { useAppContext } from "../appContext";
 // import { formspreeUrl } from "../data";
 // Components
 import { Alert, Button, Form, Spinner } from "react-bootstrap";
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
 
 const formspreeUrl = "https://formspree.com.io/f/drvictorvs";
 
@@ -13,7 +15,8 @@ export default function ContactForm() {
   const [success, setSuccess] = React.useState(false);
   const [danger, setDanger] = React.useState(false);
   const [dangerMessage, setDangerMessage] = React.useState(null);
-  const { themeName } = useAppContext();
+  const { lang, themeName } = useAppContext();
+  const strings = lang === "en" ? LangEN.contact : LangPT.contact;
 
   async function postData(data) {
     const response = await fetch(formspreeUrl, {
@@ -72,28 +75,28 @@ export default function ContactForm() {
     <>
       <Form noValidate validated={isValidated} onSubmit={handleSubmit}>
         <Form.Group className="mx-auto mb-3 form-group" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control required type="text" placeholder="Your name" />
+          <Form.Label>{strings.name}</Form.Label>
+          <Form.Control required type="text" placeholder={strings.namePrefill} />
           <Form.Control.Feedback type="invalid">
-            <h5>Name must be at least one character.</h5>
+            <h5>{strings.nameCheck}</h5>
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mx-auto mb-3 form-group" controlId="email">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>{strings.email}</Form.Label>
           <Form.Control
             required
             pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-            placeholder="someone@something.com"
+            placeholder={strings.emailPrefill}
           />
           <Form.Control.Feedback type="invalid">
-            <h5>Please enter a valid email.</h5>
+            <h5>{strings.emailCheck}</h5>
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mx-auto mb-3 form-group" controlId="message">
-          <Form.Label>Message</Form.Label>
-          <Form.Control required as="textarea" placeholder="Your message..." />
+          <Form.Label>{strings.message}</Form.Label>
+          <Form.Control required as="textarea" placeholder={strings.messagePrefill} />
           <Form.Control.Feedback type="invalid">
-            <h5>Please provide a valid message.</h5>
+            <h5>{strings.messageCheck}</h5>
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mx-auto text-center form-group">
@@ -105,7 +108,7 @@ export default function ContactForm() {
               disabled={isProcessing}
               className="my-4"
             >
-              Submit{" "}
+              {strings.sendBtn}{" "}
               {isProcessing && (
                 <Spinner animation="border" variant="success" size="sm" />
               )}
@@ -118,7 +121,7 @@ export default function ContactForm() {
             onClose={() => setSuccess(false)}
             dismissible
           >
-            <Alert.Heading>Success! I will contact you soon.</Alert.Heading>
+            <Alert.Heading>{strings.sendSuccess}</Alert.Heading>
           </Alert>
           <Alert
             show={danger}
@@ -129,9 +132,7 @@ export default function ContactForm() {
             <Alert.Heading>{dangerMessage}</Alert.Heading>
           </Alert>
           <Alert show={!formspreeUrl} variant="danger">
-            <Alert.Heading>
-              You must provide a valid formspree url in data.js
-            </Alert.Heading>
+            <Alert.Heading>{strings.sendError}</Alert.Heading>
           </Alert>
         </Form.Group>
       </Form>

@@ -3,9 +3,9 @@ import styled from "styled-components";
 // Icons
 import { Icon } from "@iconify/react";
 // Media
-import GH from "../images/logo.svg";
 // Components
 import { Card } from "react-bootstrap";
+import { BigLogo } from "./Resources";
 
 const RepositoryCardComponent = styled.div`
   display: flex;
@@ -81,45 +81,55 @@ const RepositoryCardComponent = styled.div`
 
     .card-img-top {
       height: 35vh;
-      object-fit: cover;
+      object-fit: fit;
+      padding: 1vw;
+      position: relative;
       color: ${({ theme }) => theme.primary};
     }
 
     
   }
+
+  .progLanguages {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: var(--transition);
+    max-width:15vw;
+    height: max-content;
+    flex-grow: 1;
+    gap: 0.5rem;
+    bottom:0;
+    right:0;
+    }
 `;
 
-function getLanguageIcon(repo_lang){
-  const langDict = {
-    html: 'i-vscode-icons:file-type-htmlhint',
-    python: 'i-vscode-icons:file-type-python',
-    javascript: 'i-vscode-icons:file-type-js',
+const langDict = {
+    html: 'vscode-icons:file-type-html',
+    python: 'vscode-icons:file-type-python',
+    javascript: 'vscode-icons:file-type-js',
     r: 'logos:r-lang',
     react: 'logos:react',
-    csharp: 'i-vscode-icons:file-type-csharp'
+    csharp: 'vscode-icons:file-type-csharp2',
+    blender: 'logos:blender'
   };
-  
-  // <Icon icon="devicon:"
-  return 
-}
 
 export default function RepositoryCard({ id, image, name, description, url, repo_lang, demo }) {
   return (
     <RepositoryCardComponent key={id}>
       <Card>
         <div style={{ position: "relative" }}>
-            {(Object.entries(repo_lang).map(([key,value], index) => (
-              <Icon key={index} icon={"devicons:" + key.toLowerCase()} style={{position:"absolute", 
-              zIndex: 99, width:64, height:64, bottom:0,right:0}}/>
+          <div className={"progLanguages"}>
+            {(Object.entries(repo_lang).map(([key,value], index, array) => (
+              <Icon key={index} icon={langDict[key.toLowerCase()]} style={{position:"regular", 
+              zIndex: 99, width:64, height:64, }}/>
             )))}
-          <Card.Img
-            style={{ position:"relative" }}
-            variant="top"
-            src={image ? image : GH}
-            alt={name}
-            className="mx-auto"
-          />
           </div>
+          <div className={"card-img-top"}>
+            {image ? image : <BigLogo width="100%" height="100%" />}
+          </div>
+        </div>
         <Card.Body className="overflow-auto text-center">
           <Card.Title>{name}</Card.Title>
           <Card.Text>{description}</Card.Text>

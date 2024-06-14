@@ -1,12 +1,10 @@
 {
   "compounds": [
     {
-      "name": "Compound",
-      "configurations": []
+      "configurations": [],
+      "name": "Compound"
     }
   ],
-  "version": "0.2.0",
-  "inputs": [],
   "configurations": [
     {
       "command": "npm start",
@@ -14,5 +12,13 @@
       "request": "launch",
       "type": "node-terminal"
     },
-  ]
+    {
+      "command": "npm run deploy",
+      "name": "Run npm deploy",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ],
+  "inputs": [],
+  "version": "0.2.0"
 }

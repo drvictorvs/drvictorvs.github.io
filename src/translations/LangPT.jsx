@@ -13,17 +13,31 @@ const LangPT = {
     'neuropsychology': 'Neuropsicologia',
     'psychometrics': 'Psicometria',
     'psychopharmacology': 'Psicofarmacologia',
-    'intellectualAssessment': "Intellectual Assessment",
-    'emotionalIntellectualAssessment': "Emotional Intellectual Assessment",
-    'researchDesign': "Research Design",
+    'intellectualAssessment': "Avaliação da Inteligência",
+    'emotionalIntellectualAssessment': "Avaliação da Inteligência Emocional",
+    'researchDesign': "Desenho de Pesquisa",
     'python': "Python",
-    'statisticalModeling': "Statistical Modeling",
+    'statisticalModeling': "Modelagem Estatística",
     'langR': "R"
   },
   messages: {
     'langToggle': "Alterar idioma. Atualmente,",
     'readonline': "Ler online",
     'viewon': "Visualizar em"
+  },
+  contact: {
+    name: "Nome",
+    namePrefill: "Seu nome",
+    nameCheck: "Nome precisa ter pelo menos um caractere.",
+    email: "Email",
+    emailPrefill: "alguem@seuprovedordeemail.com.br",
+    emailCheck: "Por gentileza, informe um email válido.",
+    message: "Mensagem",
+    messagePrefill: "Sua mensagem",
+    messageCheck: "Por gentileza, informe uma mensagem válida.",
+    sendBtn: "Enviar",
+    sendSuccess: "Sucesso! Entrarei em contato com você em breve.",
+    sendError: "Algo de errado não está certo 😥😣 Você pode mandar um email diretamente para contato@dr.victorvs.com."
   },
   misc: {
     'aboutMe': "Sobre mim",

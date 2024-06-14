@@ -10,10 +10,10 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 // import { FixedNavSpacer, ToggleSwitch } from "./globalStyledComponents";
 // Images
 // import Logo from "../images/logo.svg";
-import { FlagENG, FlagPTB, Logo } from "./Resources";
-
+import { NavigationButtons } from '../components/globalStyledComponents';
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
+import { FlagENG, FlagPTB, Logo } from "./Resources";
 
 
 // Theme Toggle
@@ -134,26 +134,18 @@ function LangToggle() {
 }
 
 export default function NavBar() {
-  const { themeName, lang, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
+  const { themeName, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
   const { pathname } = useLocation();
   const theme = useTheme();
+  const [activeSection, setActiveSection] = React.useState('Home');
 
-  const navStrings = lang === 'en' ? LangEN.navmenu : LangPT.navmenu;
+  const handleSetActive = (to) => {
+    setActiveSection(to);
+    console.log(to)
+  };
 
-  const navLinks = {
-    routes: [
-      { id: "1R", name: navStrings.home, route: "/" },
-      { id: "2R", name: navStrings.allRepositories, route: "/AllRepositories" },
-    ],
-    to: [
-      { id: "1T", name: navStrings.home, to: "Home" },
-      { id: "2T", name: navStrings.about, to: "AboutMe" },
-      { id: "3T", name: navStrings.activities, to: "Activities" },
-      { id: "4T", name: navStrings.publications, to: "Publications" },
-      { id: "5T", name: navStrings.repositories, to: "Repositories" },
-      { id: "6T", name: navStrings.contactMe, to: "ContactMe" },
-    ],
-};
+
+  const navLinks = MakeNavLinks();
 
   return (
     <>
@@ -187,6 +179,7 @@ export default function NavBar() {
                           activeClass="active"
                           className="nav-link"
                           onClick={closeExpanded}
+                          onSetActive={handleSetActive}
                         >
                           {el.name}
                         </ScrollLink>
@@ -218,6 +211,28 @@ export default function NavBar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+    <NavigationButtons home={"Home"} activeSection={activeSection} />
     </>
   );
+}
+
+export function MakeNavLinks(){
+  const { lang } = useAppContext();
+  const navStrings = lang === 'en' ? LangEN.navmenu : LangPT.navmenu;
+
+  return {
+    routes: [
+      { id: "1R", name: navStrings.home, route: "/" },
+      { id: "2R", name: navStrings.allRepositories, route: "/AllRepositories" },
+    ],
+    to: [
+      { id: "1T", name: navStrings.home, to: "Home" },
+      { id: "2T", name: navStrings.about, to: "AboutMe" },
+      { id: "3T", name: navStrings.activities, to: "Activities" },
+      { id: "4T", name: navStrings.publications, to: "Publications" },
+      { id: "5T", name: navStrings.repositories, to: "Repositories" },
+      { id: "6T", name: navStrings.contactMe, to: "ContactMe" },
+    ],
+
+};
 }

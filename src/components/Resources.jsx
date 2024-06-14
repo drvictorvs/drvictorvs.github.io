@@ -17,10 +17,11 @@ const SVGs = importAll(require.context('../images', true, /\.svg$/));
 export const Logo = ({ theme }) => 
 <img src={SVGs['logo.svg']} style={{height:"35px", width:"35px", filter: theme.filter, background:"none"}} alt="" />;
 
-export const BigLogo = () => {
+export const BigLogo = ({ style = {height:"75%", width:"75%" } }) => {
   const theme = useTheme();
+  style = { ...style, filter: theme.filter, background:"none" }
   return (
-<img src={SVGs['logo.svg']} style={{height:"75%", width:"75%", filter: theme.filter, background:"none"}} alt="" />);
+<img src={SVGs['logo.svg']} style={style} alt="" />);
 }
 
 const FlagContainer = styled.div`
@@ -86,7 +87,7 @@ export const ResearchDesign = ({ theme }) =>
 <img src={SVGs['skills/research-design.svg']} style={{filter: theme?.filter}} alt="" />;
 
 export const StatisticalModeling = ({ theme }) => 
-<img src={SVGs['skills/statistical-modeling.svg']} style={{filter: theme?.filter}} alt="" />;
+<img src={SVGs['skills/statistical-modeling.svg']} style={{height: "64px", width:"64px", filter: theme?.filter}} alt="" />;
 
 export const Python = ({ theme }) => 
 <img src={SVGs['skills/lang-python.svg']} style={{filter: theme?.filter}} alt="" />;

@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Element } from "react-scroll";
 import { ThemeProvider } from "styled-components";
 import { useAppContext } from "./appContext";
-import { fetchGitHubReops } from "./pages/allRepositoriesSlice";
+import { fetchGitHubRepos } from "./pages/allRepositoriesSlice";
 import {
   fetchGitHubInfo,
   selectError,
@@ -18,11 +18,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import { Loading } from "./components/globalStyledComponents";
 // Pages
 import AllRepositories from "./pages/AllRepositories";
-import Home from "./pages/Home";
+import FullPage from "./pages/FullPage";
 import NotFound from "./pages/NotFound";
-
-import LangEN from './translations/LangEN';
-import LangPT from './translations/LangPT';
 
 import DarkBG from "./images/theme-dark.jpg";
 import LightBG from "./images/theme-light.jpg";
@@ -78,8 +75,7 @@ const themes = {
 };
 
 export default function App() {
-  const { themeName, setTheme, lang } = useAppContext();
-  const translations = lang === 'en' ? LangEN : LangPT;
+  const { themeName, setTheme } = useAppContext();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
@@ -90,7 +86,7 @@ export default function App() {
         darkMode ? setTheme("dark") : setTheme("light");
       updateTheme();
       dispatch(fetchGitHubInfo());
-      dispatch(fetchGitHubReops());
+      dispatch(fetchGitHubRepos());
     },
     [setTheme, dispatch]
   );
@@ -129,7 +125,7 @@ if (isLoading) {
     <NavBar />
     </Element>
     <Routes>
-    <Route exact path="/" element={<Home />} />
+    <Route exact path="/" element={<FullPage />} />
     <Route path="/AllRepositories" element={<AllRepositories />} />
     <Route path="*" element={<NotFound />} />
     </Routes>

@@ -30,7 +30,7 @@ const ActivitiesStyle = styled(Element)`
 `;
 
 export default function Activities() {
-  const { themeName, lang } = useAppContext();
+  const { lang } = useAppContext();
   const theme = useTheme();
   const strings = lang === "en" ? LangEN : LangPT;
   const s = lang === "en" ? LangEN.skills : LangPT.skills;

@@ -25,13 +25,27 @@ const LangEN = {
     readonline: "Read online",
     viewon: "View on",
   },
+  contact: {
+    name: "Name",
+    namePrefill: "Your name",
+    nameCheck: "Name must be at least one character.",
+    email: "Email",
+    emailPrefill: "someone@youremailprovider.com",
+    emailCheck: "Please enter a valid email.",
+    message: "Message",
+    messagePrefill: "Your message",
+    messageCheck: "Please provide a valid message.",
+    sendBtn: "Send",
+    sendSuccess: "Success! I will contact you soon.",
+    sendError: "Something is wrong that is not right 😥😣 You can send an email directly to contact@dr.victorvs.com."
+  },
   misc: {
     aboutMe: "About Me",
     desc: "Neuropsychologist and Psychometrician",
     portfolio: "Portfolio",
     webpage: "Dr. Victor Vasconcelos | Webpage",
     moreInfo:
-      "Licensed neuropsychologist and a University of Brasilia alumnus. Doctorate and Master's degree were both sought under the guidance of Prof. Dr. Cristiane Faiad in the Psychological Assessment and Instrumentation concentration of the Post-Graduate Program of Social, Work and Organizational Psychology—also at the University of Brasília. Specialized in the use of programming resources in Education and Psychometrics (Statistical Modeling, Psychological and Educational Assessment). Experience in statistical analysis in biomedical sciences, neurosciences and psychology. Worked for two years in psychopharmacology labs, using either oral or intrahypocampal perfusion methodology. Currently working as a psychometrician at the National Institute of Study and Research in Education.",
+      "Licensed neuropsychologist and a University of Brasilia alumnus. Doctorate and Master's degree were both sought under the guidance of Prof. Dr. Cristiane Faiad in the Psychological Assessment and Instrumentation concentration of the Post-Graduate Program of Social, Work and Organizational Psychology—also at the University of Brasília. Specialized in the use of programming resources in Education and Psychometrics (Statistical Modeling, Psychological and Educational Assessment). Experience in statistical analysis in biomedical sciences, neurosciences and psychology. Worked for two years in psychopharmacology labs, using either oral or intrahippocampal perfusion methodology. Currently working as a psychometrician at the National Institute of Study and Research in Education.",
   },
   scientific: {
     'pbjs2015': {

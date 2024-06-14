@@ -1,17 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import headers from '../GITTOKEN.jsx';
-import Logo from "../images/logo.svg";
+import cached from "./cached.json";
 // Data
 // import { githubUsername, projectCardImages } from "../data";
 
-const githubUsername = "drvictorvs";
+import { projectCardImages } from "../components/Repositories";
 
-export const projectCardImages = [
-  {
-    name: "example-1",
-    image: Logo,
-  },
-];
+const githubUsername = "drvictorvs";
 
 const initialState = {
   error: "",
@@ -19,12 +14,24 @@ const initialState = {
   data: [],
 };
 
-export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=10`;
+export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=100`;
 
-export const fetchGitHubReops = createAsyncThunk(
-  "allRepositories/fetchGitHubReops",
-  async (thunkApi, { rejectWithValue }) => {
+
+export const fetchGitHubRepos = createAsyncThunk(
+  'allRepositories/fetchGitHubReops',
+  async (_, { rejectWithValue }) => {
     try {
+      const cacheKey = 'githubData';
+      const cached = localStorage.getItem(cacheKey);
+      const cacheTime = localStorage.getItem(`${cacheKey}_time`);
+
+      if (cached !== null && cacheTime !== null) {
+        const age = (Date.now() - cacheTime) / 1000 / 60 / 60; // Cache age in hours
+        if (age < 2) { // Cache is less than 2 hours old
+          return JSON.parse(cached);
+        }
+      }
+
       const response = await fetch(url, { headers });
       if (!response.ok) {
         throw new Error(response.status);
@@ -34,16 +41,20 @@ export const fetchGitHubReops = createAsyncThunk(
       // Add a new key 'lang' to each repository object in the data array
       const dataWithLang = await Promise.all(data.map(async (repo) => {
         const langResponse = await fetch(repo.languages_url, { headers });
-        if (!langResponse.ok) {
-          throw new Error(langResponse.status);
+        var langData = { "unknown": 0 }
+        if (langResponse.ok) {
+          langData = await langResponse.json();
         }
-        const langData = await langResponse.json();
         return { ...repo, repo_lang: langData };
       }));
 
+      // Save the fetched data to local storage
+      localStorage.setItem(cacheKey, JSON.stringify(dataWithLang));
+      localStorage.setItem(`${cacheKey}_time`, Date.now());
+
       return dataWithLang;
-    } catch (err) {
-      return rejectWithValue(`Error: ${err.message}`);
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -54,11 +65,11 @@ export const allRepositoriesSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(fetchGitHubReops.pending, (state) => {
+      .addCase(fetchGitHubRepos.pending, (state) => {
         state.isLoading = true;
         state.error = "";
       })
-      .addCase(fetchGitHubReops.fulfilled, (state, action) => {
+      .addCase(fetchGitHubRepos.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
         projectCardImages.forEach(function (element) {
@@ -69,13 +80,20 @@ export const allRepositoriesSlice = createSlice({
           });
         });
       })
-      .addCase(fetchGitHubReops.rejected, (state, action) => {
+      .addCase(fetchGitHubRepos.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
-        console.log(state.error);
+        state.data = cached;
+        projectCardImages.forEach(function (element) {
+          state.data.forEach((el, i) => {
+            if (element.name.toLowerCase() === el.name.toLowerCase()) {
+              el.image = element.image;
+            }
+          });
       });
-  },
-});
+})
+  }
+}
+)
 
 export const selectIsLoading = (state) => state.allRepositories.isLoading;
 export const selectError = (state) => state.allRepositories.error;

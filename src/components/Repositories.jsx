@@ -10,7 +10,7 @@ import {
 } from "../pages/allRepositoriesSlice";
 // Media
 import { Icon } from "@iconify/react";
-import Logo from "../images/logo.svg";
+import { BigLogo } from "./Resources";
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap";
 import LangEN from "../translations/LangEN";
@@ -18,20 +18,22 @@ import LangPT from "../translations/LangPT";
 import RepositoryCard from "./RepositoryCard";
 import { Loading, Title } from "./globalStyledComponents";
 
-const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
+export const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
+
+const BlenderLogo = <Icon icon="logos:blender" className="card-img-top mx-auto" />;
 
 export const projectCardImages = [
   {
     name: "phd",
-    image: Logo,
+    image: <BigLogo style={{height:"100%", width:"100%"}} />,
   },
   {
     name: "Pokemon-Switch-V2-Model-Importer-Blender",
-    image: Logo,
+    image: BlenderLogo,
   },
   {
     name: "drvictorvs.github.io",
-    image: Logo,
+    image: <BigLogo style={{height:"100%", width:"100%"}} />,
   },
 ];
 
@@ -123,7 +125,7 @@ export default function Repositories() {
                   </Link>
                 </Container>
               )}
-            </>
+              </>
           )}
         </Container>
       </section>

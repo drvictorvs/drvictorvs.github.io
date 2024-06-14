@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import styled from "styled-components";
-import { useTheme } from "../appContext";
+import { useAppContext } from "../appContext";
 import { selectData } from "../pages/homeSlice";
 // Icons
 import { Icon } from "@iconify/react";
@@ -10,8 +10,11 @@ import DarkBG from "../images/theme-dark.jpg";
 import LightBG from "../images/theme-light.jpg";
 // Components
 import { Col, Container, Row } from "react-bootstrap";
+import LangEN from "../translations/LangEN";
+import LangPT from "../translations/LangPT";
 import { BigLogo } from "./Resources";
 import SocialLinks from "./SocialLinks";
+import { Title } from "./globalStyledComponents";
 
 
 const StyledTheme = styled.header`
@@ -70,17 +73,20 @@ const StyledTheme = styled.header`
 
 export default function Theme() {
   const { name } = useSelector(selectData);
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
+  const { lang } = useAppContext();
+  const strings = lang === "en" ? LangEN.misc : LangPT.misc;
 
   return (
     <StyledTheme>
       <Container>
         <Row className="align-items-center text-center">
           <Col>
-            <h1 className="mb-3 display-3 title">{name}</h1>
-            <div className="d-flex align-items-center justify-content-center">
-              <SocialLinks />
-            </div>
+            <h1 className="mb-1 display-3 title">{name}</h1>
+            <Title>
+              <h2 style={{marginBottom: "3vh", fontFamily: "var(--primary-font)"}}>{strings.desc}</h2>
+            </Title>
+            <SocialLinks />
           </Col>
           <Col className="d-none d-md-block">
             <BigLogo />
