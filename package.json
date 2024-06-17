@@ -36,12 +36,6 @@
     "path": "^0.12.7",
     "react-scripts": "^5.0.1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "homepage": "https://dr.victorvs.com/",
   "name": "drvictorvs-webpage",
   "private": true,

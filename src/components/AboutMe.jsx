@@ -57,7 +57,7 @@ export default function AboutMe() {
             <Col className="d-none d-md-block text-center">
               <img
                 src={avatar_url}
-                alt="Profile Picture"
+                alt=""
                 loading="lazy"
                 className="mx-auto rounded-circle"
                 style={{ width: "15rem", height: "15rem", marginBottom: "3vh" }}
