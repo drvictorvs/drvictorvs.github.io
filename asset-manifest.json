@@ -1,18 +1,36 @@
 {
   "files": {
-    "main.css": "/your-app/static/css/main.eeb82c87.css",
-    "main.js": "/your-app/static/js/main.a5f889e6.js",
-    "static/media/hero-dark.jpg": "/your-app/static/media/hero-dark.37f2556d620821979e99.jpg",
-    "static/media/hero-light.jpg": "/your-app/static/media/hero-light.78b77836d8aee4d7d3cb.jpg",
-    "service-worker.js": "/your-app/service-worker.js",
-    "static/media/GH.svg": "/your-app/static/media/GH.b9e9a9aa6f05e9dfe5dcb8991bda3e4d.svg",
-    "static/media/logo.svg": "/your-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/your-app/index.html",
-    "main.eeb82c87.css.map": "/your-app/static/css/main.eeb82c87.css.map",
-    "main.a5f889e6.js.map": "/your-app/static/js/main.a5f889e6.js.map"
+    "main.css": "/static/css/main.0c438e1d.css",
+    "main.js": "/static/js/main.3e29fa28.js",
+    "static/media/theme-dark.jpg": "/static/media/theme-dark.568ce244e0f1ed702c7a.jpg",
+    "static/media/theme-light.jpg": "/static/media/theme-light.6e624b877f84cd582dcc.jpg",
+    "service-worker.js": "/service-worker.js",
+    "static/media/flag-ptbr.svg": "/static/media/flag-ptbr.6c6b583864621a385341.svg",
+    "static/media/logo.svg": "/static/media/logo.f0b6778c6b78e6608ce97de4895cec95.svg",
+    "static/media/flag-pt.svg": "/static/media/flag-pt.1353289d512e86df2d1d.svg",
+    "static/media/flag-enus.svg": "/static/media/flag-enus.7999b3c6d890679520c1.svg",
+    "static/media/intellectual-assessment.svg": "/static/media/intellectual-assessment.da2865b207f24ebf8c45.svg",
+    "static/media/flag-us.svg": "/static/media/flag-us.df5d673e7f4cc373a24d.svg",
+    "static/media/flag-uk.svg": "/static/media/flag-uk.5904ccc9d739146cb0c8.svg",
+    "index.html": "/index.html",
+    "static/media/flag-br.svg": "/static/media/flag-br.86f66a6ab0e88adf2c37.svg",
+    "static/media/orcid-id.svg": "/static/media/orcid-id.d14bc804709809c457bca5dea986f310.svg",
+    "static/media/pdf-file.svg": "/static/media/pdf-file.d04721f96c73a5436337.svg",
+    "static/media/neuropsychology.svg": "/static/media/neuropsychology.185b82955506c9ff2d65.svg",
+    "static/media/psychometrics.svg": "/static/media/psychometrics.42d60e92a0169043cf86.svg",
+    "static/media/lang-r.svg": "/static/media/lang-r.3cd4df7ecd290c01e502.svg",
+    "static/media/lattes.svg": "/static/media/lattes.57a7183fd2a7d7af368769d553dc4d73.svg",
+    "static/media/research-design.svg": "/static/media/research-design.05e2f30c7fc0f54ad511.svg",
+    "static/media/lang-python.svg": "/static/media/lang-python.dba42f153b2eb4836fa7.svg",
+    "static/media/emotional-intellectual-assessment.svg": "/static/media/emotional-intellectual-assessment.22bf4fb490d0c6ee1596.svg",
+    "static/media/psychopharmacology.svg": "/static/media/psychopharmacology.503ca4f6bdd3d83ea6e7.svg",
+    "static/media/g-scholar.svg": "/static/media/g-scholar.fb077ea79e8f6dc6d629ee6d8c8b1098.svg",
+    "static/media/statistical-modeling.svg": "/static/media/statistical-modeling.394abe29eb4388a86260.svg",
+    "main.0c438e1d.css.map": "/static/css/main.0c438e1d.css.map",
+    "main.3e29fa28.js.map": "/static/js/main.3e29fa28.js.map"
   },
   "entrypoints": [
-    "static/css/main.eeb82c87.css",
-    "static/js/main.a5f889e6.js"
+    "static/css/main.0c438e1d.css",
+    "static/js/main.3e29fa28.js"
   ]
 }
