@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import headers from '../GITTOKEN.jsx';
 import cached from "./cached.json";
 // Data
 // import { githubUsername, projectCardImages } from "../data";
@@ -15,6 +14,9 @@ const initialState = {
 };
 
 export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=100`;
+export const headers = new Headers({
+  'Authorization': 'Bearer' +  secrets.GITHUB_TOKEN
+});
 
 
 export const fetchGitHubRepos = createAsyncThunk(

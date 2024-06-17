@@ -1,8 +1,16 @@
 {
-  "name": "drvictorvs-webpage",
-  "homepage": "https://dr.victorvs.com/",
-  "version": "0.1.0",
-  "private": true,
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
   "dependencies": {
     "@iconify/react": "^4.1.0",
     "@reduxjs/toolkit": "^1.9.5",
@@ -32,30 +40,22 @@
     "react-scripts": "^5.0.1",
     "typescript": "^5.4.5"
   },
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "homepage": "https://dr.victorvs.com/",
+  "name": "drvictorvs-webpage",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build -b gh-pages",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "version": "0.1.0"
 }
