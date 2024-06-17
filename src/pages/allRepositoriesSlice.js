@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import cached from "./cached.json";
-// Data
-// import { githubUsername, projectCardImages } from "../data";
 
 import { projectCardImages } from "../components/Repositories";
 
@@ -15,12 +13,12 @@ const initialState = {
 
 export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=100`;
 export const headers = new Headers({
-  'Authorization': 'Bearer' +  secrets.GITHUB_TOKEN
+  'Authorization': 'Bearer' + process.env.GITHUB_TOKEN
 });
 
 
 export const fetchGitHubRepos = createAsyncThunk(
-  'allRepositories/fetchGitHubReops',
+  'allRepositories/fetchGitHubRepos',
   async (_, { rejectWithValue }) => {
     try {
       const cacheKey = 'githubData';
@@ -28,8 +26,8 @@ export const fetchGitHubRepos = createAsyncThunk(
       const cacheTime = localStorage.getItem(`${cacheKey}_time`);
 
       if (cached !== null && cacheTime !== null) {
-        const age = (Date.now() - cacheTime) / 1000 / 60 / 60; // Cache age in hours
-        if (age < 2) { // Cache is less than 2 hours old
+        const age = (Date.now() - cacheTime) / 1000 / 60 / 60; 
+        if (age < 2) { 
           return JSON.parse(cached);
         }
       }
