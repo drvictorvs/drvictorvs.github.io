@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import headers from '../allRepositoriesSlice';
+import headers from './allRepositoriesSlice';
 
 const githubUsername = "drvictorvs";
 
