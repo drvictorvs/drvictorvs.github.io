@@ -10,6 +10,7 @@ import LangPT from "../translations/LangPT";
 // Components
 import { Col, Container, Row } from "react-bootstrap";
 import { Title } from "./globalStyledComponents";
+import EqualityImg from "../images/equality.svg";
 
 const StyledAboutMe = styled.section`
 
@@ -49,19 +50,27 @@ export default function AboutMe() {
             </Title>
           </Container>
           <Row className="">
-            <Col className="">
+            <Col className="text-center">
               <Container>
                 {strings.moreInfo && <p>{strings.moreInfo}</p>}
               </Container>
             </Col>
             <Col className="d-none d-md-block text-center">
+            
+          <Container className="d-flex" style={{flexDirection:"column",
+    alignContent: "center",
+    justifyContent: "center",
+    flexWrap: "wrap"}}>
               <img
                 src={avatar_url}
                 alt=""
                 loading="lazy"
                 className="mx-auto rounded-circle"
-                style={{ width: "15rem", height: "15rem", marginBottom: "3vh" }}
+                style={{ width: "15rem", height: "max-content", marginBottom: "3vh" }}
               />
+              
+                <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" target="_blank" rel="noopener"><img src={EqualityImg} height={"40px"} width={"185px"} style={{alignSelf:"center"}}/></a>
+                </Container>
             </Col>
           </Row>
         </Container>
