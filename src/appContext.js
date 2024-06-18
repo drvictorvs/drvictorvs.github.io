@@ -1,12 +1,16 @@
 import React from "react";
 import { ThemeContext } from "styled-components";
 
+import { Link, useLocation } from "react-router-dom";
+import { scrollSpy } from "react-scroll";
+
 const AppContext = React.createContext();
 
 const AppProvider = function ({ children }) {
   const [themeName, setTheme] = React.useState("light");
   const [lang, setLang] = React.useState("en");
   const [isExpanded, setExpanded] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState("Home");
 
   const toggleTheme = () => setTheme(themeName === "light" ? "dark" : "light");
   const toggleLang = () => setLang(lang === "en" ? "pt" : "en");
@@ -31,6 +35,8 @@ const AppProvider = function ({ children }) {
         isExpanded,
         toggleExpanded,
         closeExpanded,
+        activeSection,
+        setActiveSection
       }}
     >
       {children}

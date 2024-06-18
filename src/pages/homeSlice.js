@@ -17,7 +17,7 @@ export const fetchGitHubInfo = createAsyncThunk(
   "home/fetchGitHubInfo",
   async (_, { rejectWithValue }) => {
     try {
-      const cacheKey = 'githubData';
+      const cacheKey = 'githubAuthorData';
       const cached = localStorage.getItem(cacheKey);
       const cacheTime = localStorage.getItem(`${cacheKey}_time`);
 

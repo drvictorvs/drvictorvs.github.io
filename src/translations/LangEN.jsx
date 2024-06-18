@@ -24,6 +24,8 @@ const LangEN = {
     langToggle: "Toggle language, currently",
     readonline: "Read online",
     viewon: "View on",
+    error: "You exceeded GitHub's external limit. Visit the repository directly via the button below.",
+    noRepos: "No GitHub repositories to display."
   },
   contact: {
     name: "Name",

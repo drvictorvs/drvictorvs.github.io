@@ -17,7 +17,7 @@ import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
 import RepositoryCard from "./RepositoryCard";
 import { Loading, Title } from "./globalStyledComponents";
-
+import {HorizontalScroller} from "./Publications";
 export const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
 
 const BlenderLogo = <Icon icon="logos:blender" className="card-img-top mx-auto" />;
@@ -78,15 +78,15 @@ export default function Repositories() {
               <Loading />
             </Container>
           )}
-          {error && <h2 className="text-center">{error}</h2>}
+          {error && <h2 className="text-center">{strings.error}</h2>}
           {!error && data.length === 0 && (
             <h2 className="text-center">
-              No GitHub repositories to display.
+              {strings.noRepos && strings.noRepos}
             </h2>
           )}
+          
           {mainRepositories.length !== 0 && (
-            <>
-              <Row xs={1} md={2} lg={3} className="g-4 justify-content-center">
+            <HorizontalScroller>
                 {mainRepositories.map(function ({
                   id,
                   image,
@@ -97,7 +97,6 @@ export default function Repositories() {
                   homepage,
                 }) {
                   return (
-                    <Col key={id}>
                       <RepositoryCard 
                         key={id}
                         image={image}
@@ -107,10 +106,8 @@ export default function Repositories() {
                         url={html_url}
                         demo={homepage}
                       />
-                    </Col>
                   );
                 })}
-              </Row>
               {data.length > 3 && (
                 <Container className="text-center mt-5">
                   <Link to="/AllRepositories">
@@ -125,7 +122,7 @@ export default function Repositories() {
                   </Link>
                 </Container>
               )}
-              </>
+              </HorizontalScroller>
           )}
         </Container>
       </section>

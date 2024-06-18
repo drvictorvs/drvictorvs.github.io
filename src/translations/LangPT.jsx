@@ -1,29 +1,31 @@
 const LangPT = {
   id: "pt",
   navmenu: {
-    'home': 'Início',
-    'allRepositories': 'Todos os Projetos',
-    'about': 'Sobre',
-    'activities': 'Atuação',
-    'publications': 'Publicações',
-    'repositories': 'Repositórios',
-    'contactMe': 'Contato',
+    home: 'Início',
+    allRepositories: 'Todos os Projetos',
+    about: 'Sobre',
+    activities: 'Atuação',
+    publications: 'Publicações',
+    repositories: 'Repositórios',
+    contactMe: 'Contato',
   },
   skills: {
-    'neuropsychology': 'Neuropsicologia',
-    'psychometrics': 'Psicometria',
-    'psychopharmacology': 'Psicofarmacologia',
-    'intellectualAssessment': "Avaliação da Inteligência",
-    'emotionalIntellectualAssessment': "Avaliação da Inteligência Emocional",
-    'researchDesign': "Desenho de Pesquisa",
-    'python': "Python",
-    'statisticalModeling': "Modelagem Estatística",
-    'langR': "R"
+    neuropsychology: 'Neuropsicologia',
+    psychometrics: 'Psicometria',
+    psychopharmacology: 'Psicofarmacologia',
+    intellectualAssessment: "Avaliação da Inteligência",
+    emotionalIntellectualAssessment: "Avaliação da Inteligência Emocional",
+    researchDesign: "Desenho de Pesquisa",
+    python: "Python",
+    statisticalModeling: "Modelagem Estatística",
+    langR: "R"
   },
   messages: {
-    'langToggle': "Alterar idioma. Atualmente,",
-    'readonline': "Ler online",
-    'viewon': "Visualizar em"
+    langToggle: "Alterar idioma. Atualmente,",
+    readonline: "Ler online",
+    viewon: "Visualizar em",
+    error: "Excedemos o limite de dados do GitHub. Visite o repositório diretamente por meio do botão abaixo.",
+    noRepos: "Sem repositórios para exibir."
   },
   contact: {
     name: "Nome",
@@ -40,14 +42,14 @@ const LangPT = {
     sendError: "Algo de errado não está certo 😥😣 Você pode mandar um email diretamente para contato@dr.victorvs.com."
   },
   misc: {
-    'aboutMe': "Sobre mim",
-    'desc': "Neuropsicólogo e Psicometrista",
-    'portfolio': "Portfólio",
-    'webpage': "Dr. Victor Vasconcelos | Página",
-    moreInfo: "Neuropsicólogo (CRP 01/20123) formado na Universidade de Brasília. Doutorado e mestrado realizados sob a orientação da Profª. Drª. Cristiane Faiad na concentração de Avaliação e Instrumentação Psicológica do Programa de Pós-Graduação de Psicologia Social, Trabalho e Organizacional—também na Universidade de Brasília. Especializado no uso de recursos de programação em educação e psicometria (modelagem estatística, avaliação psicológica e educacional). Experiência em análise estatística em ciências biomédicas, neurociências e psicologia. Trabalhou por dois anos em laboratórios de psicofarmacologia, usando metodologia de perfusão oral ou intra-hipocampal. Atualmente trabalhando como psicométrico no Instituto Nacional de Estudo e Pesquisa em Educação Anísio Teixeira.",
+    aboutMe: "Sobre mim",
+    desc: "Neuropsicólogo e Psicometrista",
+    portfolio: "Portfólio",
+    webpage: "Dr. Victor Vasconcelos | Página",
+    moreInfo: "Neuropsicólogo (CRP 01/20123) formado na Universidade de Brasília. Doutorado e mestrado realizados sob a orientação da Prof.ª Dr.ª Cristiane Faiad na concentração de Avaliação e Instrumentação Psicológica do Programa de Pós-Graduação de Psicologia Social, Trabalho e Organizacional—também na Universidade de Brasília. Especializado no uso de recursos de programação em educação e psicometria (modelagem estatística, avaliação psicológica e educacional). Experiência em análise estatística em ciências biomédicas, neurociências e psicologia. Trabalhou por dois anos em laboratórios de psicofarmacologia, usando metodologia de perfusão oral ou intra-hipocampal. Atualmente trabalhando como psicométrico no Instituto Nacional de Estudo e Pesquisa em Educação Anísio Teixeira.",
   },
   scientific: {
-    'pbjs2015': {
+    pbjs2015: {
       star: true,
       name: "Effects of Oral Vitamin C Supplementation on Anxiety in Students: A Double-Blind, Randomized, Placebo-Controlled Trial",
       publication: "Pakistan Journal of Biological Sciences [Revista Paquistanesa de Ciências Biológicas]",
@@ -55,7 +57,7 @@ const LangPT = {
       lang: "en",
       abstract: "",
     },
-    'eip2018': {
+    eip2018: {
       star: false,
       name: "Psychometric Properties of the ISSL in the Context of Public Security",
       publication: "Estudos Interdisciplinares em Psicologia",
@@ -63,7 +65,7 @@ const LangPT = {
       lang: "pt",
       abstract: "",
     },
-    'eae2018': {
+    eae2018: {
       star: false,
       name: "Evidence of Content Validity in the ENADE Psychology Test",
       publication: "Estudos em Avaliação Educacional",
@@ -71,15 +73,15 @@ const LangPT = {
       lang: "pt",
       abstract: "",
     },
-    'pn2019': {
+    pn2019: {
       star: true,
       name: "Effects of Ascorbic Acid Combined with Environmental Enrichment on Anxiety and Memory",
       publication: "Psychology & Neuroscience [Psicologia & Neurociência]",
-      publisher: "American Psychological Association [Associcação Americana de Psicologia]",
+      publisher: "American Psychological Association [Associação Americana de Psicologia]",
       lang: "en",
       abstract: "",
     },
-    'eappe2022': {
+    eappe2022: {
       star: false,
       name: "A Questão da Validade na Avaliação Educacional",
       publication: "Ensaio",
@@ -87,7 +89,7 @@ const LangPT = {
       lang: "pt",
       abstract: "",
     },
-    'rr2024': {
+    rr2024: {
       star: true,
       name: "The Situational Tests of Emotional Intelligence as a Computer-Adaptive Test",
       publication: "Recital",

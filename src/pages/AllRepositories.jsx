@@ -19,9 +19,9 @@ import Footer from "../components/Footer";
 import RepositoryCard from "../components/RepositoryCard";
 import {
   Loading,
-  NavigationButtons,
   Title,
 } from "../components/globalStyledComponents";
+import NavButtons from "../components/NavButtons";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
 
@@ -272,7 +272,7 @@ export default function AllRepositories() {
             </Container>
           </StyledSection>
         </main>
-        <NavigationButtons home={"Home"} />
+        <NavButtons />
         <Footer />
       </>
     );

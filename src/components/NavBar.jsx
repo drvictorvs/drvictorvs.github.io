@@ -10,7 +10,6 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 // import { FixedNavSpacer, ToggleSwitch } from "./globalStyledComponents";
 // Images
 // import Logo from "../images/logo.svg";
-import { NavigationButtons } from '../components/globalStyledComponents';
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
 import { FlagENG, FlagPTB, Logo } from "./Resources";
@@ -134,14 +133,12 @@ function LangToggle() {
 }
 
 export default function NavBar() {
-  const { themeName, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
+  const { themeName, isExpanded, closeExpanded, toggleExpanded, setActiveSection } = useAppContext();
   const { pathname } = useLocation();
   const theme = useTheme();
-  const [activeSection, setActiveSection] = React.useState('Home');
 
   const handleSetActive = (to) => {
     setActiveSection(to);
-    console.log(to)
   };
 
 
@@ -205,13 +202,12 @@ export default function NavBar() {
                   })}
             </Nav>
             <Nav>
-              <LangToggle />
+              <LangToggle/>
               <ThemeToggle />
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    <NavigationButtons home={"Home"} activeSection={activeSection} />
     </>
   );
 }

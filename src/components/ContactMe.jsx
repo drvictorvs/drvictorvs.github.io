@@ -25,7 +25,7 @@ export default function Contact() {
       <StyledSection className="d-flex flex-column justify-content-center">
         <Container className="d-flex">
           <Title>
-            <h2>{strings.contactMe}</h2>
+            <h2>{strings.contactMe ? strings.contactMe : ""}</h2>
             <div className="underline"></div>
           </Title>
         </Container>

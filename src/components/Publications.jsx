@@ -10,6 +10,7 @@ import LangPT from '../translations/LangPT';
 import PublicationCard from "./PublicationCard";
 import { importAll } from './Resources';
 import { Title } from "./globalStyledComponents";
+import { Card } from "react-bootstrap";
 
 const imgs = importAll(require.context('../images/scientific/', false, /.png$/));
 console.log(imgs);
@@ -33,7 +34,12 @@ export default function Publications() {
     return {
       id: id,
       short_name: short_name,
-      image: imgs[short_name + '.png'],
+      image: <Card.Img
+            style={{ position: "relative" }}
+            variant="top"
+            src={imgs[short_name + '.png']}
+            className="mx-auto"
+            />,
       name: sciStrings[short_name].name,
       authors: authors,
       publication: sciStrings[short_name].publication,
@@ -158,7 +164,7 @@ export default function Publications() {
     );
   }
 
-  const StyledDiv = styled.div`
+  export const HorizontalScrollerDiv = styled.div`
     position: relative;
       .scroll-button {
         position: absolute;
@@ -193,12 +199,12 @@ export default function Publications() {
     };
     
     return (
-      <StyledDiv>
+      <HorizontalScrollerDiv>
       <button className="scroll-button right" onClick={() => scroll(200)}><Icon icon="fluent:arrow-circle-right-48-filled" height="64px" width="64px"/></button>
       <StyledScrollMenu ref={scrollContainer}>
       {children}
       </StyledScrollMenu>
       <button className="scroll-button left" onClick={() => scroll(-200)}><Icon icon="fluent:arrow-circle-left-48-filled" height="64px" width="64px"/></button>
-      </StyledDiv>
+      </HorizontalScrollerDiv>
     );
   };

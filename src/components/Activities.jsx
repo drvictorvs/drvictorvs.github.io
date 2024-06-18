@@ -24,6 +24,8 @@ const ActivitiesStyle = styled(Element)`
   }
   figcaption {
     font-size: max(0.8em,0.8vw);
+    text-overflow:ellipsis;
+    max-width: 33vw
   }
 }
   figcaption 

@@ -98,3 +98,4 @@ export const R = ({ theme }) =>
 export const PDFFileIco = ({ themeName }) =>
 <img src={SVGs['pdf-file.svg']} alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", filter: themeName === "light" ? "invert(0)": "invert(1)"}} />;
 
+// #region: Paper previews

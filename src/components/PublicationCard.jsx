@@ -140,13 +140,7 @@ export default function PublicationCard({
             <FlagPTB style={flagStyle} />
           )}
           {(strings.scientific[short_name].star === true) && <Icon icon="fluent:star-12-filled" style={starStyle} />}
-          <Card.Img
-            style={{ position: "relative" }}
-            variant="top"
-            src={image}
-            alt={name}
-            className="mx-auto"
-          />
+          {image}
         </div>
         <Card.Body className="text-center">
           <Card.Title>{name}</Card.Title>

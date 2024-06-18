@@ -53,7 +53,7 @@ export const fetchGitHubRepos = createAsyncThunk(
 
       return dataWithLang;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return cached;
     }
   }
 );
