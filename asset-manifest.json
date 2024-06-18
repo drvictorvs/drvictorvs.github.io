@@ -1,10 +1,18 @@
 {
   "files": {
     "main.css": "/static/css/main.0c438e1d.css",
-    "main.js": "/static/js/main.bcefcdde.js",
+    "main.js": "/static/js/main.58c7020f.js",
     "static/media/theme-dark.jpg": "/static/media/theme-dark.568ce244e0f1ed702c7a.jpg",
+    "static/media/fallback-avatar.png": "/static/media/fallback-avatar.de0ac13809220b283c13.png",
     "static/media/theme-light.jpg": "/static/media/theme-light.6e624b877f84cd582dcc.jpg",
+    "static/media/pbjs2015.png": "/static/media/pbjs2015.a20d1318e9176a482d54.png",
+    "static/media/eip2018.png": "/static/media/eip2018.214438d878dc09cf0293.png",
+    "static/media/pn2019.png": "/static/media/pn2019.3947f5e40b7e9c8cd180.png",
+    "static/media/eappe2022.png": "/static/media/eappe2022.c8f0e1cfaff7cc90ee1b.png",
+    "static/media/eae2018.png": "/static/media/eae2018.b1944ac66de4ade6eb0e.png",
     "static/media/equality.svg": "/static/media/equality.94b3c4bcfd76636f7b8b35fc69c3efe0.svg",
+    "static/media/rr2024.png": "/static/media/rr2024.6353048015b96ed25764.png",
+    "static/media/unb2018.png": "/static/media/unb2018.b3a39b674a74bc134da4.png",
     "service-worker.js": "/service-worker.js",
     "static/media/flag-ptbr.svg": "/static/media/flag-ptbr.6c6b583864621a385341.svg",
     "static/media/logo.svg": "/static/media/logo.f0b6778c6b78e6608ce97de4895cec95.svg",
@@ -28,10 +36,10 @@
     "static/media/g-scholar.svg": "/static/media/g-scholar.fb077ea79e8f6dc6d629ee6d8c8b1098.svg",
     "static/media/statistical-modeling.svg": "/static/media/statistical-modeling.394abe29eb4388a86260.svg",
     "main.0c438e1d.css.map": "/static/css/main.0c438e1d.css.map",
-    "main.bcefcdde.js.map": "/static/js/main.bcefcdde.js.map"
+    "main.58c7020f.js.map": "/static/js/main.58c7020f.js.map"
   },
   "entrypoints": [
     "static/css/main.0c438e1d.css",
-    "static/js/main.bcefcdde.js"
+    "static/js/main.58c7020f.js"
   ]
 }
