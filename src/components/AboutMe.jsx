@@ -32,6 +32,10 @@ const StyledAboutMe = styled.section`
     }
   }
 
+  a {
+    color: ${({theme}) => theme.color};
+  }
+
 `;
 
 export default function AboutMe() {
