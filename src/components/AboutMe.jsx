@@ -11,6 +11,7 @@ import LangPT from "../translations/LangPT";
 import { Col, Container, Row } from "react-bootstrap";
 import { Title } from "./globalStyledComponents";
 import EqualityImg from "../images/equality.svg";
+import fallbackAvatar from "../images/fallback-avatar.png";
 
 const StyledAboutMe = styled.section`
 
@@ -62,18 +63,23 @@ export default function AboutMe() {
             <Col className="d-none d-md-block text-center">
             
           <Container className="d-flex" style={{flexDirection:"column",
-    alignContent: "center",
-    justifyContent: "center",
-    flexWrap: "wrap"}}>
+            alignContent: "center",
+            justifyContent: "center",
+            flexWrap: "wrap"}}>
               <img
-                src={avatar_url}
+                src={avatar_url ? avatar_url : fallbackAvatar}
                 alt=""
                 loading="lazy"
                 className="mx-auto rounded-circle"
                 style={{ width: "15rem", height: "max-content", marginBottom: "3vh" }}
               />
-              
-                <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" target="_blank" rel="noopener"><img src={EqualityImg} height={"40px"} width={"185px"} style={{alignSelf:"center"}}/></a>
+
+              <a 
+              href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" 
+              target="_blank" 
+              rel="noopener">
+                <img src={EqualityImg} height={"40px"} width={"185px"} style={{alignSelf:"center"}}/>
+              </a>
                 </Container>
             </Col>
           </Row>

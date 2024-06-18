@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import headers from './allRepositoriesSlice';
 
+import userCached from "./userCached.json";
+
 const githubUsername = "drvictorvs";
 
 const initialState = {
@@ -13,19 +15,36 @@ export const url = `https://api.github.com/users/${githubUsername}`;
 
 export const fetchGitHubInfo = createAsyncThunk(
   "home/fetchGitHubInfo",
-  async (thunkApi, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch(url, { headers }).then(function (res) {
-        if (!res.ok) {
-          throw new Error(res.status);
+      const cacheKey = 'githubData';
+      const cached = localStorage.getItem(cacheKey);
+      const cacheTime = localStorage.getItem(`${cacheKey}_time`);
+
+      if (cached !== null && cacheTime !== null) {
+        const age = (Date.now() - cacheTime) / 1000 / 60 / 60;
+        if (age < 2) {
+          return JSON.parse(cached);
         }
-        return res;
+      }
+      
+      const response = await fetch(url, { headers }).then(function (res) {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response;
       });
       const data = await response.json();
+
+
+      // Save the fetched data to local storage
+      localStorage.setItem(cacheKey, JSON.stringify(data));
+      localStorage.setItem(`${cacheKey}_time`, Date.now());
+
       return data;
-    } catch (err) {
+    } catch (error) {
       return rejectWithValue(
-        `Error: ${err.message}`
+        `Error: ${error.message}`
       );
     }
   }
@@ -44,9 +63,9 @@ export const homeSlice = createSlice({
         state.isLoading = false;
         state.data = action.payload;
       })
-      .addCase(fetchGitHubInfo.rejected, (state, action) => {
+      .addCase(fetchGitHubInfo.rejected, (state, _) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.data = userCached;
         console.log(state.error);
       });
   },

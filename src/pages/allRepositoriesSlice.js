@@ -13,7 +13,6 @@ const initialState = {
 
 export const url = `https://api.github.com/users/${githubUsername}/repos?per_page=100`;
 export const headers = new Headers({
-  'Authorization': 'Bearer ' + process.env.REACT_APP_GITHUB_TOKEN
 });
 
 

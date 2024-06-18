@@ -82,7 +82,7 @@ export default function Theme() {
       <Container>
         <Row className="align-items-center text-center">
           <Col>
-            <h1 className="mb-1 display-3 title">{name}</h1>
+            <h1 className="mb-1 display-3 title">{name ? name : "Dr. Victor Vasconcelos"}</h1>
             <Title>
               <h2 style={{marginBottom: "3vh", fontFamily: "var(--primary-font)"}}>{strings.desc}</h2>
             </Title>

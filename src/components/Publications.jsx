@@ -11,8 +11,8 @@ import PublicationCard from "./PublicationCard";
 import { importAll } from './Resources';
 import { Title } from "./globalStyledComponents";
 
-const imgs = importAll(require.context('../images/scientific', false, /" +.png$/));
-
+const imgs = importAll(require.context('../images/scientific/', false, /.png$/));
+console.log(imgs);
 
 const StyledScrollMenu = styled.div`
   position: relative;
