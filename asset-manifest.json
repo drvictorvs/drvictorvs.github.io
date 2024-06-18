@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.0c438e1d.css",
-    "main.js": "/static/js/main.58c7020f.js",
+    "main.css": "/static/css/main.1f516ee7.css",
+    "main.js": "/static/js/main.c1cee5a6.js",
     "static/media/theme-dark.jpg": "/static/media/theme-dark.568ce244e0f1ed702c7a.jpg",
     "static/media/fallback-avatar.png": "/static/media/fallback-avatar.de0ac13809220b283c13.png",
     "static/media/theme-light.jpg": "/static/media/theme-light.6e624b877f84cd582dcc.jpg",
@@ -35,11 +35,11 @@
     "static/media/psychopharmacology.svg": "/static/media/psychopharmacology.503ca4f6bdd3d83ea6e7.svg",
     "static/media/g-scholar.svg": "/static/media/g-scholar.fb077ea79e8f6dc6d629ee6d8c8b1098.svg",
     "static/media/statistical-modeling.svg": "/static/media/statistical-modeling.394abe29eb4388a86260.svg",
-    "main.0c438e1d.css.map": "/static/css/main.0c438e1d.css.map",
-    "main.58c7020f.js.map": "/static/js/main.58c7020f.js.map"
+    "main.1f516ee7.css.map": "/static/css/main.1f516ee7.css.map",
+    "main.c1cee5a6.js.map": "/static/js/main.c1cee5a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c438e1d.css",
-    "static/js/main.58c7020f.js"
+    "static/css/main.1f516ee7.css",
+    "static/js/main.c1cee5a6.js"
   ]
 }
