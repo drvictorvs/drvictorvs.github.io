@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1f516ee7.css",
-    "main.js": "/static/js/main.c1cee5a6.js",
+    "main.js": "/static/js/main.b2ebe685.js",
     "static/media/theme-dark.jpg": "/static/media/theme-dark.568ce244e0f1ed702c7a.jpg",
     "static/media/fallback-avatar.png": "/static/media/fallback-avatar.de0ac13809220b283c13.png",
     "static/media/theme-light.jpg": "/static/media/theme-light.6e624b877f84cd582dcc.jpg",
@@ -16,30 +16,30 @@
     "service-worker.js": "/service-worker.js",
     "static/media/flag-ptbr.svg": "/static/media/flag-ptbr.6c6b583864621a385341.svg",
     "static/media/logo.svg": "/static/media/logo.f0b6778c6b78e6608ce97de4895cec95.svg",
-    "static/media/flag-pt.svg": "/static/media/flag-pt.1353289d512e86df2d1d.svg",
+    "static/media/flag-pt.svg": "/static/media/flag-pt.1353289d512e86df2d1d6d5ebd906af8.svg",
     "static/media/flag-enus.svg": "/static/media/flag-enus.7999b3c6d890679520c1.svg",
-    "static/media/intellectual-assessment.svg": "/static/media/intellectual-assessment.da2865b207f24ebf8c45.svg",
-    "static/media/flag-us.svg": "/static/media/flag-us.df5d673e7f4cc373a24d.svg",
-    "static/media/flag-uk.svg": "/static/media/flag-uk.5904ccc9d739146cb0c8.svg",
+    "static/media/intellectual-assessment.svg": "/static/media/intellectual-assessment.da2865b207f24ebf8c45ed7e55ee261e.svg",
+    "static/media/flag-us.svg": "/static/media/flag-us.df5d673e7f4cc373a24da9a751a7631e.svg",
+    "static/media/flag-uk.svg": "/static/media/flag-uk.5904ccc9d739146cb0c80512b4f5a084.svg",
     "index.html": "/index.html",
-    "static/media/flag-br.svg": "/static/media/flag-br.86f66a6ab0e88adf2c37.svg",
+    "static/media/flag-br.svg": "/static/media/flag-br.86f66a6ab0e88adf2c377110c37b0fe8.svg",
     "static/media/orcid-id.svg": "/static/media/orcid-id.d14bc804709809c457bca5dea986f310.svg",
-    "static/media/pdf-file.svg": "/static/media/pdf-file.d04721f96c73a5436337.svg",
-    "static/media/neuropsychology.svg": "/static/media/neuropsychology.185b82955506c9ff2d65.svg",
-    "static/media/psychometrics.svg": "/static/media/psychometrics.42d60e92a0169043cf86.svg",
-    "static/media/lang-r.svg": "/static/media/lang-r.3cd4df7ecd290c01e502.svg",
+    "static/media/pdf-file.svg": "/static/media/pdf-file.d04721f96c73a54363372fcd07c120d0.svg",
+    "static/media/neuropsychology.svg": "/static/media/neuropsychology.185b82955506c9ff2d654163280a93bf.svg",
+    "static/media/psychometrics.svg": "/static/media/psychometrics.42d60e92a0169043cf869c3d0b05bbe7.svg",
+    "static/media/lang-r.svg": "/static/media/lang-r.3cd4df7ecd290c01e502c9c1f5ca98ff.svg",
     "static/media/lattes.svg": "/static/media/lattes.57a7183fd2a7d7af368769d553dc4d73.svg",
-    "static/media/research-design.svg": "/static/media/research-design.05e2f30c7fc0f54ad511.svg",
-    "static/media/lang-python.svg": "/static/media/lang-python.dba42f153b2eb4836fa7.svg",
-    "static/media/emotional-intellectual-assessment.svg": "/static/media/emotional-intellectual-assessment.22bf4fb490d0c6ee1596.svg",
-    "static/media/psychopharmacology.svg": "/static/media/psychopharmacology.503ca4f6bdd3d83ea6e7.svg",
+    "static/media/research-design.svg": "/static/media/research-design.51ee226516348b9c27450a633cd6ca12.svg",
+    "static/media/lang-python.svg": "/static/media/lang-python.dba42f153b2eb4836fa7a50a2dfcad18.svg",
+    "static/media/emotional-intellectual-assessment.svg": "/static/media/emotional-intellectual-assessment.22bf4fb490d0c6ee1596cc7f05322b2f.svg",
+    "static/media/psychopharmacology.svg": "/static/media/psychopharmacology.503ca4f6bdd3d83ea6e77ddf0d59752b.svg",
     "static/media/g-scholar.svg": "/static/media/g-scholar.fb077ea79e8f6dc6d629ee6d8c8b1098.svg",
-    "static/media/statistical-modeling.svg": "/static/media/statistical-modeling.394abe29eb4388a86260.svg",
+    "static/media/statistical-modeling.svg": "/static/media/statistical-modeling.153d07ac6acc659c82e79e7152ebc24b.svg",
     "main.1f516ee7.css.map": "/static/css/main.1f516ee7.css.map",
-    "main.c1cee5a6.js.map": "/static/js/main.c1cee5a6.js.map"
+    "main.b2ebe685.js.map": "/static/js/main.b2ebe685.js.map"
   },
   "entrypoints": [
     "static/css/main.1f516ee7.css",
-    "static/js/main.c1cee5a6.js"
+    "static/js/main.b2ebe685.js"
   ]
 }
