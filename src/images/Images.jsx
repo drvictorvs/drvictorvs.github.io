@@ -1,0 +1,21 @@
+import {ReactComponent as LogoSVG} from "./logo.svg";
+import {ReactComponent as BRFlagSVG} from "./flag-br.svg";
+import {ReactComponent as PTFlagSVG} from "./flag-pt.svg";
+import {ReactComponent as OrcidSVG} from "./orcid-id.svg";
+import {ReactComponent as LattesSVG} from "./lattes.svg";
+import {ReactComponent as PDFFileSVG} from "./pdf-file.svg";
+import {ReactComponent as UKFlagSVG} from "./flag-uk.svg";
+import {ReactComponent as USFlagSVG} from "./flag-us.svg";
+import {ReactComponent as EqualitySVG} from "./equality.svg";
+import {ReactComponent as GScholarSVG} from "./g-scholar.svg";
+import {ReactComponent as EIAssessmentSVG} from "./skills/emotional-intellectual-assessment.svg";
+import {ReactComponent as IntellectualAssessmentSVG} from "./skills/intellectual-assessment.svg";
+import {ReactComponent as PsychometricsSVG} from "./skills/psychometrics.svg";
+import {ReactComponent as StatisticalModelingSVG} from "./skills/statistical-modeling.svg";
+import {ReactComponent as PsychopharmacologySVG} from "./skills/psychopharmacology.svg";
+import {ReactComponent as PythonSVG} from "./skills/lang-python.svg";
+import {ReactComponent as ResearchDesignSVG} from "./skills/research-design.svg";
+import {ReactComponent as NeuropsychologySVG} from "./skills/neuropsychology.svg";
+import {ReactComponent as RLangSVG} from "./skills/lang-r.svg";
+
+export {LogoSVG, BRFlagSVG, PTFlagSVG, OrcidSVG, LattesSVG, PDFFileSVG, UKFlagSVG, USFlagSVG, EqualitySVG, GScholarSVG, EIAssessmentSVG, IntellectualAssessmentSVG, PsychometricsSVG, StatisticalModelingSVG, PsychopharmacologySVG, PythonSVG, ResearchDesignSVG, NeuropsychologySVG, RLangSVG};

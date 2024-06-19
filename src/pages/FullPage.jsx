@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useAppContext } from "../appContext";
-import AboutMe from "../components/AboutMe";
+import About from "../components/About";
 import Activities from "../components/Activities";
-import ContactMe from "../components/ContactMe";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Home from "../components/Home";
 import Publications from "../components/Publications";
@@ -17,14 +17,14 @@ export default function FullPage() {
     <>
       <Home />
       <main>
-        <AboutMe />
+        <About />
         <Activities />
         <Publications />
         <Repositories />
-        <ContactMe />
+        <Contact />
       </main>
+      <NavButtons />
       <Footer />
-      <NavButtons/>
     </>
   );
 }

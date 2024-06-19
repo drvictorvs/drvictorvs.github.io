@@ -27,7 +27,7 @@ export const fetchGitHubRepos = createAsyncThunk(
       if (cached !== null && cacheTime !== null) {
         const age = (Date.now() - cacheTime) / 1000 / 60 / 60; 
         if (age < 2) { 
-          return JSON.parse(cached);
+          return cached;
         }
       }
 
@@ -70,26 +70,12 @@ export const allRepositoriesSlice = createSlice({
       })
       .addCase(fetchGitHubRepos.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.data = action.payload;
-        projectCardImages.forEach(function (element) {
-          state.data.forEach((el, i) => {
-            if (element.name.toLowerCase() === el.name.toLowerCase()) {
-              el.image = element.image;
-            }
-          });
-        });
+        state.data = JSON.parse(action.payload);
       })
       .addCase(fetchGitHubRepos.rejected, (state, action) => {
         state.isLoading = false;
-        state.data = cached;
-        projectCardImages.forEach(function (element) {
-          state.data.forEach((el, i) => {
-            if (element.name.toLowerCase() === el.name.toLowerCase()) {
-              el.image = element.image;
-            }
-          });
-      });
-})
+        state.data = JSON.parse( cached );
+      })
   }
 }
 )

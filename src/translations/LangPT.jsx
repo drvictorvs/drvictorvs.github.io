@@ -1,29 +1,30 @@
 const LangPT = {
   id: "pt",
-  navmenu: {
+  navMenu: {
     home: 'Início',
     allRepositories: 'Todos os Projetos',
     about: 'Sobre',
     activities: 'Atuação',
     publications: 'Publicações',
     repositories: 'Repositórios',
-    contactMe: 'Contato',
+    contact: 'Contato',
+    end: 'Fim'
   },
   skills: {
     neuropsychology: 'Neuropsicologia',
     psychometrics: 'Psicometria',
     psychopharmacology: 'Psicofarmacologia',
     intellectualAssessment: "Avaliação da Inteligência",
-    emotionalIntellectualAssessment: "Avaliação da Inteligência Emocional",
+    EIAssessment: "Avaliação da Inteligência Emocional",
     researchDesign: "Desenho de Pesquisa",
     python: "Python",
     statisticalModeling: "Modelagem Estatística",
-    langR: "R"
+    langR: "Linguagem R"
   },
   messages: {
     langToggle: "Alterar idioma. Atualmente,",
-    readonline: "Ler online",
-    viewon: "Visualizar em",
+    readOnline: "Ler online",
+    viewOn: "Visualizar em",
     error: "Excedemos o limite de dados do GitHub. Visite o repositório diretamente por meio do botão abaixo.",
     noRepos: "Sem repositórios para exibir."
   },
@@ -42,11 +43,11 @@ const LangPT = {
     sendError: "Algo de errado não está certo 😥😣 Você pode mandar um email diretamente para contato@dr.victorvs.com."
   },
   misc: {
-    aboutMe: "Sobre mim",
+    about: "Sobre mim",
     desc: "Neuropsicólogo e Psicometrista",
     portfolio: "Portfólio",
     webpage: "Dr. Victor Vasconcelos | Página",
-    moreInfo: "Neuropsicólogo (CRP 01/20123) formado na Universidade de Brasília. Doutorado e mestrado realizados sob a orientação da Prof.ª Dr.ª Cristiane Faiad na concentração de Avaliação e Instrumentação Psicológica do Programa de Pós-Graduação de Psicologia Social, Trabalho e Organizacional—também na Universidade de Brasília. Especializado no uso de recursos de programação em educação e psicometria (modelagem estatística, avaliação psicológica e educacional). Experiência em análise estatística em ciências biomédicas, neurociências e psicologia. Trabalhou por dois anos em laboratórios de psicofarmacologia, usando metodologia de perfusão oral ou intra-hipocampal. Atualmente trabalhando como psicométrico no Instituto Nacional de Estudo e Pesquisa em Educação Anísio Teixeira.",
+    moreInfo: `Neuropsicólogo (CRP 01/20123) formado na <a href="https://unb.br" rel="noopener" target="_blank">Universidade de Brasília</a>. Doutorado e mestrado realizados na concentração de Avaliação e Instrumentação Psicológica do Programa de <a href="https://www.psto.com.br" rel="noopener" target="_blank">Pós-Graduação de Psicologia Social, Trabalho e Organizacional</a>—também na Universidade de Brasília. Especializado no uso de recursos de programação em educação e psicometria (modelagem estatística, avaliação psicológica e educacional). Experiência em análise estatística em ciências biomédicas, neurociências e psicologia. Trabalhou por dois anos em laboratórios de psicofarmacologia, usando metodologia de perfusão oral ou intra-hipocampal. Atualmente trabalhando como psicométrico no <a href="https://inep.gov.br" rel="noopener" target="_blank">Instituto Nacional de Estudo e Pesquisa em Educação Anísio Teixeira</a>.`,
   },
   scientific: {
     pbjs2015: {

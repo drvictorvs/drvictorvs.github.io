@@ -50,4 +50,12 @@ export const Title = styled.div`
     margin: 0 auto 1.5rem auto;
     background: ${({ theme }) => theme.gradient };
   }
+
+  
+  @media screen and (max-width: 700px) {
+
+    .underline {
+      margin-bottom: 0.5rem;
+    }
+  }
 `;

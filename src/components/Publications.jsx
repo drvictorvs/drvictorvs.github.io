@@ -13,7 +13,6 @@ import { Title } from "./globalStyledComponents";
 import { Card } from "react-bootstrap";
 
 const imgs = importAll(require.context('../images/scientific/', false, /.png$/));
-console.log(imgs);
 
 const StyledScrollMenu = styled.div`
   position: relative;
@@ -113,7 +112,7 @@ export default function Publications() {
     ]
     
     
-    const navStrings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
+    const navStrings = lang === "en" ? LangEN.navMenu : LangPT.navMenu;
     
     return (
       <Element name={"Publications"} id="publications">
@@ -200,11 +199,11 @@ export default function Publications() {
     
     return (
       <HorizontalScrollerDiv>
-      <button className="scroll-button right" onClick={() => scroll(200)}><Icon icon="fluent:arrow-circle-right-48-filled" height="64px" width="64px"/></button>
-      <StyledScrollMenu ref={scrollContainer}>
-      {children}
-      </StyledScrollMenu>
-      <button className="scroll-button left" onClick={() => scroll(-200)}><Icon icon="fluent:arrow-circle-left-48-filled" height="64px" width="64px"/></button>
+        <button className="scroll-button right" onClick={() => scroll(200)}><Icon icon="fluent:arrow-circle-right-48-filled" height="64px" width="64px"/></button>
+          <StyledScrollMenu ref={scrollContainer}>
+            {children}
+          </StyledScrollMenu>
+        <button className="scroll-button left" onClick={() => scroll(-200)}><Icon icon="fluent:arrow-circle-left-48-filled" height="64px" width="64px"/></button>
       </HorizontalScrollerDiv>
     );
   };

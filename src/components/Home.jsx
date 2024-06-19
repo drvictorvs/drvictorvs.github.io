@@ -52,6 +52,18 @@ const StyledTheme = styled.header`
     height: 10rem;
   }
 
+  h1, h2, svg.logo-img > g > path {
+    transition: 0.5s ease-in;
+  }
+
+  h1:hover, h2:hover {
+    color: ${({ theme }) => theme.primary };
+  }
+
+  svg.logo-img:hover > g > path {
+    color: ${({ theme }) => theme.secondary };
+  }
+
   @media screen and (min-width: 1180px) {
     &::before {
       background: ${({ theme }) => theme.name === "light"
@@ -71,6 +83,7 @@ const StyledTheme = styled.header`
   }
 `;
 
+
 export default function Theme() {
   const { name } = useSelector(selectData);
   // const { theme } = useTheme();
@@ -88,15 +101,15 @@ export default function Theme() {
             </Title>
             <SocialLinks />
           </Col>
-          <Col className="d-none d-md-block">
+          <Col className="d-md-block d-none">
             <BigLogo />
           </Col>
         </Row>
         <Row className="align-items-end down-container">
           <Col className="m-4 text-center">
-            <Link to={"AboutMe"} className="link-icons">
+            {/* <Link to={"About"} className="link-icons">
               <Icon icon="fa6-solid:circle-chevron-down" />
-            </Link>
+            </Link> */}
           </Col>
         </Row>
       </Container>

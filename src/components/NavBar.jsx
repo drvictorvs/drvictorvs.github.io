@@ -7,9 +7,6 @@ import { useAppContext, useTheme } from "../appContext";
 import { Icon } from "@iconify/react";
 // Components
 import { Container, Nav, Navbar } from "react-bootstrap";
-// import { FixedNavSpacer, ToggleSwitch } from "./globalStyledComponents";
-// Images
-// import Logo from "../images/logo.svg";
 import LangEN from '../translations/LangEN';
 import LangPT from '../translations/LangPT';
 import { FlagENG, FlagPTB, Logo } from "./Resources";
@@ -62,11 +59,11 @@ const StyledPick = styled.label`
 
   #langSwitcher {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     transition: var(--transition);
     width:5vw;
-    height: max-content;
+    margin-top: auto;
+    margin-bottom: auto;
     flex-grow: 1;
     gap: 0.5rem;
 
@@ -78,6 +75,8 @@ const StyledPick = styled.label`
     border-bottom: 1pt dotted;
     }
   }
+
+  
 `;
 
 // Spacer for fixed Navigation bar
@@ -91,11 +90,12 @@ function ThemeToggle() {
   return (
     <StyledSwitch onClick={closeExpanded}>
       <input
+        id="themeToggle"
         type="checkbox"
         aria-label={`Toggle theme, currently ${themeName}.`}
         onClick={toggleTheme}
       />
-      <div id="themeSwitcher">
+      <div id="themeSwitcher" >
         {themeName === "light" ? (
           <Icon icon="game-icons:sunflower" />
         ) : (
@@ -106,6 +106,9 @@ function ThemeToggle() {
   );
 }
 
+const LangText = styled.div.attrs({className: "langText nav-item"})`
+margin-right: 3vw;`
+
 function LangToggle() {
   const { lang, toggleLang, closeExpanded } = useAppContext();
 
@@ -114,17 +117,22 @@ function LangToggle() {
   return (
     <StyledPick onClick={closeExpanded}>
       <input
-        id="lang"
+        id="langToggle"
         type="checkbox"
         aria-label={`${msgStrings.langToggle} ${lang}.`}
         onClick={toggleLang}
       />
       <div id="langSwitcher">
         {lang === "en" ? (
-          <><FlagPTB style={{height:"2rem", width:"2rem", background:"none"}} />
-          <div className="langText">{LangPT.id.toUpperCase()}</div></>
+          <>
+            <FlagPTB style={{height:"2rem", width:"2rem", background:"none"}} />
+            <LangText>{LangPT.id.toUpperCase()}</LangText>
+          </>
         ) : (
-          <><FlagENG style={{height:"2rem", width:"2rem", background:"none"}} /><div className="langText">{LangEN.id.toUpperCase()}</div></>
+          <>
+            <FlagENG style={{height:"2rem", width:"2rem", background:"none"}} />
+            <LangText>{LangEN.id.toUpperCase()}</LangText>
+          </>
         )}
         
       </div>
@@ -214,7 +222,7 @@ export default function NavBar() {
 
 export function MakeNavLinks(){
   const { lang } = useAppContext();
-  const navStrings = lang === 'en' ? LangEN.navmenu : LangPT.navmenu;
+  const navStrings = lang === 'en' ? LangEN.navMenu : LangPT.navMenu;
 
   return {
     routes: [
@@ -223,11 +231,11 @@ export function MakeNavLinks(){
     ],
     to: [
       { id: "1T", name: navStrings.home, to: "Home" },
-      { id: "2T", name: navStrings.about, to: "AboutMe" },
+      { id: "2T", name: navStrings.about, to: "About" },
       { id: "3T", name: navStrings.activities, to: "Activities" },
       { id: "4T", name: navStrings.publications, to: "Publications" },
       { id: "5T", name: navStrings.repositories, to: "Repositories" },
-      { id: "6T", name: navStrings.contactMe, to: "ContactMe" },
+      { id: "6T", name: navStrings.contact, to: "Contact" },
     ],
 
 };

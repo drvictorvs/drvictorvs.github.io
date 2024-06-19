@@ -22,9 +22,9 @@ class Theme {
 
 export const lightTheme = new Theme(
   "light",
-  "#FFBFAA",
-  "#FFD9CC",
-  "#FF8F6A",
+  "#FF5722",
+  "#FF5722",
+  "#F03D00",
   "#45413C",
   "#45413C",
   "#F5F2E8",
@@ -46,9 +46,9 @@ export const lightTheme = new Theme(
 
 export const darkTheme = new Theme(
   "dark",
-  "#FF5722",
-  "#FF5722",
-  "#F03D00",
+  "#FFBFAA",
+  "#FFD9CC",
+  "#FF8F6A",
   "#FBFDFF",
   "#797B7B",
   "#27272A",
@@ -60,7 +60,7 @@ export const darkTheme = new Theme(
     shadow: "0 3px 10px rgb(255 255 255 / 0.2)",
     footer: "#303030",
     link: "#FBFDFF",
-    linkHover: "#FF5722"
+    linkHover: "#FFBFAA"
   },
   DarkBG,
   "invert(89%) sepia(88%) saturate(4248%) hue-rotate(293deg) brightness(98%) contrast(135%)",

@@ -24,7 +24,7 @@ export const fetchGitHubInfo = createAsyncThunk(
       if (cached !== null && cacheTime !== null) {
         const age = (Date.now() - cacheTime) / 1000 / 60 / 60;
         if (age < 2) {
-          return JSON.parse(cached);
+          return cached;
         }
       }
       

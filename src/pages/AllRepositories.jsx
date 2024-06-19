@@ -54,7 +54,7 @@ export default function AllRepositories() {
   const data = useSelector(selectData);
   const { name } = useSelector(homeData);
   const { lang } = useAppContext();
-  const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
+  const strings = lang === "en" ? LangEN.navMenu : LangPT.navMenu;
 
   React.useEffect(
     function () {

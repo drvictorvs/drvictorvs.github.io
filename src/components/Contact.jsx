@@ -13,19 +13,19 @@ export const formspreeUrl = "https://formspree.io/f/drvictorvs";
 
 const StyledSection = styled.section`
   min-height: 89vh;
-  padding-top: var(--nav-height);
+  padding-bottom:var(--nav-height);
 `;
 
 export default function Contact() {
   const { lang } = useAppContext();
-  const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
+  const strings = lang === "en" ? LangEN.navMenu : LangPT.navMenu;
 
   return (
-    <Element name={"ContactMe"} id="contactMe">
-      <StyledSection className="d-flex flex-column justify-content-center">
+    <Element name={"Contact"} id="Contact">
+      <StyledSection className="d-flex flex-column justify-content-center" >
         <Container className="d-flex">
           <Title>
-            <h2>{strings.contactMe ? strings.contactMe : ""}</h2>
+            <h2>{strings.contact ? strings.contact : ""}</h2>
             <div className="underline"></div>
           </Title>
         </Container>

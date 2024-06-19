@@ -22,25 +22,16 @@ export const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Bl
 
 const BlenderLogo = <Icon icon="logos:blender" className="card-img-top mx-auto" />;
 
-export const projectCardImages = [
-  {
-    name: "phd",
-    image: <BigLogo style={{height:"100%", width:"100%"}} />,
-  },
-  {
-    name: "Pokemon-Switch-V2-Model-Importer-Blender",
-    image: BlenderLogo,
-  },
-  {
-    name: "drvictorvs.github.io",
-    image: <BigLogo style={{height:"100%", width:"100%"}} />,
-  },
-];
+export const projectCardImages = {
+  "phd": <BigLogo style={{height:"100%", width:"100%"}} />, 
+  "Pokemon-Switch-V2-Model-Importer-Blender": BlenderLogo,
+  "drvictorvs.github.io": <BigLogo style={{height:"100%", width:"100%"}} />,
+  };
 
 export default function Repositories() {
   const [mainRepositories, setMainRepositories] = React.useState([]);
   const { themeName, lang } = useAppContext();
-  const strings = lang === "en" ? LangEN.navmenu : LangPT.navmenu;
+  const strings = lang === "en" ? LangEN.navMenu : LangPT.navMenu;
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const data = useSelector(selectData);
@@ -99,7 +90,7 @@ export default function Repositories() {
                   return (
                       <RepositoryCard 
                         key={id}
-                        image={image}
+                        image={projectCardImages[name]}
                         name={name}
                         description={description}
                         repo_lang={repo_lang}

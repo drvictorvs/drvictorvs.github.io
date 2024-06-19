@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState, useEffect, Suspense } from "react";
 import styled from "styled-components";
 import { useAppContext, useTheme } from "../appContext";
 // Icons
@@ -27,7 +27,8 @@ const PublicationCardComponent = styled.div`
     margin-right: 10px;
     margin-bottom: 0px;
     flex: 1;
-    min-width: 400px;
+    min-width: 300px;
+    max-height:75vh;
     width: 20vw;
     height: inherit;
     transition: all .2s ease-in-out;
@@ -80,6 +81,19 @@ const PublicationCardComponent = styled.div`
       position: relative;
       margin-top: 0;
       background: ${({ theme }) => theme.card.footer};
+      flex: 1 1 auto;
+      padding: 0 0 0 0;
+      height: 10vh;
+      max-height: 10vh;
+
+      &.read-online {
+        position:relative;
+        bottom:0;
+      }
+      &.view-on {
+        position:absolute;
+        bottom:0;
+      }
     }
 
     .card-img-top {
@@ -90,6 +104,15 @@ const PublicationCardComponent = styled.div`
     
   }
 `;
+
+const imageList = {
+    'pbjs2015': () => import('../images/scientific/pbjs2015.png'),
+    'eip2018': () => import('../images/scientific/eip2018.png'),
+    'eae2018': () => import('../images/scientific/eae2018.png'),
+    'pn2019': () => import('../images/scientific/pn2019.png'),
+    'eappe2022': () => import('../images/scientific/eappe2022.png'),
+    'rr2024': () => import('../images/scientific/rr2024.png'),
+}
 
 export default function PublicationCard({
   id,
@@ -130,6 +153,22 @@ export default function PublicationCard({
     filter: theme.filterShadow
   };
 
+  const ImageComponent = ({ short_name, style, className }) => {
+    const [imageSrc, setImageSrc] = useState(null);
+
+    useEffect(() => {
+      imageList[short_name]().then((module) => {
+        setImageSrc(module.default);
+      });
+    }, [short_name]);
+
+    if (!imageSrc) {
+      return <div>Loading...</div>;
+    }
+
+    return <img src={imageSrc} alt={short_name} style={style} className={className} />;
+  };
+
   return (
     <PublicationCardComponent key={id}>
       <Card>
@@ -140,9 +179,11 @@ export default function PublicationCard({
             <FlagPTB style={flagStyle} />
           )}
           {(strings.scientific[short_name].star === true) && <Icon icon="fluent:star-12-filled" style={starStyle} />}
-          {image}
+        <Suspense fallback={<div>Loading image...</div>}>
+          <ImageComponent short_name={short_name} className="card-img-top"/>
+        </Suspense>
         </div>
-        <Card.Body className="text-center">
+        <Card.Body className="text-center view-on">
           <Card.Title>{name}</Card.Title>
           <Card.Text>{authors}</Card.Text>
           {
@@ -158,7 +199,7 @@ export default function PublicationCard({
           }
           <Card.Text>{abstract}</Card.Text>
         </Card.Body>
-        <Card.Footer className="text-center">
+        <Card.Footer className="text-center read-online">
           <Card.Link href={read_url} target="_blank" rel="noopener">
             {"Read online"}
             <PDFFileIco themeName={themeName} />
@@ -166,7 +207,7 @@ export default function PublicationCard({
         </Card.Footer>
         <Card.Footer className="text-center">
           <Card.Link href={main_url} target="_blank" rel="noopener">
-            {`${strings.messages.viewon} ${website_name}  `}
+            {`${strings.messages.viewOn} ${website_name}  `}
             <Icon
               icon={website_icon ? "i-fluent:share-20-filled" : website_icon}
             />

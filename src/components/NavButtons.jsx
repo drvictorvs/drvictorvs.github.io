@@ -13,40 +13,49 @@ import LangPT from '../translations/LangPT';
 // Back to top link
 const StyledDiv = styled.div`
   position: fixed;
-  bottom: calc(var(--min-footer-height) + 1.5rem);
-  right: 1.5rem;
-  visibility: hidden;
+  bottom: 4rem;
+  right: 2rem;
+  visibility: visible;
+  
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
 
   .link-icons {
     color: ${({ theme }) => (theme.color)};
-    margin-left: 1rem;
+
   }
 
-  &.show-up {
-    visibility: visible;
-  }
 `;
 
 export default function NavigationButtons() {
   const [scrollY, setScrollY] = React.useState("");
-  const up = React.useRef(null);
-  const down = React.useRef(null);
-  const [nextSection, setNextSection] = React.useState('AboutMe');
+  const [nextSection, setNextSection] = React.useState('About');
+  const [prevSection, setPrevSection] = React.useState('Contact');
+  const [nextIcon, setNextIcon] = React.useState("fa6-solid:circle-chevron-down");
+  const [prevIcon, setPrevIcon] = React.useState("fa6-solid:circle-arrow-down");
   const { activeSection } = useAppContext();
+  const up = React.useRef(null);
   const navLinks = MakeNavLinks();
   const { lang } = useAppContext();
-  const navStrings = lang === 'en' ? LangEN.navmenu : LangPT.navmenu;
+  const navStrings = lang === 'en' ? LangEN.navMenu : LangPT.navMenu;
 
   
   React.useEffect(() => {
     // Function to calculate the next section based on the current active section
-    const getNextSection = (navLinks, activeSection) => {
+    const getSomeSection = (navLinks, which, activeSection) => {
       const index = navLinks.to.findIndex((dict) => dict.to === activeSection);
       // Ensure we have a valid index and the next section exists
+      if (which === "next") {
       const nextIndex = index >= 0 && index < navLinks.to.length - 1 ? index + 1 : 0;
       return navLinks.to[nextIndex].to;
+    } else if (which === "prev") {
+      const prevIndex = index === 0 ? navLinks.to.length - 1 : index - 1;
+      return navLinks.to[prevIndex].to;
+    }
     };// Update the nextSection state whenever the activeSection changes
-    setNextSection(getNextSection(navLinks, activeSection));
+    setPrevSection(getSomeSection(navLinks, "prev", activeSection));
+    setNextSection(getSomeSection(navLinks, "next", activeSection));
   }, [activeSection, navLinks]);
 
   var limit = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
@@ -57,34 +66,25 @@ export default function NavigationButtons() {
     function () {
       function updateScrollY() {
         setScrollY(window.scrollY);
-
-        if (scrollY) {
-          up.current.classList.add("show-up");;
-        } else if (scrollY === limit | scrollY !== 0 | nextSection === "Home") {
-          up.current.classList.remove("show-up");
-        }
-        if (nextSection === "Home") {
-          up.current.classList.remove("show-up");
-        }
       }
 
       window.addEventListener("scroll", updateScrollY);
 
       return () => window.removeEventListener("scroll", updateScrollY);
     },
-    [scrollY, nextSection]
+    [scrollY, prevSection, nextSection]
   );
 
   return (
     <StyledDiv ref={up}>
-      <Link to="Home" className="link-icons" >
-      <Tooltip title={navStrings.home}>
-        <Icon icon="fa6-solid:circle-chevron-up" />
+      <Link to={prevSection} className="link-icons up">
+      <Tooltip title={navStrings[prevSection.toLowerCase()]}>
+        <Icon icon="fa6-solid:circle-chevron-up" className="hidden" />
         </Tooltip>
       </Link>
-      <Link to={nextSection} className="link-icons">
+      <Link to={nextSection} className="link-icons down">
       <Tooltip title={navStrings[nextSection.toLowerCase()]}>
-        <Icon icon="fa6-solid:circle-chevron-down" />
+        <Icon icon={nextIcon}/>
         </Tooltip>
       </Link>
     </StyledDiv>

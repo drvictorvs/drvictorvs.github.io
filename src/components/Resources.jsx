@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTheme } from "../appContext";
+import {LogoSVG, BRFlagSVG, PTFlagSVG, OrcidSVG, LattesSVG, PDFFileSVG, UKFlagSVG, USFlagSVG, EqualitySVG, GScholarSVG, EIAssessmentSVG, IntellectualAssessmentSVG, PsychometricsSVG, PsychopharmacologySVG, StatisticalModelingSVG, PythonSVG, ResearchDesignSVG, NeuropsychologySVG, RLangSVG} from '../images/Images';
 
 // #region: Operational
 export function importAll(r) {
@@ -15,13 +16,14 @@ const SVGs = importAll(require.context('../images', true, /\.svg$/));
 
 // #region: Logo
 export const Logo = ({ theme }) => 
-<img src={SVGs['logo.svg']} style={{height:"35px", width:"35px", filter: theme.filter, background:"none"}} alt="" />;
-
+{
+  return(<LogoSVG style={{height:"35px", width:"35px", background:"none"}} className="logo-img" alt="" />);
+}
 export const BigLogo = ({ style = {height:"75%", width:"75%" } }) => {
   const theme = useTheme();
-  style = { ...style, filter: theme.filter, background:"none" }
+  style = { ...style, color: theme.primary, background:"none" }
   return (
-<img src={SVGs['logo.svg']} style={style} alt="" />);
+  <LogoSVG style={style} className="logo-img" alt="" />);
 }
 
 const FlagContainer = styled.div`
@@ -53,8 +55,8 @@ const FlagContainer = styled.div`
 export const FlagENG = ({style = {height:"1em", width:"1em", background:"none", position:"absolute"}}) => {
 return (
   <FlagContainer className="flagContainer">
-    <img src={SVGs['flag-us.svg']} className="flag-top" style={style} alt="" />
-    <img src={SVGs['flag-uk.svg']} className="flag-bottom" style={style} alt="" />
+    <USFlagSVG className="flag-top" style={style} alt="" />
+    <UKFlagSVG src={SVGs['flag-uk.svg']} className="flag-bottom" style={style} alt="" />
   </FlagContainer>
 );
 }
@@ -62,40 +64,40 @@ return (
 export const FlagPTB = ({style = {height:"1em", width:"1em", background:"none", position:"absolute"}}) => {
   return (
   <FlagContainer className="flagContainer">
-    <img src={SVGs['flag-pt.svg']} className="flag-top" style={style} alt="" />
-    <img src={SVGs['flag-br.svg']} className="flag-bottom" style={style} alt="" />
+    <PTFlagSVG className="flag-top" style={style} alt="" />
+    <BRFlagSVG className="flag-bottom" style={style} alt="" />
   </FlagContainer>);
 }
 
 // #region: Skills
 
 export const Neuropsychology = ({ theme }) => 
-<img src={SVGs['skills/neuropsychology.svg']} style={{filter: theme?.filter}} alt="" />
+<NeuropsychologySVG className="activities-icon" style={{color: theme?.primary}} alt="" />
 export const Psychometrics = ({ theme }) => 
-<img src={SVGs['skills/psychometrics.svg']} style={{filter: theme?.filter}} alt="" />;
+<PsychometricsSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
 export const Psychopharmacology = ({ theme }) => 
-<img src={SVGs['skills/psychopharmacology.svg']} style={{filter: theme?.filter}} alt="" />;
+<PsychopharmacologySVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
 export const IntellectualAssessment = ({ theme }) => 
-<img src={SVGs['skills/intellectual-assessment.svg']} style={{filter: theme?.filter}} alt="" />;
+<IntellectualAssessmentSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
-export const EmotionalIntellectualAssessment = ({ theme }) => 
-<img src={SVGs['skills/emotional-intellectual-assessment.svg']} style={{filter: theme?.filter}} alt="" />;
+export const EIAssessment = ({ theme }) => 
+<EIAssessmentSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
 export const ResearchDesign = ({ theme }) => 
-<img src={SVGs['skills/research-design.svg']} style={{filter: theme?.filter}} alt="" />;
+<ResearchDesignSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
 export const StatisticalModeling = ({ theme }) => 
-<img src={SVGs['skills/statistical-modeling.svg']} style={{height: "64px", width:"64px", filter: theme?.filter}} alt="" />;
+<StatisticalModelingSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
 export const Python = ({ theme }) => 
-<img src={SVGs['skills/lang-python.svg']} style={{filter: theme?.filter}} alt="" />;
+<PythonSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
 export const R = ({ theme }) => 
-<img src={SVGs['skills/lang-r.svg']} style={{filter: theme?.filter}} alt="" />;
+<RLangSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
 export const PDFFileIco = ({ themeName }) =>
-<img src={SVGs['pdf-file.svg']} alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", filter: themeName === "light" ? "invert(0)": "invert(1)"}} />;
+<PDFFileSVG alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", filter: themeName === "light" ? "invert(0)": "invert(1)"}} />;
 
 // #region: Paper previews

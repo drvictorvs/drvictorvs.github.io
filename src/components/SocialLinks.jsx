@@ -20,7 +20,7 @@ const SocialLinksBox = styled.div.attrs({className: "d-flex align-items-center j
     color: ${({theme}) => theme.color};
 
     &:hover {
-      color: ${({theme}) => theme.primary};
+      color: ${({theme}) => theme.secondary};
     }
   }
 `;

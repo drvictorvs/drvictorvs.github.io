@@ -30,7 +30,6 @@ const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 export default function App() {
   const { themeName, setTheme, setLang, lang } = useAppContext();
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
   const strings = lang === "en" ? LangEN.misc : LangPT.misc;
 
@@ -81,15 +80,6 @@ export default function App() {
       </Container>
       </ThemeProvider>
     );
-  // } else if (error) {
-  //   return (
-  //     <ThemeProvider theme={themes[themeName]}>
-  //     <GlobalStyles />
-  //     <Container className="d-flex vh-100 align-items-center justify-content-center">
-  //     <h2>{error}</h2>
-  //     </Container>
-  //     </ThemeProvider>
-  //   );
   } else {
     return (
       <HashRouter>

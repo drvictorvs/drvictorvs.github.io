@@ -1,29 +1,30 @@
 const LangEN = {
   id: "en",
-  navmenu: {
+  navMenu: {
     home: "Home",
-    allRepositories: "All Projects",
+    allRepositories: "All repositories",
     about: "About",
     activities: "Activities",
     publications: "Publications",
     repositories: "Repositories",
-    contactMe: "Contact Me",
+    contact: "Contact",
+    end: 'End'
   },
   skills: {
     neuropsychology: "Neuropsychology",
     psychometrics: "Psychometrics",
     psychopharmacology: "Psychopharmacology",
     intellectualAssessment: "Intellectual Assessment",
-    emotionalIntellectualAssessment: "Emotional Intellectual Assessment",
+    EIAssessment: "Emotional Intellectual Assessment",
     researchDesign: "Research Design",
     python: "Python",
     statisticalModeling: "Statistical Modeling",
-    langR: "R",
+    langR: "R Language",
   },
   messages: {
     langToggle: "Toggle language, currently",
-    readonline: "Read online",
-    viewon: "View on",
+    readOnline: "Read online",
+    viewOn: "View on",
     error: "You exceeded GitHub's external limit. Visit the repository directly via the button below.",
     noRepos: "No GitHub repositories to display."
   },
@@ -42,15 +43,15 @@ const LangEN = {
     sendError: "Something is wrong that is not right 😥😣 You can send an email directly to contact@dr.victorvs.com."
   },
   misc: {
-    aboutMe: "About Me",
+    about: "About",
     desc: "Neuropsychologist and Psychometrician",
     portfolio: "Portfolio",
     webpage: "Dr. Victor Vasconcelos | Webpage",
     moreInfo:
-      "Licensed neuropsychologist and a University of Brasilia alumnus. Doctorate and Master's degree were both sought under the guidance of Prof. Dr. Cristiane Faiad in the Psychological Assessment and Instrumentation concentration of the Post-Graduate Program of Social, Work and Organizational Psychology—also at the University of Brasília. Specialized in the use of programming resources in Education and Psychometrics (Statistical Modeling, Psychological and Educational Assessment). Experience in statistical analysis in biomedical sciences, neurosciences and psychology. Worked for two years in psychopharmacology labs, using either oral or intrahippocampal perfusion methodology. Currently working as a psychometrician at the National Institute of Study and Research in Education.",
+      `Licensed Neuropsychologist and a <a href="https://unb.br" rel="noopener" target="_blank">University of Brasilia</a> alumnus. Doctorate and Master's degree in the Psychological Assessment and Instrumentation concentration of the <a href="https://www.psto.com.br" rel="noopener" target="_blank">Post-Graduate Program of Social, Work and Organizational Psychology</a>—also at the University of Brasília. Specialized in the use of programming resources for statistical modeling in Psychometrics, including Psychological and Educational Assessment, but also in the Biomedical Sciences, Neurosciences and other areas of Psychology. Worked for two years in Psychopharmacology labs, using either oral or intrahippocampal perfusion methodology. Currently working as a Psychometrician at the <a href="https://inep.gov.br" rel="noopener" target="_blank">National Institute of Study and Research in Education</a>.`,
   },
   scientific: {
-    'pbjs2015': {
+    pbjs2015: {
       star: true,
       name: "Effects of Oral Vitamin C Supplementation on Anxiety in Students: A Double-Blind, Randomized, Placebo-Controlled Trial",
       publication: "Pakistan Journal of Biological Sciences",
@@ -58,7 +59,7 @@ const LangEN = {
       lang: "en",
       abstract: "",
     },
-    'eip2018': {
+    eip2018: {
       star: false,
       name: "Psychometric Properties of the ISSL in the Context of Public Security",
       publication: "Estudos Interdisciplinares em Psicologia [Interdisciplinary Studies in Psychology]",
@@ -66,7 +67,7 @@ const LangEN = {
       lang: "pt",
       abstract: "",
     },
-    'eae2018': {
+    eae2018: {
       star: false,
       name: "Evidence of Content Validity in the ENADE Psychology Test",
       publication: "Estudos em Avaliação Eduacacional [Studies in Educational Assessment]",
@@ -74,7 +75,7 @@ const LangEN = {
       lang: "pt",
       abstract: "",
     },
-    'pn2019': {
+    pn2019: {
       star: true,
       name: "Effects of Ascorbic Acid Combined with Environmental Enrichment on Anxiety and Memory",
       publication: "Psychology & Neuroscience",
@@ -82,7 +83,7 @@ const LangEN = {
       lang: "en",
       abstract: "",
     },
-    'eappe2022': {
+    eappe2022: {
       star: false,
       name: "The Question of Validity in Brazilian Educational Assessment [A Questão da Validade na Avaliação Educacional]",
       publication: "Ensaio",
@@ -90,7 +91,7 @@ const LangEN = {
       lang: "pt",
       abstract: "",
     },
-    'rr2024': {
+    rr2024: {
       star: true,
       name: "The Situational Tests of Emotional Intelligence as a Computer-Adaptive Test",
       publisher: "Instituto Federal do Norte de Minas Gerais [North Minas Gerais Federal Institute]",
