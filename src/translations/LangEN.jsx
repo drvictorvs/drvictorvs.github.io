@@ -7,8 +7,7 @@ const LangEN = {
     activities: "Activities",
     publications: "Publications",
     repositories: "Repositories",
-    contact: "Contact",
-    end: 'End'
+    contact: "Contact"
   },
   skills: {
     neuropsychology: "Neuropsychology",

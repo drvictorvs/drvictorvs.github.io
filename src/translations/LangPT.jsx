@@ -7,8 +7,7 @@ const LangPT = {
     activities: 'Atuação',
     publications: 'Publicações',
     repositories: 'Repositórios',
-    contact: 'Contato',
-    end: 'Fim'
+    contact: 'Contato'
   },
   skills: {
     neuropsychology: 'Neuropsicologia',
@@ -43,7 +42,7 @@ const LangPT = {
     sendError: "Algo de errado não está certo 😥😣 Você pode mandar um email diretamente para contato@dr.victorvs.com."
   },
   misc: {
-    about: "Sobre mim",
+    about: "Sobre",
     desc: "Neuropsicólogo e Psicometrista",
     portfolio: "Portfólio",
     webpage: "Dr. Victor Vasconcelos | Página",

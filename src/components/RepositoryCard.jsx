@@ -121,7 +121,7 @@ export default function RepositoryCard({ id, image, name, description, url, repo
       <Card>
         <div style={{ position: "relative" }}>
           <div className={"progLanguages"}>
-            {(Object.entries(repo_lang).map(([key,value], index, array) => (
+            {(Object.entries(repo_lang).map(([key, value], index, array) => (
               <Icon key={index} icon={langDict[key.toLowerCase()]} style={{position:"regular", 
               zIndex: 99, width:64, height:64, }}/>
             )))}

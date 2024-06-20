@@ -81,6 +81,20 @@ const StyledTheme = styled.header`
       background-size: cover;
     }
   }
+
+  @media screen and (max-width: 1179px) {
+      #socialLinks {
+        gap: 4vw;
+      }
+
+      .social-icon {
+        flex-shrink: 1;
+        height: 7vh;
+        width: 7vh;
+        min-height: 32px;
+        min-width: 32px;
+      }
+  }
 `;
 
 
@@ -105,13 +119,13 @@ export default function Theme() {
             <BigLogo />
           </Col>
         </Row>
-        <Row className="align-items-end down-container">
+        {/* <Row className="align-items-end down-container">
           <Col className="m-4 text-center">
-            {/* <Link to={"About"} className="link-icons">
+            <Link to={"About"} className="link-icons">
               <Icon icon="fa6-solid:circle-chevron-down" />
-            </Link> */}
+            </Link>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </StyledTheme>
   );

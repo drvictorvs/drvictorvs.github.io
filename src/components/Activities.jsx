@@ -121,7 +121,7 @@ export default function Activities() {
     <h2>{strings.navMenu.activities}</h2>
     <div className="underline"></div>
     </Title>
-    <Row className="mt-3 align-items-center">
+    <Row className="align-items-center">
     {skillData.map((skills) => {
       return (
         <Col xs={4} key={skills.id} className="my-md-1 activities-box">

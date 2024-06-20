@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import headers from './allRepositoriesSlice';
-
 import userCached from "./userCached.json";
 
 const githubUsername = "drvictorvs";
@@ -24,7 +23,7 @@ export const fetchGitHubInfo = createAsyncThunk(
       if (cached !== null && cacheTime !== null) {
         const age = (Date.now() - cacheTime) / 1000 / 60 / 60;
         if (age < 2) {
-          return cached;
+          return JSON.parse(cached);
         }
       }
       
@@ -50,6 +49,7 @@ export const fetchGitHubInfo = createAsyncThunk(
   }
 );
 
+
 export const homeSlice = createSlice({
   name: "home",
   initialState,
@@ -66,9 +66,8 @@ export const homeSlice = createSlice({
       .addCase(fetchGitHubInfo.rejected, (state, _) => {
         state.isLoading = false;
         state.data = userCached;
-        console.log(state.error);
-      });
-  },
+      })
+  }
 });
 
 export const selectIsLoading = (state) => state.home.isLoading;

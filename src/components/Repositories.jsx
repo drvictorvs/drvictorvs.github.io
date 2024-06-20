@@ -17,7 +17,8 @@ import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
 import RepositoryCard from "./RepositoryCard";
 import { Loading, Title } from "./globalStyledComponents";
-import {HorizontalScroller} from "./Publications";
+import { HorizontalScroller } from "./Publications";
+
 export const filteredRepositories = ["phd", "Pokemon-Switch-V2-Model-Importer-Blender", "drvictorvs.github.io"];
 
 const BlenderLogo = <Icon icon="logos:blender" className="card-img-top mx-auto" />;
@@ -29,18 +30,19 @@ export const projectCardImages = {
   };
 
 export default function Repositories() {
-  const [mainRepositories, setMainRepositories] = React.useState([]);
+  const [ mainRepositories, setMainRepositories ] = React.useState([]);
   const { themeName, lang } = useAppContext();
   const strings = lang === "en" ? LangEN.navMenu : LangPT.navMenu;
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const data = useSelector(selectData);
+  const data = JSON.parse(useSelector(selectData));
+  const parsedData = data;
 
   React.useEffect(
     function () {
       const tempData = [];
-      data.forEach((el, i) => (tempData[i] = Object.create(el)));
-      if (data.length !== 0 && filteredRepositories.length !== 0) {
+      parsedData.forEach((el, i) => (tempData[i] = Object.create(el)));
+      if (parsedData.length !== 0 && filteredRepositories.length !== 0) {
         const tempArray = tempData.filter((obj) =>
           filteredRepositories.includes(obj.name)
         );
@@ -75,45 +77,45 @@ export default function Repositories() {
               {strings.noRepos && strings.noRepos}
             </h2>
           )}
-          
+
           {mainRepositories.length !== 0 && (
             <HorizontalScroller>
-                {mainRepositories.map(function ({
-                  id,
-                  image,
-                  name,
-                  description,
-                  repo_lang,
-                  html_url,
-                  homepage,
-                }) {
-                  return (
-                      <RepositoryCard 
-                        key={id}
-                        image={projectCardImages[name]}
-                        name={name}
-                        description={description}
-                        repo_lang={repo_lang}
-                        url={html_url}
-                        demo={homepage}
-                      />
-                  );
-                })}
-              {data.length > 3 && (
-                <Container className="text-center mt-5">
-                  <Link to="/AllRepositories">
-                    <Button
-                      size="lg"
-                      variant={
-                        themeName === "light" ? "outline-dark" : "outline-light"
-                      }
-                    >
-                      All <Icon icon="icomoon-free:github" /> Repositories
-                    </Button>
-                  </Link>
-                </Container>
-              )}
-              </HorizontalScroller>
+              {mainRepositories.map(function ({
+                id,
+                image,
+                name,
+                description,
+                repo_lang,
+                html_url,
+                homepage,
+              }) {
+                return (
+                  <RepositoryCard
+                    key={id}
+                    image={projectCardImages[name]}
+                    name={name}
+                    description={description}
+                    repo_lang={repo_lang}
+                    url={html_url}
+                    demo={homepage}
+                  />
+                );
+              })}
+            </HorizontalScroller>
+          )}
+          {data.length > 3 && (
+            <Container className="text-center mt-5">
+              <Link to="/AllRepositories">
+                <Button
+                  size="lg"
+                  variant={
+                    themeName === "light" ? "outline-dark" : "outline-light"
+                  }
+                >
+                  All <Icon icon="icomoon-free:github" /> Repositories
+                </Button>
+              </Link>
+            </Container>
           )}
         </Container>
       </section>

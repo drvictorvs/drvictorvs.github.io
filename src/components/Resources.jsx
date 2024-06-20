@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useTheme } from "../appContext";
 import {LogoSVG, BRFlagSVG, PTFlagSVG, OrcidSVG, LattesSVG, PDFFileSVG, UKFlagSVG, USFlagSVG, EqualitySVG, GScholarSVG, EIAssessmentSVG, IntellectualAssessmentSVG, PsychometricsSVG, PsychopharmacologySVG, StatisticalModelingSVG, PythonSVG, ResearchDesignSVG, NeuropsychologySVG, RLangSVG} from '../images/Images';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 // #region: Operational
 export function importAll(r) {
@@ -97,7 +98,9 @@ export const Python = ({ theme }) =>
 export const R = ({ theme }) => 
 <RLangSVG className="activities-icon" style={{color: theme?.primary}} alt="" />;
 
-export const PDFFileIco = ({ themeName }) =>
-<PDFFileSVG alt="PDF File Icon" style={{ height: "1em", width: "1em", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", filter: themeName === "light" ? "invert(0)": "invert(1)"}} />;
+export const PDFFileIco = ({ theme }) =>
+<PDFFileSVG alt="PDF File Icon" style={{ height: "1.5rem", width: "1.5rem", background: "none", textAlign: "center",  padding: "0px 0px 4px 3px", color: theme.color }} />;
 
+export const ExternalIcon = ({ theme }) => 
+  <Icon icon="i-fluent:share-20-filled" style={{color: theme.color}}/>
 // #region: Paper previews

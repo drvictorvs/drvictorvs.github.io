@@ -53,7 +53,15 @@ export const fetchGitHubRepos = createAsyncThunk(
 
       return dataWithLang;
     } catch (error) {
-      return cached;
+      const cacheKey = 'githubData';
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) { 
+        return JSON.parse(cached);
+      } else {
+        return rejectWithValue(
+          `Error: ${error.message}`
+        );
+    }
     }
   }
 );
@@ -70,15 +78,14 @@ export const allRepositoriesSlice = createSlice({
       })
       .addCase(fetchGitHubRepos.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.data = JSON.parse(action.payload);
+        state.data = action.payload;
       })
-      .addCase(fetchGitHubRepos.rejected, (state, action) => {
+      .addCase(fetchGitHubRepos.rejected, (state, _) => {
         state.isLoading = false;
-        state.data = JSON.parse( cached );
-      })
-  }
-}
-)
+        state.data = JSON.parse(cached);
+      });
+    }
+})
 
 export const selectIsLoading = (state) => state.allRepositories.isLoading;
 export const selectError = (state) => state.allRepositories.error;

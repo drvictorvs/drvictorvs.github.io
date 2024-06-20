@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import { Card } from "react-bootstrap";
 import LangEN from "../translations/LangEN";
 import LangPT from "../translations/LangPT";
-import { FlagENG, FlagPTB, PDFFileIco } from "./Resources";
+import { FlagENG, FlagPTB, PDFFileIco, ExternalIcon } from "./Resources";
 
 
 const PublicationCardComponent = styled.div`
@@ -81,10 +81,10 @@ const PublicationCardComponent = styled.div`
       position: relative;
       margin-top: 0;
       background: ${({ theme }) => theme.card.footer};
-      flex: 1 1 auto;
-      padding: 0 0 0 0;
-      height: 10vh;
+      height: fit-content;
       max-height: 10vh;
+      align-content: center;
+      line-height: 1.5rem;
 
       &.read-online {
         position:relative;
@@ -202,15 +202,13 @@ export default function PublicationCard({
         <Card.Footer className="text-center read-online">
           <Card.Link href={read_url} target="_blank" rel="noopener">
             {"Read online"}
-            <PDFFileIco themeName={themeName} />
+            <PDFFileIco theme={theme} />
           </Card.Link>
         </Card.Footer>
         <Card.Footer className="text-center">
           <Card.Link href={main_url} target="_blank" rel="noopener">
             {`${strings.messages.viewOn} ${website_name}  `}
-            <Icon
-              icon={website_icon ? "i-fluent:share-20-filled" : website_icon}
-            />
+            <ExternalIcon theme={theme} />
           </Card.Link>
         </Card.Footer>
       </Card>

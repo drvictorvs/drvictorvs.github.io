@@ -13,8 +13,8 @@ import LangPT from '../translations/LangPT';
 // Back to top link
 const StyledDiv = styled.div`
   position: fixed;
-  bottom: 4rem;
-  right: 2rem;
+  bottom: 12%;
+  right: 12%;
   visibility: visible;
   
   display: flex;
@@ -34,10 +34,9 @@ export default function NavigationButtons() {
   const [prevSection, setPrevSection] = React.useState('Contact');
   const [nextIcon, setNextIcon] = React.useState("fa6-solid:circle-chevron-down");
   const [prevIcon, setPrevIcon] = React.useState("fa6-solid:circle-arrow-down");
-  const { activeSection } = useAppContext();
   const up = React.useRef(null);
   const navLinks = MakeNavLinks();
-  const { lang } = useAppContext();
+  const {  activeSection, setActiveSection, lang } = useAppContext();
   const navStrings = lang === 'en' ? LangEN.navMenu : LangPT.navMenu;
 
   
@@ -72,7 +71,7 @@ export default function NavigationButtons() {
 
       return () => window.removeEventListener("scroll", updateScrollY);
     },
-    [scrollY, prevSection, nextSection]
+    [scrollY, activeSection, prevSection, nextSection]
   );
 
   return (
@@ -84,7 +83,7 @@ export default function NavigationButtons() {
       </Link>
       <Link to={nextSection} className="link-icons down">
       <Tooltip title={navStrings[nextSection.toLowerCase()]}>
-        <Icon icon={nextIcon}/>
+        <Icon icon="fa6-solid:circle-chevron-down"/>
         </Tooltip>
       </Link>
     </StyledDiv>

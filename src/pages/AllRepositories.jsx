@@ -58,7 +58,7 @@ export default function AllRepositories() {
 
   React.useEffect(
     function () {
-      document.title = `${name} | All Projects`;
+      document.title = `${name} | All Repositories`;
     },
     [name]
   );
@@ -144,23 +144,23 @@ export default function AllRepositories() {
         <Footer />
       </>
     );
-  } else if (error) {
-    return (
-      <>
-        <main>
-          <StyledSection className="d-flex flex-column justify-content-center">
-            <Container className="d-flex">
-              <Title>
-                <h2>{strings.allRepositories}</h2>
-                <div className="underline"></div>
-              </Title>
-            </Container>
-            <h2 className="my-5 text-center">{error}</h2>
-          </StyledSection>
-        </main>
-        <Footer />
-      </>
-    );
+  // } else if (error) {
+  //   return (
+  //     <>
+  //       <main>
+  //         <StyledSection className="d-flex flex-column justify-content-center">
+  //           <Container className="d-flex">
+  //             <Title>
+  //               <h2>{strings.allRepositories}</h2>
+  //               <div className="underline"></div>
+  //             </Title>
+  //           </Container>
+  //           <h2 className="my-5 text-center">{error}</h2>
+  //         </StyledSection>
+  //       </main>
+  //       <Footer />
+  //     </>
+  //   );
   } else {
     return (
       <>

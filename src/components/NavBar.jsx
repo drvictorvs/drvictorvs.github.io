@@ -58,6 +58,14 @@ const StyledPick = styled.label`
   }
 
   #langSwitcher {
+  .langText {
+      margin-left: 0.5vw;
+      border-bottom: 1pt dotted;
+
+      &:hover {
+        filter:unset;
+      } 
+}
     display: flex;
     align-items: center;
     transition: var(--transition);
@@ -67,12 +75,17 @@ const StyledPick = styled.label`
     flex-grow: 1;
     gap: 0.5rem;
 
-    .flagContainer {
+    &:hover {
+      color: ${({theme}) => theme.primary};
+
+      svg {
+    transition: var(--transition);
+        filter:sepia(1);
+        
+        }
     }
 
-    .langText {
-    margin-left: 0.5vw;
-    border-bottom: 1pt dotted;
+    
     }
   }
 
@@ -140,6 +153,12 @@ function LangToggle() {
   );
 }
 
+const StyledNavbar = styled(Navbar)`
+.navbar-toggler {
+  margin-right: var(--bs-gutter-x)
+  }
+`;
+
 export default function NavBar() {
   const { themeName, isExpanded, closeExpanded, toggleExpanded, setActiveSection } = useAppContext();
   const { pathname } = useLocation();
@@ -155,7 +174,7 @@ export default function NavBar() {
   return (
     <>
       <FixedNavSpacer />
-      <Navbar
+      <StyledNavbar
         id="nav"
         collapseOnSelect={true}
         expand="lg"
@@ -215,7 +234,7 @@ export default function NavBar() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </StyledNavbar>
     </>
   );
 }

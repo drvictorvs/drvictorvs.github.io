@@ -15,20 +15,20 @@ import fallbackAvatar from "../images/fallback-avatar.png";
 import { Title } from "./globalStyledComponents";
 
 const StyledAbout = styled.section`
-  height:100vh;
-  text-size-adjust:60%;
   p {
       font-size: 1.25rem;
-      text-size-adjust:60%;
       padding: 0 0 0 0;
   }
   .img {
     width: 18rem;
     height: 18rem;
   }
-    .about-pic {
+  .about-pic {
     flex-direction: column;
-    }
+  }
+  #aboutPic {
+    flex-direction: column;
+  }
 
     
 
@@ -45,21 +45,21 @@ const StyledAbout = styled.section`
   }
 
   
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1179px) {
     p {
       font-size: 2.1vh;
-      text-size-adjust:60%;
       max-height:60vh;
       padding: 0 0 0 0;
       margin-bottom: 0;
+      text-wrap: pretty;
     }
 
     .mt-5 {
       margin-top: 1vh !important;
     }
 
-    .about-pic {
-    flex-direction: row;
+    #aboutPic {
+      flex-flow: row;
     }
   }
 
@@ -83,9 +83,10 @@ export default function About() {
     <Element name={"About"} id="about">
       <StyledAbout className="section">
         <Container style={{
-            justifyContent: 'space-between',
+            justifyContent: 'space-evenly',
             display: 'flex',
-            flexDirection: 'column'}}
+            flexDirection: 'column',
+            height: "calc(100vh - var(--nav-height) - var(--min-footer-height))"}}
         >
           <Container className="d-flex">
             <Title>
@@ -93,33 +94,39 @@ export default function About() {
               <div className="underline"></div>
             </Title>
           </Container>
-          <Row className="d-flex">
+          <Row className="d-flex" style={{rowGap: "2vh"}}>
             <Col className="text-center">
-              <Container>
+              <Container className="text-center" style={{alignSelf: "center"}}>
                 {strings.moreInfo && <p dangerouslySetInnerHTML={{__html: cleanInfo}}/>}
               </Container>
             </Col>
-            <Col className="d-md-block text-center">
-              <Container className="d-flex about-pic" style={{
+            <Col className="d-flex text-center" id="aboutPic"
+            style={{
+              flexWrap: 'nowrap',
+              alignContent: 'center',
+              alignItems: 'center',
+              justifyContent: 'space-evenly',
+              rowGap: "2vh" }}>
+              <div className="d-flex about-pic" style={{
                 alignItems: "center",
-                justifyContent: "center",
-                gap: "2vh",
-                marginTop: "2vh"}}>
+                justifyContent: "center" }}>
                   <img
                     src={avatar_url ? avatar_url : fallbackAvatar}
                     alt=""
                     loading="lazy"
                     className="rounded-circle"
-                    style={{ width: "15vw", height: "15vw", alignSelf:"center" }}
+                    style={{ width: "25vw", height: "25vw", maxHeight: "275px", maxWidth: "275px", alignSelf:"center", flexShrink: 1 }}
                   />
-
+                  </div>
+            {/* </Col> */}
+            {/* <Col className="d-md-block text-center"> */}
                   <a 
                   href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" 
                   target="_blank" 
                   rel="noopener">
                     <img src={EqualityImg} style={equalityImgStyle}/>
                   </a>
-                  </Container>
+                  {/* </Container> */}
             </Col>
           </Row>
         </Container>
