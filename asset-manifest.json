@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1f516ee7.css",
-    "main.js": "/static/js/main.4244e543.js",
+    "main.js": "/static/js/main.e0019b50.js",
     "static/media/theme-dark.jpg": "/static/media/theme-dark.568ce244e0f1ed702c7a.jpg",
     "static/media/fallback-avatar.png": "/static/media/fallback-avatar.de0ac13809220b283c13.png",
     "static/media/theme-light.jpg": "/static/media/theme-light.6e624b877f84cd582dcc.jpg",
@@ -10,7 +10,7 @@
     "static/media/pn2019.png": "/static/media/pn2019.3947f5e40b7e9c8cd180.png",
     "static/media/eappe2022.png": "/static/media/eappe2022.c8f0e1cfaff7cc90ee1b.png",
     "static/media/eae2018.png": "/static/media/eae2018.b1944ac66de4ade6eb0e.png",
-    "static/media/equality.svg": "/static/media/equality.94b3c4bcfd76636f7b8b35fc69c3efe0.svg",
+    "static/media/equality.svg": "/static/media/equality.94b3c4bcfd76636f7b8b.svg",
     "static/media/rr2024.png": "/static/media/rr2024.6353048015b96ed25764.png",
     "static/media/unb2018.png": "/static/media/unb2018.b3a39b674a74bc134da4.png",
     "service-worker.js": "/service-worker.js",
@@ -36,10 +36,10 @@
     "static/media/g-scholar.svg": "/static/media/g-scholar.fb077ea79e8f6dc6d629ee6d8c8b1098.svg",
     "static/media/statistical-modeling.svg": "/static/media/statistical-modeling.153d07ac6acc659c82e79e7152ebc24b.svg",
     "main.1f516ee7.css.map": "/static/css/main.1f516ee7.css.map",
-    "main.4244e543.js.map": "/static/js/main.4244e543.js.map"
+    "main.e0019b50.js.map": "/static/js/main.e0019b50.js.map"
   },
   "entrypoints": [
     "static/css/main.1f516ee7.css",
-    "static/js/main.4244e543.js"
+    "static/js/main.e0019b50.js"
   ]
 }
