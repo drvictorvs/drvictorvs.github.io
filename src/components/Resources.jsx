@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTheme } from "../appContext";
-import {LogoSVG, BRFlagSVG, PTFlagSVG, OrcidSVG, LattesSVG, PDFFileSVG, UKFlagSVG, USFlagSVG, EqualitySVG, GScholarSVG, EIAssessmentSVG, IntellectualAssessmentSVG, PsychometricsSVG, PsychopharmacologySVG, StatisticalModelingSVG, PythonSVG, ResearchDesignSVG, NeuropsychologySVG, RLangSVG} from '../images/Images';
+import {LogoSVG, BRFlagSVG, PTFlagSVG, OrcidSVG, LattesSVG, PDFFileSVG, UKFlagSVG, USFlagSVG, GScholarSVG, EIAssessmentSVG, IntellectualAssessmentSVG, PsychometricsSVG, PsychopharmacologySVG, StatisticalModelingSVG, PythonSVG, ResearchDesignSVG, NeuropsychologySVG, RLangSVG} from '../images/Images';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
 // #region: Operational

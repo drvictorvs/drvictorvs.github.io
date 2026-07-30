@@ -10,7 +10,6 @@ import LangPT from "../translations/LangPT";
 // Components
 import DOMPurify from 'dompurify';
 import { Col, Container, Row } from "react-bootstrap";
-import EqualityImg from "../images/equality.svg";
 import fallbackAvatar from "../images/fallback-avatar.png";
 import { Title } from "./globalStyledComponents";
 
@@ -66,12 +65,6 @@ const StyledAbout = styled.section`
 
 `;
 
-const equalityImgStyle = {
-    maxHeight: '40px',
-    maxWidth: '180px',
-    borderRadius: '3pt',
-    border: '2pt solid black'
-  };
 
 export default function About() {
   const { avatar_url } = useSelector(selectData);
@@ -120,12 +113,6 @@ export default function About() {
                   </div>
             {/* </Col> */}
             {/* <Col className="d-md-block text-center"> */}
-                  <a 
-                  href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" 
-                  target="_blank" 
-                  rel="noopener">
-                    <img src={EqualityImg} style={equalityImgStyle}/>
-                  </a>
                   {/* </Container> */}
             </Col>
           </Row>
